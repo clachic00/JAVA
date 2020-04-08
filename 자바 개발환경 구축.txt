@@ -1,0 +1,9 @@
+1. 운영체제 확인
+2. jdk 다운로드
+3. 설치 경로 -C:\Program Files\Java\jdk1.8.0_241
+4. jdk 설치
+5. 업데이트 하지말자
+6. ;%JAVA_HOME%\bin;
+7. 자바버전확인 with CMD
+8. 이클립스 통합개발환경 설치
+http://www.eclipse.org/downloads/
