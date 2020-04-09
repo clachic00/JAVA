@@ -10,9 +10,6 @@ public class UseVariable {
 		int num3 = num1 + num2;
 		System.out.println(num1 + "+" + num2 + "=" + num3);
 
-		
-		
-
 	}
 
 }

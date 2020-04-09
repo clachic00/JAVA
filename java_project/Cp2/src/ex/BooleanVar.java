@@ -20,7 +20,11 @@ public class BooleanVar {
 		System.out.println(num >20);
 		
 		
-		long num1 = 1000000000000000000L;
+		final long NUM1 = 1000000000000000000L;
+		
+		System.out.println(NUM1);
+		
+		
 	}
 
 }
