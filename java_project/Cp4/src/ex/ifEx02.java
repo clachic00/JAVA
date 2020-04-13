@@ -14,10 +14,6 @@ public class ifEx02 {
 		} else if(200 <= num&&num < 300) {
 			System.out.println("200이상 300 미만");
 		} else {System.out.println("300이상");
-	
-		
-		
-		
 		}
 		
 		
