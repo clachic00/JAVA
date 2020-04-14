@@ -21,12 +21,13 @@ public class addEx3 {
 		int j = 0;
 		while (i <= 10) {
 		
-			i++;
-			while (j <= i) 
+		
+			while (j <= i) {
+				System.out.print("*");
 				j++;
-
-			
-			System.out.print("*");
+			}
+			i++;
+			j=0;
 
 			System.out.println();
 		
