@@ -29,28 +29,26 @@ public class addEx02 {
 
 		// ex4
 
-		int a2=0;
+		int a2 = 0;
+		int a3 = 0;
 		int sum2 = 0;
-		
+
 		while (true) {
 			a2++;
-			if(a2%2==0) {
-				a2 = a2 *-1;
-			}
-			sum=sum+a2;
-			if (sum>=100) {
+			if (sum >= 100) {
 				break;
-		
 			}
+			if (a2 % 2 == 0) {
+				a3 = a2 * -1;
+				sum = sum + a3;
+				continue;
+			}
+			sum = sum + a2;
+
 			System.out.println(sum);
+			System.out.println(a2);
 		}
-		
-		
-		
-		
-		
-		
-		
+
 	}
 
 }
