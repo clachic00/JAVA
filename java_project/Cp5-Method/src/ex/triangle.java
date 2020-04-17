@@ -2,10 +2,12 @@ package ex;
 
 public class triangle {
 
-//
-//	int Triangle(int bellow, int height) {
-//		
-//	}
-//	
+	int width;
+	int height;
+
+	void setData(int w, int h) {
+		
+	}
+	
 	
 }

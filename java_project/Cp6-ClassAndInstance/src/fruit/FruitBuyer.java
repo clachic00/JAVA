@@ -1,14 +1,34 @@
 package fruit;
 
 public class FruitBuyer {
-	
+/*
+ *   작성자 : 양창일
+ *  수정일 : 2020.04.17 
+ *  수정내용 : 생성자로 변수 초기화
+ */
 	
 	//속성 : 변수
 	//	보유한 나의 돈
 	//	수입
 	//	사과의 개수	
-	int myMoney = 10000;	//	보유한 나의 돈
-	int numOfApple = 0;		//	사과의 개수	
+//	int myMoney = 10000;	//	보유한 나의 돈
+//	int numOfApple = 0;		//	사과의 개수	
+	
+	int myMoney;	
+	int numOfApple;	
+	
+	//생성자
+	FruitBuyer() {
+		
+		myMoney = 5000;
+		numOfApple = 0;
+			
+	}
+	FruitBuyer(int money, int num) {
+	myMoney = money;
+	numOfApple = num;
+	}
+	
 	
 	// 구매 기능 : 메서드
 	//1. 셀러 찾기 받기
