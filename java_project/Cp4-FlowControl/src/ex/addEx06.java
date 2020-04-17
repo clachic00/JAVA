@@ -1,6 +1,6 @@
 package ex;
 
-public class addEx6 {
+public class addEx06 {
 
 	public static void main(String[] args) {
 

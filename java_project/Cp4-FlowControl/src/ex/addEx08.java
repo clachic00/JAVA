@@ -1,6 +1,6 @@
 package ex;
 
-public class addEx8 {
+public class addEx08 {
 
 	public static void main(String[] args) {
 
@@ -10,17 +10,17 @@ public class addEx8 {
 		int b=1;
 		int  c = 0;
 		
-		System.out.println(a);
+		System.out.println(a+","+b);
 		for (int i = 1; i <9; i++) {
 			
 			c = a+b;
 			
-			System.out.println(b);
+		
 			a=b;
 			b=c;
-			
+			System.out.print(","+c );	
 		}
-		System.out.println(c);
+	
 		
 		
 		
