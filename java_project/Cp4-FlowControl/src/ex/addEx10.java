@@ -17,8 +17,8 @@ public class addEx10 {
 
 		while(tmp !=0) {
 
-			result = tmp*10+ number%10;
-			
+			result = result*10+ tmp%10;
+			tmp/=10;
 		}
 
 		if(number == result)

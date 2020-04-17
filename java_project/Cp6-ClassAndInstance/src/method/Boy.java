@@ -10,9 +10,9 @@ public class Boy {
 
 	}
 
-	void setMarble(int num) {
-		numOfMarble = num;
-	}
+//	void setMarble(int num) {
+//		numOfMarble = num;
+//	}
 
 	void gameWin(Boy boy, int num) {
 		numOfMarble += num;
@@ -27,8 +27,8 @@ public class Boy {
 		Boy boy1 = new Boy(15);
 		Boy boy2 = new Boy(9);
 
-		boy1.setMarble(15);
-		boy2.setMarble(9);
+//		boy1.setMarble(15);
+//		boy2.setMarble(9);
 
 		System.out.println("철수는 구슬을" + boy1.numOfMarble + "개 보유" + "엉희는 구슬을" + boy2.numOfMarble + "개 보유");
 		System.out.println("1차 게임에서 철수는 영희의 구슬 2개를 획득한다.");
