@@ -45,15 +45,7 @@ public class addEx09 {
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 				
 				
 		//Ex14.
@@ -71,7 +63,7 @@ public class addEx09 {
 		do {
 
 		count++;
-
+		
 		System.out.print("1과 100사이의 값을 입력하세요 :");
 
 		input = s.nextInt(); // 입력받은 값을 변수 input에 저장한다.

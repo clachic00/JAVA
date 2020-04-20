@@ -35,17 +35,17 @@ public class addEx02 {
 
 		while (true) {
 			a2++;
-			if (sum >= 100) {
+			if (sum2 >= 100) {
 				break;
 			}
 			if (a2 % 2 == 0) {
 				a3 = a2 * -1;
-				sum = sum + a3;
+				sum2 = sum2 + a3;
 				continue;
 			}
-			sum = sum + a2;
+			sum2 = sum2 + a2;
 
-			System.out.println(sum);
+			System.out.println(sum2);
 			System.out.println(a2);
 		}
 

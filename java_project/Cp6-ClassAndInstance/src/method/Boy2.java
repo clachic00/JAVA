@@ -16,7 +16,7 @@ public class Boy2 {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String [ ] args) {
 		
 		Boy2 boy1 = new Boy2(15);
 		Boy2 boy2 = new Boy2(9);
@@ -39,8 +39,8 @@ public class Boy2 {
 		
 	}
 	
+}	
+
 	
 	
-	
-	
-}
+

@@ -13,7 +13,10 @@ public class Method1 {
 		long value = mm.add(1L, 2L);
 		
 		System.out.println(value);
-		System.out.println(mm.add(1000000000L, 20000000000L));
+		System.out.println(mm.add(10000000000L, 20000000000L));
+		long value7 = mm.division(50, 8);
+		System.out.println(value7);
+		
 		
 		//2.
 		absoluteValue ab = new absoluteValue();

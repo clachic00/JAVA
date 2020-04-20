@@ -19,8 +19,12 @@ public class MyMath {
 	
 	long division (long e, long f) {
 		long result1 = e/f;
+		System.out.println(result1);
 		long result2 = e%f;
+		System.out.println(result2);
+
 		return result1;
+		
 	}
 	
 	long subtraction (long g, long h) {

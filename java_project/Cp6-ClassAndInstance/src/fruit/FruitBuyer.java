@@ -20,8 +20,10 @@ public class FruitBuyer {
 	//생성자
 	FruitBuyer() {
 		
-		myMoney = 5000;
-		numOfApple = 0;
+//		myMoney = 5000;
+//		numOfApple = 0;
+		
+	this(15000, 0);	
 			
 	}
 	FruitBuyer(int money, int num) {
