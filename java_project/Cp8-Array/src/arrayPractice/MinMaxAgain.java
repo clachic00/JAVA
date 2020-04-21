@@ -33,20 +33,19 @@ public class MinMaxAgain {
 	}
 
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
 		int i = 0;
 		int num;
 
-		
-		int[] array = new int[(int) (Math.random()*5)+1];
-		System.out.println("숫자를"+array.length+"개 입력해주세요");
+		int[] array = new int[(int) (Math.random() * 5) + 1];
+		System.out.println("숫자를" + array.length + "개 입력해주세요");
 		while (true) {
 
 			System.out.println("숫자를 입력해주세요");
 			num = sc.nextInt();
 			array[i] = num;
-			if ( i==array.length-1 ) {
+			if (i == array.length - 1) {
 				System.out.println(MaxValue(array));
 				System.out.println(MiniValue(array));
 
@@ -54,16 +53,10 @@ public class MinMaxAgain {
 
 			}
 
-			
 			i++;
-		
-		
+
+		}
+
 	}
-	
-	
-	
-	
-	}
-	
-	
+
 }

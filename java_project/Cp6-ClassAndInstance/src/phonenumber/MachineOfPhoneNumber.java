@@ -2,7 +2,7 @@ package phonenumber;
 
 public class MachineOfPhoneNumber {
 
-	
+	int i = 0;
 	String name;
 	String phoneNumber;
 	String birthday;
@@ -20,34 +20,23 @@ public class MachineOfPhoneNumber {
 		birthday = birth;
 
 	}
+	
+	
+	void Save(MachineOfPhoneNumber info){
 
-	void Save(MachineOfPhoneNumber inf){
-		
-		String nameInfo="";
-		String numberInfo="";
-		String birthInfo="";
-		int i = 0;
-		while(true) {
+			
+			PhoneInfor[i][0] = info.name;
+			PhoneInfor[i][1] = info.phoneNumber;
+			PhoneInfor[i][2] = info.birthday;
+			
+			i=i+1;
 			
 			
-			nameInfo = inf.name;
-			numberInfo = inf.phoneNumber;
-			birthInfo = inf.birthday;
-			
-			PhoneInfor[i][0] = nameInfo;
-			PhoneInfor[i][1] = numberInfo;
-			PhoneInfor[i][2] = birthInfo;
-			
-			
-			
-			
-			if (i==99) {
-				break;
-			}
+
 			
 			
 		}
-	}
+	
 		String ShowInfor( int a, int b){
 			
 			

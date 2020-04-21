@@ -10,13 +10,13 @@ public class phoneUi {
 		String num = "";
 		String n ="";
 		String birth ="";
-		int i = 0;
+		
 		int out = 0;
 		int a = 0;
 		int b = 0;
 
 		while(true) {
-			i++;
+			
 		System.out.println("이름입력");
 		
 		n=sc.next();
