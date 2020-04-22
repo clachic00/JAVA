@@ -31,16 +31,15 @@ public class PhoneNumberB {
 		birthday = b;
 
 	}
-	
-	public PhoneNumberB() {}
 
-	
+	public PhoneNumberB() {
+	}
 
 	void saveInfo(PhoneNumberB info) {
-		if(array[i]==null) {
-		array[i] = info;
+		if (array[i] == null) {
+			array[i] = info;
 		}
-		 i++;
+		i++;
 	}
 
 	PhoneNumberB showInfo(int a) {
@@ -53,18 +52,19 @@ public class PhoneNumberB {
 
 	// 이름을 받아서 배열안에있는 참조값 안에있는 name값과 비교후 같은 값의 행 참조값을 반환해주는 걸 반복문안에 넣음
 	// 수정 - 이름값을 주고 참조값 안에있는 name값과 같은게 있다면 불리언값을 반환하는 메서드로 수정 *요약 - 반복문 제거
-	
-	
-	void  searchInfo(String name) {
-        for (int i = 0; i < array.length; i++) {
-        
-            if (name.equals(array[i].name)) {
-                System.out.println("------------------------------------------------------");
-                System.out.println("------------------------------------------------------");
-                System.out.println(array[i].toString());
-                break;
-            }
-        }
+	// 수정2 - 이름을 주면 같은값을 찾는 기능을 반복문안에 넣어서 출력해주는 기능
+	void searchInfo(String name) {
+		for (int i = 0; i < array.length; i++) {
+
+			if (name.equals(array[i].name)) {
+				System.out.println("------------------------------------------------------");
+				System.out.println("------------------------------------------------------");
+				System.out.println(array[i].toString());
+				break;
+			}
+		}
+		
+		
 //		if (t<0) {
 //			return;
 //		}
@@ -82,18 +82,18 @@ public class PhoneNumberB {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		PhoneNumberB save = new PhoneNumberB();
-		int count = 0;
+		
 		String n;
 		String p;
 		String b;
 		int select = 0;
 		String search = "";
 		while (true) {
-			
-			for(PhoneNumberB e : save.array) { 
+
+			for (PhoneNumberB e : save.array) {
 				System.out.println(e);
-				}
-			
+			}
+
 			System.out.println("---------------");
 
 			System.out.println("1.저장 2.검색 3.삭제");
@@ -127,17 +127,15 @@ public class PhoneNumberB {
 				continue;
 
 			}
-			
+
 			else if (select == 2) {
 				System.out.println("이름을 입력해주세요");
 				search = sc.next();
 				System.out.println(search);
-				
-				
-				
+
 				save.searchInfo(search);
-				
-				//for문으로  제한을 어디까지 둘지 고민중
+
+				// for문으로 제한을 어디까지 둘지 고민중
 //				for(int ii=0;ii<100;ii++) {
 //					
 //					
@@ -158,12 +156,8 @@ public class PhoneNumberB {
 				continue;
 			}
 			continue;
-			
+
 		}
 	}
-
-	
-
-	
 
 }
