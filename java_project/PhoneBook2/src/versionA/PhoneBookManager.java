@@ -2,18 +2,22 @@ package versionA;
 
 import java.util.Scanner;
 
-
-
 public class PhoneBookManager {
 
-	Scanner sc = new Scanner(System.in);
+	Scanner sc;
 	int cnt;
-	PhoneInfor pBooks[] = new PhoneInfor[100];
+	PhoneInfor pBooks[];
+
+	public PhoneBookManager() {
+		cnt = 0;
+		sc = new Scanner(System.in);
+		pBooks = new PhoneInfor[100];
+	}
 
 	void addinfo(PhoneInfor info) {
-		
-		pBooks[cnt]=info;
-		
+
+		pBooks[cnt] = info;
+
 		cnt++;
 	}
 
@@ -43,57 +47,66 @@ public class PhoneBookManager {
 		return info;
 	}
 
-	void searchInfo(){
-	System.out.println("이름으로 검색해주세요");
-		String name= sc.nextLine();
-	
-		int searchIndex= -1;
-		for(int i =0;  i <cnt;i++) {
-		
-			System.out.println(pBooks[i].name.equals(name));
-		
-			if(pBooks[i].name.equals(name)) {
+	void searchInfo() {
+		System.out.println("이름으로 검색해주세요");
+		String name = sc.nextLine();
+
+		int searchIndex = -1;
+		for (int i = 0; i < cnt; i++) {
+
+			System.out.println(pBooks[i].checkName(name));
+
+			if (pBooks[i].checkName(name)) {
 				searchIndex = i;
 				break;
 			}
-			
+
 		}
 		System.out.println(searchIndex);
-		if(searchIndex<0) {
-			System.out.println("입력하신 정보가 없습니다.");
+		if (searchIndex < 0) {
+			System.out.println("입력하신 정보가 없습니다");
 		} else {
 			pBooks[searchIndex].showInfo();
 		}
-		
-	
+
 	}
-	
-	
-	
-	void showAllData(){
+
+	void deleteInfo() {
+		System.out.println("이름으로 검색해주세요");
+		String name = sc.nextLine();
+
+		int searchIndex = -1;
+		for (int i = 0; i < cnt; i++) {
+
+			System.out.println(pBooks[i].checkName(name));
+
+			if (pBooks[i].checkName(name)) {
+				searchIndex = i;
+				break;
+			}
+
+		}
+		System.out.println(searchIndex);
+		if (searchIndex < 0) {
+			System.out.println("입력하신 정보가 없습니다 삭제되지 않았습니다");
+		} else {
+			for (int deleteIndex = cnt; deleteIndex > searchIndex; deleteIndex--) {
+				pBooks[deleteIndex] = pBooks[deleteIndex + 1];
+
+			}
+
+			cnt--;
+			System.out.println("삭제되었습니다");
+		}
+
+	}
+
+	void showAllData() {
 		for (int i = 0; i < cnt; i++) {
 			pBooks[i].showInfo();
 			System.out.println("========================");
 		}
-	
-		
-		
-		
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
-
-
-
-
-

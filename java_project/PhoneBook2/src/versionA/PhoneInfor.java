@@ -2,12 +2,10 @@ package versionA;
 
 public class PhoneInfor {
 
-	
-	String name; // 친구의 이름
+	private String name; // 친구의 이름
 	private String phoneNumber; // 친구의 전화 번호
 	private String birthday; // 친구의 생일
 
-	
 	PhoneInfor(String name, String phoneNumber, String birthday) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
@@ -27,11 +25,11 @@ public class PhoneInfor {
 
 	}
 
-	
-	
-	
-	
-	
-	
-	
+	boolean checkName(String name) {
+
+		boolean isTrue = this.name.equals(name);
+
+		return isTrue;
+	}
+
 }
