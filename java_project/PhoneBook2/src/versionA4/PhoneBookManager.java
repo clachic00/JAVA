@@ -14,6 +14,8 @@ public class PhoneBookManager {
 		pBooks = new PhoneInfor[100];
 	}
 
+	
+	
 	void addinfo(PhoneInfor info) {
 
 		pBooks[cnt] = info;
@@ -106,7 +108,7 @@ public class PhoneBookManager {
 		if (searchIndex < 0) {
 			System.out.println("입력하신 정보가 없습니다");
 		} else {
-			pBooks[searchIndex].showInfo();
+			pBooks[searchIndex].showData();
 		}
 
 	}
