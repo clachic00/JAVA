@@ -58,13 +58,14 @@ public class PhoneBookManager {
    void searchInfo() {
 
       System.out.println("검색하시고자 하는 이름을 입력해주세요.");
+      
       String searchingName = sc.nextLine();
       int searchIndex = -1;
       for (int i = 0; i < cnt; i++) {
 
          if (pBooks[i].checkName(searchingName)) {
 
-            System.out.println(pBooks[i].checkName(searchingName));
+            
             searchIndex = i;
             break;
 
@@ -97,13 +98,15 @@ public class PhoneBookManager {
             break;
          }
       }
+      
+      System.out.println("=================>   "+searchIndex);
 
       if (searchIndex < 0) {
          System.out.println("찾으시는 이름이 없습니다");
 
       } else {
 
-         for (int deleteIndex = cnt; deleteIndex >= searchIndex; deleteIndex--) {
+         for (int deleteIndex = cnt-1; deleteIndex >= searchIndex; deleteIndex--) {
 
             pBooks[deleteIndex] = pBooks[deleteIndex + 1];
 

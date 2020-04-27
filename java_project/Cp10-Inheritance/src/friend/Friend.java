@@ -1,6 +1,6 @@
 package friend;
 
-public class Friend {
+abstract public class  Friend {
 
 	String name; 			//친구의 이름
 	String phoneNum; 		//친구의 번호
@@ -22,11 +22,17 @@ public class Friend {
 	
 	// 상속의 목적으로 오버라이딩 할 메서드
 	// 기본 데이터와 하위클래스의 데이터를 출력하도록 오버라이딩 한다.
-	void showData( ) {
-		
-		
-		
+//	void showData() {
+//
+//	}
 	
-	}
+	
+	abstract void showData();
+	
+	
+	
+	
+	
+	
 	
 }

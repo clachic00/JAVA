@@ -106,7 +106,7 @@ public class PhoneBookManager {
 			
 			} else {
 				
-				for(int deleteIndex = cnt; deleteIndex>=searchIndex; deleteIndex--) {
+				for(int deleteIndex = searchIndex; deleteIndex<cnt; deleteIndex++) {
 				
 					pBook[deleteIndex]=pBook[deleteIndex+1];
 				
