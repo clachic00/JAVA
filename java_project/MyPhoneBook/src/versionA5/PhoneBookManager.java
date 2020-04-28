@@ -1,14 +1,20 @@
-package versionA4;
+package versionA5;
 
 import java.util.Scanner;
 
 public class PhoneBookManager {
 
-	Scanner sc;
-	int cnt;
-	PhoneInfor pBooks[];
+	static private PhoneBookManager manager = new PhoneBookManager();
 
-	public PhoneBookManager() {
+	static PhoneBookManager getInstance() {
+		return manager;
+	}
+
+	private Scanner sc;
+	private int cnt;
+	private PhoneInfor pBooks[];
+
+	private PhoneBookManager() {
 		cnt = 0;
 		sc = new Scanner(System.in);
 		pBooks = new PhoneInfor[100];
@@ -36,6 +42,11 @@ public class PhoneBookManager {
 		int choice = sc.nextInt();
 		sc.nextLine();
 
+		if (choice < 1 || choice > 3) {
+			System.out.println("잘못 누르셨습니다 메뉴로돌아갑니다");
+			return;
+		}
+
 		PhoneInfor info = null;
 
 		System.out.println("이름을 입력해주세요");
@@ -46,28 +57,14 @@ public class PhoneBookManager {
 
 		String phoneNumber = sc.nextLine();
 
-		if (choice == 1) {
+		System.out.println("주소를 입력해주세요");
 
-			System.out.println("생일을 입력해주세요");
+		String address = sc.nextLine();
 
-			String birthday = sc.nextLine();
+		System.out.println("이메일을 입력해주세요");
 
-			if (birthday == null || birthday.trim().isEmpty()) {
-
-				info = new PhoneInfor(name, phoneNumber);
-			} else {
-				info = new PhoneInfor(name, phoneNumber, birthday);
-			}
-
-		} else if (choice == 2) {
-
-			System.out.println("주소를 입력해주세요");
-
-			String address = sc.nextLine();
-
-			System.out.println("이메일을 입력해주세요");
-
-			String email = sc.nextLine();
+		String email = sc.nextLine();
+		if (choice == MenuInterface.UNIV) {
 
 			System.out.println("전공을 입력해주세요");
 
@@ -76,18 +73,10 @@ public class PhoneBookManager {
 			System.out.println("학년을 입력해주세요");
 
 			String year = sc.nextLine();
-
+			
 			info = new PhoneUnivInfor(name, phoneNumber, address, email, major, Integer.parseInt(year));
 
-		} else { // choice == 3
-
-			System.out.println("주소를 입력해주세요");
-
-			String address = sc.nextLine();
-
-			System.out.println("이메일을 입력해주세요");
-
-			String email = sc.nextLine();
+		} else if (choice == MenuInterface.COMPANY) {
 
 			System.out.println("회사를 입력해주세요");
 
@@ -95,8 +84,19 @@ public class PhoneBookManager {
 
 			info = new PhoneCompanyInfor(name, phoneNumber, address, email, company);
 
-		}
+		} else if (choice == MenuInterface.CAFE) {
 
+			System.out.println("동호회명을 입력해주세요");
+
+			String cafeName = sc.nextLine();
+			
+			System.out.println("닉네임을 입력해주세요");
+
+			String nickName = sc.nextLine();
+			
+			info = new PhoneCafeInfor(name, phoneNumber, address, email, cafeName, nickName);
+
+		}
 		addinfo(info);
 	}
 
@@ -172,7 +172,7 @@ public class PhoneBookManager {
 			}
 
 		}
-		System.out.println(searchIndex);
+		
 		if (searchIndex < 0) {
 			System.out.println("입력하신 정보가 없습니다");
 		} else {
@@ -215,13 +215,6 @@ public class PhoneBookManager {
 				String company = sc.nextLine();
 
 				info = new PhoneCompanyInfor(editName, phoneNumber, address, email, company);
-			} else if (pBooks[searchIndex] instanceof PhoneInfor) {
-
-				System.out.println("생일을 입력해주세요");
-
-				String birthday = sc.nextLine();
-
-				info = new PhoneInfor(editName, phoneNumber, birthday);
 			}
 
 			pBooks[searchIndex] = info;

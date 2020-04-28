@@ -1,26 +1,23 @@
-package versionA4;
+package versionA5;
 
 public class PhoneCompanyInfor extends PhoneInfor {
 
-	String address;
-	String email;
+
 	String company;
 
 	PhoneCompanyInfor(String name, String phoneNumber, String address, String email, String company) {
-		super(name, phoneNumber);
+		super(name, phoneNumber, address, email);
 
-		this.address = address;
-		this.email = email;
+
 		this.company = company;
 
 	}
 
 	@Override
-	void showData() {
+	public void showData() {
 		super.showInfo();
 
-		System.out.println("주소 : " + this.address);
-		System.out.println("이메일 : " + this.email);
+
 		System.out.println("회사 : " + this.company);
 
 	}

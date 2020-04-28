@@ -1,6 +1,6 @@
 package friend;
 
-abstract public class  Friend {
+abstract public class  Friend implements Info{
 
 	String name; 			//친구의 이름
 	String phoneNum; 		//친구의 번호
@@ -27,7 +27,7 @@ abstract public class  Friend {
 //	}
 	
 	
-	abstract void showData();
+//	abstract void showData();
 	
 	
 	

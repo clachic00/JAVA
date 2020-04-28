@@ -3,6 +3,7 @@ package versionA4;
 public class PhoneInfor {
 
 	private String name; // 친구의 이름
+
 	public String getName() {
 		return name;
 	}
@@ -25,20 +26,17 @@ public class PhoneInfor {
 		this(name, phoneNumber, "입력값이 없습니다.");
 	}
 
-
-
 	// 다릍 클래스에 공유하기 위한 생일제외 메서드 생성
-	void showInfo2() {
+	void showInfo() {
 
 		System.out.println("이름 : " + this.name);
 		System.out.println("번호 : " + this.phoneNumber);
-		
 
 	}
 
 	void showData() {
 
-		showInfo2();
+		showInfo();
 		System.out.println("생일 : " + this.birthday);
 
 	}

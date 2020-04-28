@@ -4,17 +4,36 @@ import java.util.Scanner;
 
 public class FriendInfoHandler {
 
+//	2020.04.28
+//	1. 클래스의 싱글톤 패턴 처리
+//	   1) 생성자 접근제어지시자 : private
+//	      인스턴스 생성 막는다
+//	   2) 공동으로 사용할 인스턴스를 생성 : static private
+//	   3) 참조변수 반환 메서드 : static
+//
+//
+//	2. interface 기반의 상수 표현
+//	   메뉴표현
+//	3. interface ->추상클래스 ->상속 관계 구조로 변경
+	
+	static private FriendInfoHandler handler = new FriendInfoHandler(100);
+	
+	public static FriendInfoHandler getInstance() {
+		return handler;
+	}
+	
+	
 	// Friend 타입의 정보를 저장할 배열을 가진다.
 	// 친구정보를 저장하는 기능
 	// 친구정보를 기본 정보 출력 기능
 	// 친구정보 상세 정보 출력 기능
 
 	private Friend[] myFriends; // Friend 타입의 배열 선언
-	int numOfFriend; // 저장된 친구의 정보 개수
+	private int numOfFriend; // 저장된 친구의 정보 개수
 	Scanner sc;
 
 	// 초기화
-	FriendInfoHandler(int num) {
+	private FriendInfoHandler(int num) {
 
 		myFriends = new Friend[num];
 		sc = new Scanner(System.in);

@@ -1,4 +1,4 @@
-package Extest;
+package extest;
 
 public class InstanceOf {
 

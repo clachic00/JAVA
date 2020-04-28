@@ -1,4 +1,4 @@
-package versionA4;
+package versionA5;
 
 import java.util.Scanner;
 
@@ -19,9 +19,9 @@ public class Menu {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("========================");
-		System.out.println("1.일반 친구");
-		System.out.println("2.학교 친구");
-		System.out.println("3.회사 친구");
+		System.out.println("1.학교 친구");
+		System.out.println("2.회사 친구");
+		System.out.println("3.동호회 친구");
 		System.out.println("========================");
 
 	}

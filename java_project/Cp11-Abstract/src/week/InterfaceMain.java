@@ -2,7 +2,7 @@ package week;
 
 import java.util.Scanner;
 
-public class InterfaceMain implements Week {
+public class InterfaceMain  {
 
 	public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package versionA4;
+package versionA5;
 
 import java.util.Scanner;
 
@@ -6,7 +6,7 @@ public class PhoneBookMain {
 
 	public static void main(String[] args) {
 
-		PhoneBookManager manager = new PhoneBookManager();
+		PhoneBookManager manager = PhoneBookManager.getInstance();
 
 		Scanner sc = new Scanner(System.in);
 
@@ -17,24 +17,24 @@ public class PhoneBookMain {
 			int select = sc.nextInt();
 			switch (select) {
 
-			case 1:
+			case MenuInterface.SAVE:
 
 				manager.createInstance();
 
 				break;
-			case 2:
+			case MenuInterface.SEARCH:
 				manager.searchInfo();
 				break;
-			case 3:
+			case MenuInterface.DELETE:
 				manager.deleteInfo();
 				break;
-			case 4:
+			case MenuInterface.EDIT:
 				manager.editInfo();
 				break;
-			case 5:
+			case MenuInterface.SHOWALL:
 				manager.showAllData();
 				break;
-			case 6:
+			case MenuInterface.EXIT:
 				// return;
 				System.exit(0);
 
