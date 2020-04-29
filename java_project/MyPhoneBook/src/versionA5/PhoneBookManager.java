@@ -1,6 +1,10 @@
 package versionA5;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import versionA5_Exception.BadNumberException;
+import versionA5_Exception.StringEmptyException;
 
 public class PhoneBookManager {
 
@@ -39,65 +43,128 @@ public class PhoneBookManager {
 
 		Menu.selectFriend();
 
-		int choice = sc.nextInt();
-		sc.nextLine();
+//		int choice = sc.nextInt();
+//		sc.nextLine();
 
-		if (choice < 1 || choice > 3) {
-			System.out.println("잘못 누르셨습니다 메뉴로돌아갑니다");
+		int choice = 0;
+
+		try {
+			choice = Integer.parseInt(sc.nextLine());
+			// select = sc.nextInt();
+			if (!(choice >= MenuInterface.UNIV && choice <= MenuInterface.CAFE)) {
+				BadNumberException e = new BadNumberException("잘못된 메뉴입력");
+
+				throw e;
+
+			}
+
+		} catch (InputMismatchException e) {
+			System.out.println("잘못된 메뉴 입력입니다 \n메뉴로돌아갑니다");
+			return;
+		} catch (BadNumberException e) {
+			System.out.println("잘못된 메뉴 입력입니다 \n메뉴로돌아갑니다");
+			return;
+		} catch (Exception e) {
+			System.out.println("잘못된 메뉴 입력입니다 \n메뉴로돌아갑니다");
 			return;
 		}
 
-		PhoneInfor info = null;
+//		if (choice < 1 || choice > 3) {
+//			System.out.println("잘못 누르셨습니다 메뉴로돌아갑니다");
+//			return;
+//		}
+		while (true) {
+			PhoneInfor info = null;
 
-		System.out.println("이름을 입력해주세요");
+			System.out.println("이름을 입력해주세요");
 
-		String name = sc.nextLine();
+			String name = sc.nextLine();
 
-		System.out.println("번호를 입력해주세요");
+			System.out.println("번호를 입력해주세요");
 
-		String phoneNumber = sc.nextLine();
+			String phoneNumber = sc.nextLine();
 
-		System.out.println("주소를 입력해주세요");
+			System.out.println("주소를 입력해주세요");
 
-		String address = sc.nextLine();
+			String address = sc.nextLine();
 
-		System.out.println("이메일을 입력해주세요");
+			System.out.println("이메일을 입력해주세요");
 
-		String email = sc.nextLine();
-		if (choice == MenuInterface.UNIV) {
+			String email = sc.nextLine();
 
-			System.out.println("전공을 입력해주세요");
+			try {
+				if (name.trim().isEmpty() || phoneNumber.trim().isEmpty() || address.trim().isEmpty()
+						|| email.trim().isEmpty()) {
 
-			String major = sc.nextLine();
+					StringEmptyException e = new StringEmptyException();
 
-			System.out.println("학년을 입력해주세요");
+					throw e;
 
-			String year = sc.nextLine();
-			
-			info = new PhoneUnivInfor(name, phoneNumber, address, email, major, Integer.parseInt(year));
+				}
 
-		} else if (choice == MenuInterface.COMPANY) {
+			} catch (StringEmptyException e) {
+				System.out.println("공백없이 입력해주세요");
+				continue;
+			}
 
-			System.out.println("회사를 입력해주세요");
+			if (choice == MenuInterface.UNIV) {
+				int year;
+				String major;
 
-			String company = sc.nextLine();
+				while (true) {
 
-			info = new PhoneCompanyInfor(name, phoneNumber, address, email, company);
+					System.out.println("전공을 입력해주세요");
 
-		} else if (choice == MenuInterface.CAFE) {
+					major = sc.nextLine();
 
-			System.out.println("동호회명을 입력해주세요");
+					System.out.println("학년을 입력해주세요");
 
-			String cafeName = sc.nextLine();
-			
-			System.out.println("닉네임을 입력해주세요");
+					year = 0;
+					try {
+						year = sc.nextInt();
 
-			String nickName = sc.nextLine();
-			
-			info = new PhoneCafeInfor(name, phoneNumber, address, email, cafeName, nickName);
+					} catch (InputMismatchException e) {
+						System.out.println("정수로 입력해주세요");
+
+						continue;
+
+					} finally {
+						sc.nextLine();
+					}
+
+					info = new PhoneUnivInfor(name, phoneNumber, address, email, major, year);
+
+					break;
+				}
+
+			} else if (choice == MenuInterface.COMPANY) {
+
+				System.out.println("회사를 입력해주세요");
+
+				String company = sc.nextLine();
+
+				info = new PhoneCompanyInfor(name, phoneNumber, address, email, company);
+
+			} else if (choice == MenuInterface.CAFE) {
+
+				System.out.println("동호회명을 입력해주세요");
+
+				String cafeName = sc.nextLine();
+
+				System.out.println("닉네임을 입력해주세요");
+
+				String nickName = sc.nextLine();
+
+				info = new PhoneCafeInfor(name, phoneNumber, address, email, cafeName, nickName);
+
+			}
+
+			addinfo(info);
+
+			break;
 
 		}
-		addinfo(info);
+
 	}
 
 	int searchIndex(String name) {
@@ -172,7 +239,7 @@ public class PhoneBookManager {
 			}
 
 		}
-		
+
 		if (searchIndex < 0) {
 			System.out.println("입력하신 정보가 없습니다");
 		} else {
