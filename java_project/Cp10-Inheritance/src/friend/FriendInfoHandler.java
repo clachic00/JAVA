@@ -1,5 +1,6 @@
 package friend;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FriendInfoHandler {
@@ -16,6 +17,7 @@ public class FriendInfoHandler {
 //	   메뉴표현
 //	3. interface ->추상클래스 ->상속 관계 구조로 변경
 	
+	
 	static private FriendInfoHandler handler = new FriendInfoHandler(100);
 	
 	public static FriendInfoHandler getInstance() {
@@ -28,14 +30,25 @@ public class FriendInfoHandler {
 	// 친구정보를 기본 정보 출력 기능
 	// 친구정보 상세 정보 출력 기능
 
-	private Friend[] myFriends; // Friend 타입의 배열 선언
+	
+	// List 참조변수
+	
+	private ArrayList<Friend> myFriends;
+	
+	
+	
+	
+	
+	
+	
+	//private Friend[] myFriends; // Friend 타입의 배열 선언
 	private int numOfFriend; // 저장된 친구의 정보 개수
 	Scanner sc;
 
 	// 초기화
 	private FriendInfoHandler(int num) {
 
-		myFriends = new Friend[num];
+		myFriends = new ArrayList<Friend>();
 		sc = new Scanner(System.in);
 		numOfFriend = 0;
 
@@ -48,8 +61,12 @@ public class FriendInfoHandler {
 	void addFriendInfo(Friend f) {
 		// 배열에 저장
 
-		myFriends[numOfFriend] = f;
-		numOfFriend++;
+		//myFriends[numOfFriend] = f;
+		//numOfFriend++;
+	
+		myFriends.add(f);
+	
+	
 	}
 
 	// 2. 사용자에게 데이터를 받아 사용자 요청에 맞는 인스턴스 생성
@@ -92,7 +109,7 @@ public class FriendInfoHandler {
 			
 
 		}
-		//창일이형 화이팅!!
+		
 	
 		addFriendInfo(friend);
 	}
@@ -112,8 +129,8 @@ public class FriendInfoHandler {
 
 		System.out.println("=======친구의 기본정보를 출력합니다 ========");
 
-		for (int i = 0; i < numOfFriend; i++) {
-			myFriends[i].showBasicInfo();
+		for (int i = 0; i < myFriends.size(); i++) {
+			myFriends.get(i).showBasicInfo();
 			System.out.println("================================");
 
 		}
@@ -125,7 +142,7 @@ public class FriendInfoHandler {
 	void showAllData() {
 		System.out.println("=======친구의 모든정보를 출력합니다 ========");
 		for (int i = 0; i < numOfFriend; i++) {
-			myFriends[i].showData();
+			myFriends.get(i).showData();
 			System.out.println("================================");
 
 		}
