@@ -8,12 +8,10 @@ public class TestMain {
 		Player player = new Player();
 		
 		player.addName();
-		
 		player.getExp(5000);
-		
 		player.checkLevelUp();
 		
-		player.showStatus();
+		
 		
 		
 	}
