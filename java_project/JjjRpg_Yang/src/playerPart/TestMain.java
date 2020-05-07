@@ -1,5 +1,8 @@
 package playerPart;
 
+import java.util.Scanner;
+
+import PotionStore.PotionInven;
 import items.*;
 
 public class TestMain {
@@ -7,15 +10,20 @@ public class TestMain {
 	public static void main(String[] args) {
 
 		Player player = new Player();
-
+		// 플레이어 생성
 		player.addName();
-
+		// 경험치 획득
 		player.getExp(5000);
-
+		// 레벨업 체크
 		player.checkLevelUp();
-
+		// 플레이어 정보
 		player.showStatus();
-
+		
+		player.getExp(5000);
+		// 레벨업 체크
+		player.checkLevelUp();
+		
+		//장비 인스턴스 생성
 		A_Hat A1 = new A_Hat("", 0, 0, 0, 0, 0);
 
 		A_HeadPiece A2 = new A_HeadPiece("", 0, 0, 0, 0, 0);
@@ -32,14 +40,14 @@ public class TestMain {
 
 		C_InvisibilityCloak C3 = new C_InvisibilityCloak("", 0, 0, 0, 0, 0);
 
-		D_SilverWand D1 = new D_SilverWand(null, 0, 0, 0, 0, 0);
+		D_SilverWand D1 = new D_SilverWand("", 0, 0, 0, 0, 0);
 
-		D_GoldWand D2 = new D_GoldWand(null, 0, 0, 0, 0, 0);
+		D_GoldWand D2 = new D_GoldWand("", 0, 0, 0, 0, 0);
 
-		D_DiamondWand D3 = new D_DiamondWand(null, 0, 0, 0, 0, 0);
+		D_DiamondWand D3 = new D_DiamondWand("", 0, 0, 0, 0, 0);
 
 		Inventory iv = new Inventory();
-
+		//장비 인벤토리에 추가
 		iv.addEquipment(A1);
 
 		iv.addEquipment(A2);
@@ -61,6 +69,21 @@ public class TestMain {
 		iv.addEquipment(D2);
 
 		iv.addEquipment(D3);
+		PotionInven pi = new PotionInven(null, 0, 0);
+
+		Scanner sc = new Scanner(System.in);
+
+		// 포션 구매
+		System.out.println("포션 선택");
+		int ps = sc.nextInt();
+		sc.nextLine();
+		System.out.println("포션 개수");
+		int pn = sc.nextInt();
+		sc.nextLine();
+
+		pi.usePotion(ps, pn);
+
+		pi.usePotion(ps, pn);
 
 		iv.showInventory();
 		iv.showEquip();

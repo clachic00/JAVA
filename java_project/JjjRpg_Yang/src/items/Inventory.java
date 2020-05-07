@@ -75,6 +75,8 @@ public class Inventory {
 
 		showInventory();
 		showEquip();
+		
+		
 
 	}
 
@@ -93,6 +95,9 @@ public class Inventory {
 
 		}
 
+		
+		
+		
 //		if(check>=0) {
 //		
 //		inven.add(equip.get(check));

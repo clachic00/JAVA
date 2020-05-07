@@ -5,21 +5,19 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class Player extends Entity{
-	
+public class Player extends Entity {
 
 	// 변수선언
-	//private String name;
-	//private int currentStrength;;
-	//private int currentHealth;
-	//private int maxHealth;
-	//private float evasion;
+	// private String name;
+	// private int currentStrength;;
+	// private int currentHealth;
+	// private int maxHealth;
+	// private float evasion;
 	private int gold;
 	private int currentLevel;
 	private int currentExp;
 	private int levelUpExp;
 	private Scanner sc;
-	
 
 	public Player() {
 		super.setName("");
@@ -32,8 +30,7 @@ public class Player extends Entity{
 		currentExp = 0;
 		levelUpExp = BasicInfo.BASIC_EXP;
 		sc = new Scanner(System.in);
-		
-	
+
 	}
 
 	// 캐릭터의 이름을 받는 메서드
@@ -42,8 +39,8 @@ public class Player extends Entity{
 //		System.out.println("캐릭터의 이름을 입력해주세요.");
 //		name = sc.nextLine();
 
-		super.setName(JOptionPane.showInputDialog("캐릭터의 이름을 입력해주세요.")); 
-		
+		super.setName(JOptionPane.showInputDialog("캐릭터의 이름을 입력해주세요."));
+
 		while (true) {
 			System.out.println("입력하신 이름이 " + super.getName() + "님이 맞습니까? 맞으면 y 틀리면n");
 			String check = sc.nextLine();
@@ -75,30 +72,25 @@ public class Player extends Entity{
 
 	// 체력의 변화를 반환하는 메서드
 	void getCurrnetHeatlh(int health) {
-		
-		super.setCurrentHealth(super.getCurrentHealth()+ health); 
-		
-		if (super.getCurrentHealth()>super.getMaxHealth()) {
-		
-		super.setCurrentHealth(super.getMaxHealth());
-		
-	
-		
+
+		super.setCurrentHealth(super.getCurrentHealth() + health);
+
+		if (super.getCurrentHealth() > super.getMaxHealth()) {
+
+			super.setCurrentHealth(super.getMaxHealth());
+
 		}
-		
-		if (super.getCurrentHealth()<=0) {
-			
+
+		if (super.getCurrentHealth() <= 0) {
+
 			super.setCurrentHealth(0);
-			
-			System.out.println(super.getName()+"님이 사망하셨습니다.");
-		
+
+			System.out.println(super.getName() + "님이 사망하셨습니다.");
+
 		}
-		
-		
+
 	}
-		
-	
-	
+
 //	// 체력이 0이되면 죽는걸 반환하는 메서드
 //	void checkHealth() {
 //		if (currentHealth<=0) {
@@ -109,8 +101,7 @@ public class Player extends Entity{
 //		
 //		}
 //	}
-	
-	
+
 	// 경험치 값을 확인해 레벨업 및 스테이터스 업데이트를 하는 메서드
 	int checkLevelUp() {
 		while (true) {
@@ -119,10 +110,10 @@ public class Player extends Entity{
 				currentExp = currentExp - levelUpExp;
 
 				currentLevel++;
- 
+
 				levelUpExp = (int) (levelUpExp * 1.3f);
-			super.setMaxHealth((int) (super.getMaxHealth() * 1.3f) / 1);
-			super.setCurrentHealth((int) super.getMaxHealth());
+				super.setMaxHealth((int) (super.getMaxHealth() * 1.3f) / 1);
+				super.setCurrentHealth((int) super.getMaxHealth());
 				super.setCurrentStrength((int) (super.getCurrentStrength() * 1.3f));
 				super.setEvasion(super.getEvasion() + 1);
 
@@ -160,19 +151,31 @@ public class Player extends Entity{
 		System.out.println("회피율 : " + super.getEvasion() + "%");
 		System.out.println("EXP : " + currentExp + "/" + levelUpExp);
 
-	
-
-	
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	void addEquipStat() {
+
+		super.setMaxHealth(super.getMaxHealth()); // 최대체력 +장비체력
+
+		super.setCurrentHealth(super.getCurrentHealth()); // 현재체력 +장비체력
+
+		super.setEvasion(super.getEvasion()); // 회피율 +장비회피율
+
+		super.setCurrentStrength(super.getCurrentStrength()); // 공격력 +장비공격력
+
+	}
+
+	// 레벨업 계산시 능력치를 빼주었다가 추가하기 위한 메서드
+	void minEquipStat() {
+
+		super.setMaxHealth(super.getMaxHealth()); // 최대체력 - 장비체력
+
+		super.setCurrentHealth(super.getCurrentHealth()); // 현재체력 -장비체력
+
+		super.setEvasion(super.getEvasion()); // 회피율 +장비회피율
+
+		super.setCurrentStrength(super.getCurrentStrength()); // 공격력 -장비공격력
+
+	}
+
 }
