@@ -2,8 +2,8 @@ package playerPart;
 
 import java.util.Scanner;
 
-import PotionStore.PotionInven;
 import items.*;
+import potionStore.PotionInven;
 
 public class TestMain {
 
@@ -69,7 +69,7 @@ public class TestMain {
 		iv.addEquipment(D2);
 
 		iv.addEquipment(D3);
-		PotionInven pi = new PotionInven(null, 0, 0);
+		PotionInven pi = new PotionInven(null, 0, 0,0);
 
 		Scanner sc = new Scanner(System.in);
 
@@ -81,19 +81,26 @@ public class TestMain {
 		int pn = sc.nextInt();
 		sc.nextLine();
 
-		pi.usePotion(ps, pn);
+		pi.buyPotion(ps, pn);
 
-		pi.usePotion(ps, pn);
+		pi.buyPotion(ps, pn);
 
+		
 		iv.showInventory();
 		iv.showEquip();
 
-		while (true) {
+		
+		iv.equipItem();
+		iv.equipItem();
+		iv.equipItem();
+		iv.equipItem();
+		iv.equipItem();
+			
 
-			iv.equipItem();
-
-		}
-
+		
+		iv.calEquipStat();
+		
+		
 	}
 
 }

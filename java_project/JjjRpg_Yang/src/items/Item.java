@@ -3,7 +3,7 @@ package items;
 public class Item {
 
 	String equipmentName;
-	int equipmentType; // 1 - 보호대 2 - 투구 3 - 방패 4 - 지팡이
+	int equipmentType; // 1 - 투구  2 - 갑옷  3 - 망토  4 - 지팡이
 	int attackPower;
 	int health;
 	int evasion;

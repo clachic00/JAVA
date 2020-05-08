@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class Inventory {
 
 	int check = -1;
+	int equipPower = 0;
+	int equipHealth = 0;
+	int equipEvasion = 0;
 
 	// 장비를 저장할 인벤토리의 리스트
 	ArrayList<Item> inven = new ArrayList<Item>(30);
@@ -16,15 +19,17 @@ public class Inventory {
 	Scanner sc = new Scanner(System.in);
 
 	// 장비의 참조값을 불러서 리스트에 저장하는 메서드
+
 	public void addEquipment(Item info) {
 
 		inven.add(info);
-
+		// 구매 시 money 차감되는 세터
 	}
 
 	// Iterator<Item> list = item.iterator();
 
 	// 장비의 목록을 보여주는 메서드
+
 	public void showInventory() {
 		System.out.println("");
 
@@ -75,8 +80,6 @@ public class Inventory {
 
 		showInventory();
 		showEquip();
-		
-		
 
 	}
 
@@ -95,16 +98,30 @@ public class Inventory {
 
 		}
 
-		
-		
-		
 //		if(check>=0) {
 //		
 //		inven.add(equip.get(check));
 //
-//		
-//
 //		equip.remove(check);
+
+	}
+
+	// 장비의 스탯 계산
+	public void calEquipStat() {
+
+		for (int i = 0; i < equip.size(); i++) {
+
+			equipPower = equipPower + equip.get(i).attackPower;
+			equipHealth = equipHealth + equip.get(i).health;
+			equipEvasion = equipEvasion + equip.get(i).evasion;
+
+		}
+		
+		System.out.println("장비공격력 : "+equipPower+", "+"장비체력 : "+ equipHealth+", "+"장비회피율 : "+ equipEvasion);
+		
+		
+		
+		
 
 	}
 

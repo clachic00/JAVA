@@ -1,0 +1,10 @@
+﻿
+	void showStatus() {
+		System.out.println("================================");
+		System.out.println("레벨 : " + currentLevel);
+		System.out.println("HP : " + super.getCurrentHealth() + "/" + super.getMaxHealth());
+		System.out.println("공격력 : " + super.getCurrentStrength());
+		System.out.println("회피율 : " + super.getEvasion() + "%");
+		System.out.println("EXP : " + currentExp + "/" + levelUpExp);
+
+	}
