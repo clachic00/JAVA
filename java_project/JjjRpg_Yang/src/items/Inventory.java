@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Inventory {
 
 	int check = -1;
-	int equipPower = 0;
-	int equipHealth = 0;
-	int equipEvasion = 0;
+	public int equipPower = 0;
+	public int equipHealth = 0;
+	public int equipEvasion = 0;
 
 	// 장비를 저장할 인벤토리의 리스트
 	ArrayList<Item> inven = new ArrayList<Item>(30);
@@ -23,7 +23,7 @@ public class Inventory {
 	public void addEquipment(Item info) {
 
 		inven.add(info);
-		// 구매 시 money 차감되는 세터
+
 	}
 
 	// Iterator<Item> list = item.iterator();

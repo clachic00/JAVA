@@ -31,25 +31,25 @@ public class Player extends Entity {
 	//장비 인스턴스 생성
 			public A_Hat A1 = new A_Hat("", 0, 0, 0, 0, 0);
 
-			A_HeadPiece A2 = new A_HeadPiece("", 0, 0, 0, 0, 0);
+			public A_HeadPiece A2 = new A_HeadPiece("", 0, 0, 0, 0, 0);
 
-			B_OldArmor B1 = new B_OldArmor("", 0, 0, 0, 0, 0);
+			public B_OldArmor B1 = new B_OldArmor("", 0, 0, 0, 0, 0);
 
-			B_ShiningArmor B2 = new B_ShiningArmor("", 0, 0, 0, 0, 0);
+			public B_ShiningArmor B2 = new B_ShiningArmor("", 0, 0, 0, 0, 0);
 
-			B_DiamondArmor B3 = new B_DiamondArmor("", 0, 0, 0, 0, 0);
+			public B_DiamondArmor B3 = new B_DiamondArmor("", 0, 0, 0, 0, 0);
 
-			C_OldCloak C1 = new C_OldCloak("", 0, 0, 0, 0, 0);
+			public C_OldCloak C1 = new C_OldCloak("", 0, 0, 0, 0, 0);
 
-			C_ShiningCloak C2 = new C_ShiningCloak("", 0, 0, 0, 0, 0);
+			public C_ShiningCloak C2 = new C_ShiningCloak("", 0, 0, 0, 0, 0);
 
-			C_InvisibilityCloak C3 = new C_InvisibilityCloak("", 0, 0, 0, 0, 0);
+			public C_InvisibilityCloak C3 = new C_InvisibilityCloak("", 0, 0, 0, 0, 0);
 
-			D_SilverWand D1 = new D_SilverWand("", 0, 0, 0, 0, 0);
+			public D_SilverWand D1 = new D_SilverWand("", 0, 0, 0, 0, 0);
 
-			D_GoldWand D2 = new D_GoldWand("", 0, 0, 0, 0, 0);
+			public D_GoldWand D2 = new D_GoldWand("", 0, 0, 0, 0, 0);
 
-			D_DiamondWand D3 = new D_DiamondWand("", 0, 0, 0, 0, 0);
+			public D_DiamondWand D3 = new D_DiamondWand("", 0, 0, 0, 0, 0);
 			
 			public Inventory inven = new Inventory();
 			
@@ -153,7 +153,9 @@ public class Player extends Entity {
 //	}
 
 	// 경험치 값을 확인해 레벨업 및 스테이터스 업데이트를 하는 메서드
-	int checkLevelUp() {
+	void checkLevelUp() {
+		inven.calEquipStat();
+
 		while (true) {
 			if (currentExp >= levelUpExp) {
 
@@ -170,19 +172,26 @@ public class Player extends Entity {
 				System.out.println("레벨업 하였습니다!\n");
 
 				System.out.println("레벨 : " + currentLevel + " UP↑");
-				System.out.println("HP : " + super.getCurrentHealth() + "/" + super.getMaxHealth());
-				System.out.println("공격력 : " + super.getCurrentStrength());
-				System.out.println("회피율 : " + super.getEvasion() + "%");
+				System.out.println("HP : " + (super.getCurrentHealth()+inven.equipHealth) + "/" + (super.getMaxHealth()+inven.equipHealth));
+				System.out.println("공격력 : " + (super.getCurrentStrength()+inven.equipPower));
+				System.out.println("회피율 : " + (super.getEvasion()+inven.equipEvasion) + "%");
 				System.out.println("EXP : " + currentExp + "/" + levelUpExp);
 				System.out.println("+++++++++++++++++++++++++++++++++");
 				if (currentExp < levelUpExp) {
 					break;
 				}
-
+				
+				
+				
 			}
+			
+			else {
+				break;
+			}
+			
 		}
 
-		return currentLevel;
+		//return currentLevel;
 	}
 
 	// 골드 변화 메서드
@@ -194,43 +203,20 @@ public class Player extends Entity {
 	}
 
 	void showStatus() {
+		inven.calEquipStat();
 		System.out.println("================================");
 		System.out.println("레벨 : " + currentLevel);
-		System.out.println("HP : " + super.getCurrentHealth() + "/" + super.getMaxHealth());
-		System.out.println("공격력 : " + super.getCurrentStrength());
-		System.out.println("회피율 : " + super.getEvasion() + "%");
+		System.out.println("HP : " + (super.getCurrentHealth()+inven.equipHealth) + "/" + (super.getMaxHealth()+inven.equipHealth));
+		System.out.println("공격력 : " + (super.getCurrentStrength()+inven.equipPower));
+		System.out.println("회피율 : " + (super.getEvasion()+inven.equipEvasion) + "%");
 		System.out.println("EXP : " + currentExp + "/" + levelUpExp);
 
 	}
 
-	void addEquipStat() {
-
-		super.setMaxHealth(super.getMaxHealth()); // 최대체력 +장비체력
-
-		super.setCurrentHealth(super.getCurrentHealth()); // 현재체력 +장비체력
-
-		super.setEvasion(super.getEvasion()); // 회피율 +장비회피율
-
-		super.setCurrentStrength(super.getCurrentStrength()); // 공격력 +장비공격력
-
-	}
-
-	// 레벨업 계산시 능력치를 빼주었다가 추가하기 위한 메서드
-	void minEquipStat() {
-
-		super.setMaxHealth(super.getMaxHealth()); // 최대체력 - 장비체력
-
-		super.setCurrentHealth(super.getCurrentHealth()); // 현재체력 -장비체력
-
-		super.setEvasion(super.getEvasion()); // 회피율 +장비회피율
-
-		super.setCurrentStrength(super.getCurrentStrength()); // 공격력 -장비공격력
-
-	}
 
 	// 포션구매 메서드
 	public void buyPotion(int i, int num) {
-
+		
 		// 처음에만 포션틀을 추가
 		if (potion.size() == 0) {
 			potion.add(sp);
@@ -242,20 +228,21 @@ public class Player extends Entity {
 		case 1:
 			potion.set(0, new Potion("Small Potion", 30, (potion.get(0).pNum) + num, 20));
 
-			// 돈 증감 세터
-			gold = gold + 20 * num;
+			
+			gold = gold - 20 * num;
 
 			break;
 
 		case 2:
 			potion.set(1, new Potion("Normal Potion", 60, (potion.get(1).pNum) + num, 30));
-			gold = gold + 30 * num;
+			
+			gold = gold - 30 * num;
 
 			break;
 		case 3:
 			potion.set(2, new Potion("Big Potion", 150, (p.potion.get(2).pNum) + num, 60));
-			gold = gold + 60 * num;
-			// 돈 증감 세터
+			
+			gold = gold - 60 * num;
 
 			break;
 
@@ -317,4 +304,188 @@ public class Player extends Entity {
 
 	}
 
+	
+	
+	public void buyEquipment(int select) {
+		switch (select) {
+	case 1:
+		
+		
+		if(A1.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- A1.gold;
+		inven.addEquipment(A1);
+		
+		
+		
+		break;
+		
+	case 2:
+		
+		if(A2.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- A2.gold;
+		
+		inven.addEquipment(A2);
+		break;
+
+	case 3:
+		if(B1.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- B1.gold;
+		
+		inven.addEquipment(B1);
+		break;
+
+	case 4:
+		if(B2.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- B2.gold;
+		
+		inven.addEquipment(B2);
+		break;
+
+	case 5:
+		if(B3.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- B3.gold;
+		
+		inven.addEquipment(B3);
+		break;
+
+	case 6:
+		if(C1.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- C1.gold;
+		
+		inven.addEquipment(C1);
+		break;
+
+	case 7:
+		if(C2.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- C2.gold;
+		
+		inven.addEquipment(C2);
+		break;
+
+	case 8:
+		
+		if(C3.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- C3.gold;
+		
+		inven.addEquipment(C3);
+		break;
+
+	case 9:
+		if(D1.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- D1.gold;
+		
+		inven.addEquipment(D1);
+		break;
+
+	case 10:
+		if(D2.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- D2.gold;
+		
+		inven.addEquipment(D2);
+		
+		
+		break;
+
+	case 11:
+		if(D3.gold>gold) {
+			System.out.println("골드가 부족하여 구매할 수 없습니다.");
+			break;
+		}
+		gold=gold- D3.gold;
+		
+		inven.addEquipment(D3);
+		break;
+	default :
+		System.out.println("잘못 선택하셨습니다. 돌아갑니다.");
+		break;
+	
+		}
+	
+		
+		
+		
+	}
+	
+	
+	
+	
+//	void addEquipStat() {
+//
+//		super.setMaxHealth(super.getMaxHealth()); // 최대체력 +장비체력
+//
+//		super.setCurrentHealth(super.getCurrentHealth()); // 현재체력 +장비체력
+//
+//		super.setEvasion(super.getEvasion()); // 회피율 +장비회피율
+//
+//		super.setCurrentStrength(super.getCurrentStrength()); // 공격력 +장비공격력
+//
+//	}
+//
+//	// 레벨업 계산시 능력치를 빼주었다가 추가하기 위한 메서드
+//	void minEquipStat() {
+//
+//		super.setMaxHealth(super.getMaxHealth()); // 최대체력 - 장비체력
+//
+//		super.setCurrentHealth(super.getCurrentHealth()); // 현재체력 -장비체력
+//
+//		super.setEvasion(super.getEvasion()); // 회피율 +장비회피율
+//
+//		super.setCurrentStrength(super.getCurrentStrength()); // 공격력 -장비공격력
+//
+//	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

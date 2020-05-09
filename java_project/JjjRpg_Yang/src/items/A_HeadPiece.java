@@ -22,6 +22,9 @@ public class A_HeadPiece extends Item {
 		
 	}
 
+	
+	
+	
 	@Override
 	public String toString() {
 		return "A_HeadPiece [equipmentName=" + equipmentName + ", equipmentType=" + equipmentType + ", attackPower="

@@ -69,39 +69,31 @@ public class TestMain {
 //		iv.addEquipment(D2);
 //
 //		iv.addEquipment(D3);
-		PotionInven pi = new PotionInven(null, 0, 0,0);
+		
 
 		Scanner sc = new Scanner(System.in);
 
 		// 포션 구매
-		System.out.println("포션 선택");
-		int ps = sc.nextInt();
-		sc.nextLine();
-		System.out.println("포션 개수");
-		int pn = sc.nextInt();
-		sc.nextLine();
-
-		player.buyPotion(ps, pn);
-
-		player.buyPotion(ps, pn);
 		
 		
-		player.usePotion(1);
 		
 		
-		iv.showInventory();
-		iv.showEquip();
-
 		
-		iv.equipItem();
-		iv.equipItem();
-		iv.equipItem();
-		iv.equipItem();
-		iv.equipItem();
-			
-
 		
-		iv.calEquipStat();
+		
+//		iv.showInventory();
+//		iv.showEquip();
+//
+//		
+//		iv.equipItem();
+//		iv.equipItem();
+//		iv.equipItem();
+//		iv.equipItem();
+//		iv.equipItem();
+//			
+//
+//		
+//		iv.calEquipStat();
 		
 		
 	}
