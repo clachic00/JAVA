@@ -4,13 +4,13 @@ public class Potion {
 
 	
 	
-	String pName;
+	public String pName;
 
-	int pAddHealth;
+	public int pAddHealth;
 
-	int pNum;
+	public int pNum;
 	
-	int price;
+	public int price;
 	
 	
 	public Potion(String pName, int pAddHealth, int pNum, int price) {

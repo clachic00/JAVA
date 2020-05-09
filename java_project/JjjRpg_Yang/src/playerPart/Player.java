@@ -5,6 +5,21 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import items.A_Hat;
+import items.A_HeadPiece;
+import items.B_DiamondArmor;
+import items.B_OldArmor;
+import items.B_ShiningArmor;
+import items.C_InvisibilityCloak;
+import items.C_OldCloak;
+import items.C_ShiningCloak;
+import items.D_DiamondWand;
+import items.D_GoldWand;
+import items.D_SilverWand;
+import items.Inventory;
+import potionStore.Potion;
+import potionStore.PotionInven;
+
 public class Player extends Entity {
 
 	// 변수선언
@@ -13,11 +28,46 @@ public class Player extends Entity {
 	// private int currentHealth;
 	// private int maxHealth;
 	// private float evasion;
+	//장비 인스턴스 생성
+			public A_Hat A1 = new A_Hat("", 0, 0, 0, 0, 0);
+
+			A_HeadPiece A2 = new A_HeadPiece("", 0, 0, 0, 0, 0);
+
+			B_OldArmor B1 = new B_OldArmor("", 0, 0, 0, 0, 0);
+
+			B_ShiningArmor B2 = new B_ShiningArmor("", 0, 0, 0, 0, 0);
+
+			B_DiamondArmor B3 = new B_DiamondArmor("", 0, 0, 0, 0, 0);
+
+			C_OldCloak C1 = new C_OldCloak("", 0, 0, 0, 0, 0);
+
+			C_ShiningCloak C2 = new C_ShiningCloak("", 0, 0, 0, 0, 0);
+
+			C_InvisibilityCloak C3 = new C_InvisibilityCloak("", 0, 0, 0, 0, 0);
+
+			D_SilverWand D1 = new D_SilverWand("", 0, 0, 0, 0, 0);
+
+			D_GoldWand D2 = new D_GoldWand("", 0, 0, 0, 0, 0);
+
+			D_DiamondWand D3 = new D_DiamondWand("", 0, 0, 0, 0, 0);
+			
+			public Inventory inven = new Inventory();
+			
+			
+	private PotionInven p;
 	private int gold;
 	private int currentLevel;
 	private int currentExp;
 	private int levelUpExp;
 	private Scanner sc;
+	public ArrayList<Potion> potion = new ArrayList<Potion>(3);
+
+	// S M L
+	public Potion sp = new Potion("Small Potion", 30, 0, 20);
+
+	public Potion np = new Potion("Normal Potion", 60, 0, 30);
+
+	public Potion bp = new Potion("Big Potion", 150, 0, 60);
 
 	public Player() {
 		super.setName("");
@@ -30,7 +80,7 @@ public class Player extends Entity {
 		currentExp = 0;
 		levelUpExp = BasicInfo.BASIC_EXP;
 		sc = new Scanner(System.in);
-
+		p = new PotionInven();
 	}
 
 	// 캐릭터의 이름을 받는 메서드
@@ -175,6 +225,95 @@ public class Player extends Entity {
 		super.setEvasion(super.getEvasion()); // 회피율 +장비회피율
 
 		super.setCurrentStrength(super.getCurrentStrength()); // 공격력 -장비공격력
+
+	}
+
+	// 포션구매 메서드
+	public void buyPotion(int i, int num) {
+
+		// 처음에만 포션틀을 추가
+		if (potion.size() == 0) {
+			potion.add(sp);
+			potion.add(np);
+			potion.add(bp);
+		}
+
+		switch (i) {
+		case 1:
+			potion.set(0, new Potion("Small Potion", 30, (potion.get(0).pNum) + num, 20));
+
+			// 돈 증감 세터
+			gold = gold + 20 * num;
+
+			break;
+
+		case 2:
+			potion.set(1, new Potion("Normal Potion", 60, (potion.get(1).pNum) + num, 30));
+			gold = gold + 30 * num;
+
+			break;
+		case 3:
+			potion.set(2, new Potion("Big Potion", 150, (p.potion.get(2).pNum) + num, 60));
+			gold = gold + 60 * num;
+			// 돈 증감 세터
+
+			break;
+
+		}
+
+		System.out.println(potion.get(i - 1).pName + ", " + potion.get(i - 1).pNum);
+
+		System.out.println(potion.toString());
+
+	}
+
+	// 포션 사용 메서드
+	public void usePotion(int i) {
+
+		switch (i) {
+		case 1:
+			potion.set(0, new Potion("Small Potion", 30, (potion.get(0).pNum) - 1, 20));
+
+			// 체력 증가 세터
+
+			setCurrentHealth(getCurrentHealth() + 30);
+
+			if (getCurrentHealth() > getMaxHealth()) {
+				setCurrentHealth(getMaxHealth());
+			}
+
+			break;
+
+		case 2:
+			potion.set(1, new Potion("Normal Potion", 60, (potion.get(1).pNum) - 1, 30));
+
+			// 체력 증가 세터
+			setCurrentHealth(getCurrentHealth() + 60);
+
+			if (getCurrentHealth() > getMaxHealth()) {
+				setCurrentHealth(getMaxHealth());
+			}
+
+			break;
+		case 3:
+			potion.set(2, new Potion("Big Potion", 150, (potion.get(2).pNum) - 1, 60));
+
+			// 체력 증가 세터
+
+			setCurrentHealth(getCurrentHealth()+150);
+			
+			if(getCurrentHealth()>getMaxHealth()) {
+				setCurrentHealth(getMaxHealth());
+			}
+			break;
+
+		}
+
+	}
+
+	public void showPotion() {
+
+		System.out.println(potion.toString());
 
 	}
 

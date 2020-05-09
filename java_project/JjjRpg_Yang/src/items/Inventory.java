@@ -49,9 +49,11 @@ public class Inventory {
 		System.out.println("");
 
 		System.out.println("==============장착한 장비 목록==============");
-
+		if (equip.size()==0) {
+			System.out.println("장착한 장비가 없습니다.");
+		}
 		for (int i = 0; i < equip.size(); i++) {
-			System.out.println(i + "." + equip.get(i).toString());
+			System.out.println((i+1) + "." + equip.get(i).toString());
 
 			System.out.println(
 					"=========================================================================================================");
@@ -70,13 +72,13 @@ public class Inventory {
 
 		sc.nextLine();
 
-		checkType(inven.get(select).equipmentType); // 장비 타입 비교해서 중복된 타입일 시 장비 반환
+		checkType(inven.get((select-1)).equipmentType); // 장비 타입 비교해서 중복된 타입일 시 장비 반환
 
-		equip.add(inven.get(select));
+		equip.add(inven.get((select-1)));
 
-		System.out.println(inven.get(select).equipmentName + "장착");
+		System.out.println(inven.get((select-1)).equipmentName + "장착");
 
-		inven.remove(select);
+		inven.remove((select-1));
 
 		showInventory();
 		showEquip();
