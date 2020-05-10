@@ -25,7 +25,7 @@ public class Battle {
 		
 		
 		
-		dmg = (p.invenCurrentStrength) * 10;
+		dmg = (p.invenCurrentStrength) * 3;
 
 		if (monsterEvasion(m)) {
 			System.out.println("몬스터가 플레이어의 공격을 회피했습니다! 데미지가 0이 됩니다.");
@@ -44,9 +44,17 @@ public class Battle {
 			mdmg = 0;
 		}
 		
-		p.setCurrentHealth(p.invenCurrnentHealth - mdmg);
+
+		p.invenCurrentHealth = p.invenCurrentHealth -mdmg;
 		
-		System.out.println(mdmg + " 만큼 가격!   " + p.getName() + " 플레이어님의 체력은:" + p.invenCurrnentHealth);
+		if(p.invenCurrentHealth<0)
+			p.invenCurrentHealth=0;
+		
+//		p.setCurrentHealth(p.getCurrentHealth() - mdmg);
+//		
+//		System.out.println(p.getCurrentHealth());
+		
+		System.out.println(mdmg + " 만큼 가격!   " + p.getName() + " 플레이어님의 체력은:" + p.invenCurrentHealth);
 	
 	
 		
@@ -77,7 +85,6 @@ public class Battle {
 	int choicePlayerMovement(Monster m, Player p) {
 		int result = 0;
 		this.battleResult = result;
-		p.calEquipStat();
 
 		System.out.println("====== 전투 시작 ======");
 
@@ -90,9 +97,9 @@ public class Battle {
 
 				playerAttack(p, m);
 				monsterAttack(p, m);
-				if (p.invenCurrnentHealth <= 0) {
+				if (p.invenCurrentHealth <= 0) {
 
-					// 패배 시 result = 1;
+					// 패배 시 resul t = 1;
 					result = 1;
 					break;
 
