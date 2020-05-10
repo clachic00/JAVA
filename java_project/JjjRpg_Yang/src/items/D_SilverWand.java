@@ -18,7 +18,7 @@ public class D_SilverWand extends Item {
 		
 		this.evasion = 1;
 		
-		this.gold = 20;
+		this.gold = 300;
 		
 	}
 	

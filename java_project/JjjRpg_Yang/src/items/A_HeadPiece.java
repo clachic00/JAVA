@@ -18,7 +18,7 @@ public class A_HeadPiece extends Item {
 		
 		this.evasion = 1;
 		
-		this.gold = 20;
+		this.gold = 200;
 		
 	}
 

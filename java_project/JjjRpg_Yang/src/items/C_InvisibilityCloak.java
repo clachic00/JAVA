@@ -18,7 +18,7 @@ public class C_InvisibilityCloak extends Item {
 		
 		this.evasion = 4;
 		
-		this.gold = 20;
+		this.gold = 2000;
 		
 	}
 	

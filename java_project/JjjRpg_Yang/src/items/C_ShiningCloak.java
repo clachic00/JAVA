@@ -18,7 +18,7 @@ public class C_ShiningCloak extends Item {
 		
 		this.evasion = 1;
 		
-		this.gold = 20;
+		this.gold = 800;
 		
 	}
 	

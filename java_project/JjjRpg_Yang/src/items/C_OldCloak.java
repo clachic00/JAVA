@@ -14,11 +14,11 @@ public class C_OldCloak extends Item {
 		
 		this.attackPower = 10;
 				
-		this.health = 50;
+		this.health = 200;
 		
 		this.evasion = 1;
 		
-		this.gold = 20;
+		this.gold = 200;
 		
 	}
 	

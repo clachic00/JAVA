@@ -18,7 +18,7 @@ public class A_Hat extends Item {
 		
 		this.evasion = 0;
 		
-		this.gold = 20;
+		this.gold = 100;
 		
 	}
 

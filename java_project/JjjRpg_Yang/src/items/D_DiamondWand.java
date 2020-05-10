@@ -14,11 +14,11 @@ public class D_DiamondWand extends Item {
 		
 		this.attackPower = 300;
 				
-		this.health = 50;
+		this.health = 200;
 		
-		this.evasion = 1;
+		this.evasion = 2;
 		
-		this.gold = 20;
+		this.gold = 3000;
 		
 	}
 	

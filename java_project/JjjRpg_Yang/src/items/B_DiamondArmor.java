@@ -18,7 +18,7 @@ public class B_DiamondArmor extends Item {
 		
 		this.evasion = 2;
 		
-		this.gold = 20;
+		this.gold = 1000;
 		
 	}
 	

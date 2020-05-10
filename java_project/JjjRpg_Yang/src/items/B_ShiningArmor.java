@@ -14,11 +14,11 @@ public class B_ShiningArmor extends Item {
 		
 		this.attackPower = 10;
 				
-		this.health = 50;
+		this.health = 300;
 		
 		this.evasion = 1;
 		
-		this.gold = 20;
+		this.gold = 600;
 		
 	}
 	
