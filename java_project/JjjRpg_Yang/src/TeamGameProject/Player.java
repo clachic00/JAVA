@@ -4,6 +4,7 @@ package TeamGameProject;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 import items.A_Hat;
@@ -19,39 +20,28 @@ import items.D_GoldWand;
 import items.D_SilverWand;
 import items.Inven;
 import potionStore.Potion;
+import skills.Angry;
+import skills.DoubleAngry;
+import skills.SkillInven;
+import skills.TripleAngry;
 
 public class Player extends Entity {
 
-	// 변수선언
-	// private String name;
-	// private int currentStrength;;
-	// private int currentHealth;
-	// private int maxHealth;
-	// private float evasion;
-
-	public A_Hat A1 = new A_Hat("", 0, 0, 0, 0, 0);
-
-	public A_HeadPiece A2 = new A_HeadPiece("", 0, 0, 0, 0, 0);
-
-	public B_OldArmor B1 = new B_OldArmor("", 0, 0, 0, 0, 0);
-
-	public B_ShiningArmor B2 = new B_ShiningArmor("", 0, 0, 0, 0, 0);
-
-	public B_DiamondArmor B3 = new B_DiamondArmor("", 0, 0, 0, 0, 0);
-
-	public C_OldCloak C1 = new C_OldCloak("", 0, 0, 0, 0, 0);
-
-	public C_ShiningCloak C2 = new C_ShiningCloak("", 0, 0, 0, 0, 0);
-
-	public C_InvisibilityCloak C3 = new C_InvisibilityCloak("", 0, 0, 0, 0, 0);
-
-	public D_SilverWand D1 = new D_SilverWand("", 0, 0, 0, 0, 0);
-
-	public D_GoldWand D2 = new D_GoldWand("", 0, 0, 0, 0, 0);
-
-	public D_DiamondWand D3 = new D_DiamondWand("", 0, 0, 0, 0, 0);
 
 	public Inven inven = new Inven();
+	public A_Hat A1 = new A_Hat("", 0, 0, 0, 0, 0);
+	public A_HeadPiece A2 = new A_HeadPiece("", 0, 0, 0, 0, 0);
+	public B_OldArmor B1 = new B_OldArmor("", 0, 0, 0, 0, 0);
+	public B_ShiningArmor B2 = new B_ShiningArmor("", 0, 0, 0, 0, 0);
+	public B_DiamondArmor B3 = new B_DiamondArmor("", 0, 0, 0, 0, 0);
+	public C_OldCloak C1 = new C_OldCloak("", 0, 0, 0, 0, 0);
+	public C_ShiningCloak C2 = new C_ShiningCloak("", 0, 0, 0, 0, 0);
+	public C_InvisibilityCloak C3 = new C_InvisibilityCloak("", 0, 0, 0, 0, 0);
+	public D_SilverWand D1 = new D_SilverWand("", 0, 0, 0, 0, 0);
+	public D_GoldWand D2 = new D_GoldWand("", 0, 0, 0, 0, 0);
+	public D_DiamondWand D3 = new D_DiamondWand("", 0, 0, 0, 0, 0);
+
+	public ArrayList<Potion> potion = new ArrayList<Potion>(3);
 
 	public int invenMaxHealth;
 	public int invenCurrentHealth;
@@ -62,16 +52,31 @@ public class Player extends Entity {
 	private int currentLevel;
 	private int currentExp;
 	private int levelUpExp;
-	private Scanner sc;
-	public ArrayList<Potion> potion = new ArrayList<Potion>(3);
 
+	private Scanner sc;
 	// S M L
 	public Potion sp = new Potion("Small Potion", 30, 0, 20);
-
 	public Potion np = new Potion("Normal Potion", 60, 0, 30);
-
 	public Potion bp = new Potion("Big Potion", 150, 0, 60);
+	
+	public SkillInven skill = new SkillInven();
+	
+	public Angry Skill1 = new Angry("", 0, 0, 0);
+	public DoubleAngry Skill2 = new DoubleAngry("", 0, 0, 0);
+	public TripleAngry Skill3 = new TripleAngry("", 0, 0, 0);
 
+	
+	
+	
+	public int bossCount;
+	public int stage2Count;
+	public int stage3Count;
+	
+
+	
+	
+	
+	
 	// 캐릭터의 이름을 받는 메서드
 	void addName() {
 //
@@ -81,7 +86,8 @@ public class Player extends Entity {
 		super.setName(JOptionPane.showInputDialog("캐릭터의 이름을 입력해주세요."));
 
 		while (true) {
-			System.out.println("입력하신 이름이 " + super.getName() + "님이 맞습니까? 맞으면 y 틀리면n");
+			System.out.println("입력하신 이름이 " + super.getName() + "님이 맞습니까? \n> 맞으면 y 틀리면n");
+
 			String check = sc.nextLine();
 
 			if (check.equals("y") || check.equals("Y")) {
@@ -176,16 +182,27 @@ public class Player extends Entity {
 
 		System.out.println("0. 마을로 돌아가기");
 
-		int select = sc.nextInt();
+		int select = 0;
+		try {
+			select = sc.nextInt();
+		} catch (Exception e) {
+			System.out.println("잘못누르셨습니다.");
+			return;
+		} finally {
 
-		sc.nextLine();
+			sc.nextLine();
+
+		}
 
 		if (select == 0) {
 			return;
 		}
-
-		inven.checkType(inven.inven.get((select - 1)).equipmentType); // 장비 타입 비교해서 중복된 타입일 시 장비 반환
-
+		try {
+			inven.checkType(inven.inven.get((select - 1)).equipmentType); // 장비 타입 비교해서 중복된 타입일 시 장비 반환
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("해당칸에 장비가 없습니다.");
+			return;
+		}
 		inven.equip.add(inven.inven.get((select - 1)));
 
 		System.out.println(inven.inven.get((select - 1)).equipmentName + "장착");
@@ -195,6 +212,8 @@ public class Player extends Entity {
 		int dmg = invenMaxHealth - invenCurrentHealth;
 
 		calEquipStat();
+		System.out.println("장비공격력 : " + inven.equipPower + ", " + "장비체력 : " + inven.equipHealth + ", " + "장비회피율 : "
+				+ inven.equipEvasion);
 		invenCurrentStrength = currentStrength + inven.equipPower;
 		invenMaxHealth = maxHealth + inven.equipHealth;
 		invenCurrentHealth = currentHealth + inven.equipHealth - dmg;
@@ -221,7 +240,7 @@ public class Player extends Entity {
 	}
 
 	// 포션구매 메서드
-	public void buyPotion(int i, int num) {
+	public void buyPotion(int i, int num) throws Exception{
 
 		// 처음에만 포션틀을 추가
 		if (potion.size() == 0) {
@@ -232,47 +251,83 @@ public class Player extends Entity {
 
 		switch (i) {
 		case 1:
+			
+			if (potion.get(0).price*num>gold) {
+				System.out.println("골드가 부족하여 구매할수없습니다.");
+				break;
+			}
+			
+			
 			potion.set(0, new Potion("Small Potion", 30, (potion.get(0).pNum) + num, 20));
 
 			gold = gold - 20 * num;
+			System.out.println(potion.get(i - 1).pName + ", " + potion.get(i - 1).pNum);
 
+			System.out.println(potion.toString());
+			System.out.println("포션을 구매하였습니다.");
 			break;
 
 		case 2:
+			
+			if (potion.get(1).price*num>gold) {
+				System.out.println("골드가 부족하여 구매할수없습니다.");
+				break;
+			}
+			
 			potion.set(1, new Potion("Normal Potion", 60, (potion.get(1).pNum) + num, 30));
 
 			gold = gold - 30 * num;
+			System.out.println(potion.get(i - 1).pName + ", " + potion.get(i - 1).pNum);
 
+			System.out.println(potion.toString());
+			System.out.println("포션을 구매하였습니다.");
 			break;
 		case 3:
+			
+			if (potion.get(2).price*num>gold) {
+				System.out.println("골드가 부족하여 구매할수없습니다.");
+				break;
+			}
+			
 			potion.set(2, new Potion("Big Potion", 150, (potion.get(2).pNum) + num, 60));
 
 			gold = gold - 60 * num;
+			System.out.println(potion.get(i - 1).pName + ", " + potion.get(i - 1).pNum);
 
+			System.out.println(potion.toString());
+			System.out.println("포션을 구매하였습니다.");
 			break;
 
 		}
 
-		System.out.println(potion.get(i - 1).pName + ", " + potion.get(i - 1).pNum);
-
-		System.out.println(potion.toString());
-		System.out.println("포션을 구매하였습니다.");
+		
 	}
 
 	// 포션 사용 메서드
-	public void usePotion(int i) {
-
+	public void usePotion(int i) throws Exception {
+		if (potion.size() == 0) {
+			potion.add(sp);
+			potion.add(np);
+			potion.add(bp);
+		}
 		switch (i) {
+
+		
+		
+		case 0:
+			System.out.println("전투창으로 돌아갑니다.");
+			break;
+		
 		case 1:
+
+			if (potion.get(0).pNum == 0) {
+				System.out.println("포션이 없으므로 돌아갑니다.");
+				break;
+			}
+
 			potion.set(0, new Potion("Small Potion", 30, (potion.get(0).pNum) - 1, 20));
 
-			// 체력 증가 세터
-//
-//			setCurrentHealth(getCurrentHealth() + 30);
-//
-//			if (getCurrentHealth() > getMaxHealth()) {
-//				setCurrentHealth(getMaxHealth());
-//			}
+			System.out.println("포션을 사용하였습니다.");
 
 			invenCurrentHealth = invenCurrentHealth + 30;
 
@@ -283,14 +338,12 @@ public class Player extends Entity {
 			break;
 
 		case 2:
+			if (potion.get(1).pNum == 0) {
+				System.out.println("포션이 없으므로 돌아갑니다.");
+				break;
+			}
 			potion.set(1, new Potion("Normal Potion", 60, (potion.get(1).pNum) - 1, 30));
-
-			// 체력 증가 세터
-//			setCurrentHealth(getCurrentHealth() + 60);
-//
-//			if (getCurrentHealth() > getMaxHealth()) {
-//				setCurrentHealth(getMaxHealth());
-//			}
+			System.out.println("포션을 사용하였습니다.");
 
 			invenCurrentHealth = invenCurrentHealth + 60;
 
@@ -300,15 +353,13 @@ public class Player extends Entity {
 
 			break;
 		case 3:
+			if (potion.get(2).pNum == 0) {
+				System.out.println("포션이 없으므로 돌아갑니다.");
+				break;
+			}
 			potion.set(2, new Potion("Big Potion", 150, (potion.get(2).pNum) - 1, 60));
 
-			// 체력 증가 세터
-
-//			setCurrentHealth(getCurrentHealth() + 150);
-//
-//			if (getCurrentHealth() > getMaxHealth()) {
-//				setCurrentHealth(getMaxHealth());
-//			}
+			System.out.println("포션을 사용하였습니다.");
 
 			invenCurrentHealth = invenCurrentHealth + 150;
 
@@ -322,6 +373,11 @@ public class Player extends Entity {
 	}
 
 	public void showPotion() {
+		if (potion.size() == 0) {
+			potion.add(sp);
+			potion.add(np);
+			potion.add(bp);
+		}
 		System.out.println("==========보유 포션==========");
 		System.out.println(potion.toString());
 
@@ -479,14 +535,25 @@ public class Player extends Entity {
 
 		System.out.println("0. 마을로 돌아가기");
 
-		int select = sc.nextInt();
-
-		sc.nextLine();
-
+		int select = 0;
+		try {
+			select = sc.nextInt();
+		} catch (Exception e) {
+			System.out.println("잘못 누르셨습니다.");
+			return;
+		} finally {
+			sc.nextLine();
+		}
 		if (select == 0) {
 			return;
 		}
-		setGold(getGold() + inven.inven.get(select - 1).gold);
+		try {
+			setGold(getGold() + inven.inven.get(select - 1).gold);
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("해당칸에 장비가 없습니다.");
+			return;
+		}
+
 		inven.inven.remove(select - 1);
 
 		System.out.println("판매 되었습니다.");
@@ -496,19 +563,29 @@ public class Player extends Entity {
 	// 장비의 스탯 계산
 	public void calEquipStat() {
 
+		inven.equipPower =0;
+		inven.equipHealth = 0;
+		inven.equipEvasion =0;
+		
 		for (int i = 0; i < inven.equip.size(); i++) {
 
-			inven.equipPower = inven.equip.get(i).attackPower;
-			inven.equipHealth = inven.equip.get(i).health;
-			inven.equipEvasion = inven.equip.get(i).evasion;
+			
+			
+			
+			
+			
+			inven.equipPower = inven.equipPower + inven.equip.get(i).attackPower;
+			inven.equipHealth = inven.equipHealth + inven.equip.get(i).health;
+			inven.equipEvasion = inven.equipEvasion + inven.equip.get(i).evasion;
 
 		}
 
-		System.out.println("장비공격력 : " + inven.equipPower + ", " + "장비체력 : " + inven.equipHealth + ", " + "장비회피율 : "
-				+ inven.equipEvasion);
-
 	}
 
+	
+	
+	
+	
 	public int getGold() {
 		return gold;
 	}
@@ -532,5 +609,35 @@ public class Player extends Entity {
 	public int setCurrentLevel(int currentLevel) {
 		return this.currentLevel = currentLevel;
 	}
+	
+	public int getBossCount() {
+		return bossCount;
+	}
+
+	public void setBossCount(int bossCount) {
+		this.bossCount = bossCount;
+	}
+
+	public int getStage2Count() {
+		return stage2Count;
+	}
+
+	public void setStage2Count(int stage2Count) {
+		this.stage2Count = stage2Count;
+	}
+
+	public int getStage3Count() {
+		return stage3Count;
+	}
+
+	public void setStage3Count(int stage3Count) {
+		this.stage3Count = stage3Count;
+	}
+
+
+	
+	
+	
+	
 
 }
