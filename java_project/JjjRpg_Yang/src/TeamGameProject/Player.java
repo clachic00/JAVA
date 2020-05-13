@@ -1,9 +1,13 @@
 package TeamGameProject;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInput;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -22,6 +26,7 @@ import items.D_DiamondWand;
 import items.D_GoldWand;
 import items.D_SilverWand;
 import items.Inven;
+import items.Item;
 import potionStore.Potion;
 import skills.Bash;
 import skills.Brandish;
@@ -297,7 +302,7 @@ public class Player extends Entity {
 
 	// 포션 사용 메서드
 	public void usePotion(int i) {
-		if(potion.get(i-1).pNum==0) {
+		if (potion.get(i - 1).pNum == 0) {
 			System.out.println("해당 포션이 없어서 사용할 수 없습니다.");
 			return;
 		}
@@ -362,11 +367,11 @@ public class Player extends Entity {
 
 	public void showPotion() {
 		// 처음에만 포션틀을 추가
-				if (potion.size() == 0) {
-					potion.add(sp);
-					potion.add(np);
-					potion.add(bp);
-				}
+		if (potion.size() == 0) {
+			potion.add(sp);
+			potion.add(np);
+			potion.add(bp);
+		}
 		System.out.println("	==========보유 포션==========");
 		System.out.println("	" + potion.toString());
 
@@ -561,20 +566,22 @@ public class Player extends Entity {
 		this.gold = gold;
 	}
 
-	public int getCurrentExp() {//levelUpExp
+	public int getCurrentExp() {// levelUpExp
 		return currentExp;
 	}
 
 	public int setCurrentExp(int currentExp) {
 		return this.currentExp = currentExp;
 	}
-	public int getLevelUpExp() {//levelUpExp
+
+	public int getLevelUpExp() {// levelUpExp
 		return levelUpExp;
 	}
 
 	public int setLevelUpExp(int levelUpExp) {
 		return this.levelUpExp = levelUpExp;
 	}
+
 	public int getCurrentLevel() {
 		return currentLevel;
 	}
@@ -606,24 +613,28 @@ public class Player extends Entity {
 	public void setStage3Count(int stage3Count) {
 		this.stage3Count = stage3Count;
 	}
+
 	// 플레이어 상태 저장/불러오기 메서드
 	public void loadPlayer() {// 불러오기
 		FileInputStream f = null;
 		ObjectInputStream oos = null;
+		//ByteArrayInputStream oas = null;
+
 //		Player load = new Player();
 		String name;
-		int currentLevel, currentHealth, maxHealth, currentStrength, evasion, exp, gold,levelUpExp;
-		/*		invenMaxHealth = maxHealth + inven.equipHealth;
-		invenCurrentHealth = currentHealth + inven.equipHealth;
-		invenCurrentStrength = currentStrength + inven.equipPower;
-		invenCurrentEvasion = getEvasion() + inven.equipEvasion;*/
-		
-		int invenCurrentHealth,invenMaxHealth,invenCurrentStrength,invenCurrentEvasion;
-		/*public int bossCount;//저장해야됨
-			public int stage2Count;
-			public int stage3Count;*/
-		
-		int bossCount,stage2Count,stage3Count;
+		int currentLevel, currentHealth, maxHealth, currentStrength, evasion, exp, gold, levelUpExp;
+		/*
+		 * invenMaxHealth = maxHealth + inven.equipHealth; invenCurrentHealth =
+		 * currentHealth + inven.equipHealth; invenCurrentStrength = currentStrength +
+		 * inven.equipPower; invenCurrentEvasion = getEvasion() + inven.equipEvasion;
+		 */
+
+		int invenCurrentHealth, invenMaxHealth, invenCurrentStrength, invenCurrentEvasion;
+		/*
+		 * public int bossCount;//저장해야됨 public int stage2Count; public int stage3Count;
+		 */
+
+		int bossCount, stage2Count, stage3Count;
 		try {
 			f = new FileInputStream("data.ser");
 			oos = new ObjectInputStream(f);
@@ -640,7 +651,7 @@ public class Player extends Entity {
 //			load.setEvasion((Integer) oos.readObject());
 
 			exp = ((Integer) oos.readObject());
-			levelUpExp = ((Integer) oos.readObject());//추가
+			levelUpExp = ((Integer) oos.readObject());// 추가
 			// ============================================================== 추가사항
 			gold = ((Integer) oos.readObject());
 			// ============================================================== 수정사항
@@ -652,9 +663,8 @@ public class Player extends Entity {
 			bossCount = ((Integer) oos.readObject());
 			stage2Count = ((Integer) oos.readObject());
 			stage3Count = ((Integer) oos.readObject());
-			
-			
-			/*
+			// ============================================================== 수정사항
+	/*
 			 * System.out.println("이름 : " + this.name); System.out.println("레벨 : " +
 			 * this.currentLevel + " UP↑"); System.out.println("HP : " + invenCurrentHealth
 			 * + "/" + invenMaxHealth); System.out.println("공격력 : " + invenCurrentStrength);
@@ -695,19 +705,23 @@ public class Player extends Entity {
 			this.setGold(gold);
 
 //			System.out.println("=======================================인벤토리");
-			this.invenCurrentHealth =invenCurrentHealth; //변수 필요없음
+			this.invenCurrentHealth = invenCurrentHealth; // 변수 필요없음
 			this.invenMaxHealth = invenMaxHealth;
-			this.invenCurrentStrength =invenCurrentStrength;
-			this.invenCurrentEvasion =invenCurrentEvasion;
+			this.invenCurrentStrength = invenCurrentStrength;
+			this.invenCurrentEvasion = invenCurrentEvasion;
 //			System.out.println("=======================================카운트");
-			this.bossCount=bossCount;
-			this.stage2Count=stage2Count;
-			this.stage3Count=stage3Count;
-			
-			/*invenCurrentStrength = currentStrength + inven.equipPower;
-			invenMaxHealth = maxHealth + inven.equipHealth;
-			invenCurrentHealth = currentHealth + inven.equipHealth - dmg;
-			invenCurrentEvasion = getEvasion() + inven.equipEvasion;*/
+			this.bossCount = bossCount;
+			this.stage2Count = stage2Count;
+			this.stage3Count = stage3Count;
+			System.out.println("=======================================장비리스트");
+
+
+			/*
+			 * invenCurrentStrength = currentStrength + inven.equipPower; invenMaxHealth =
+			 * maxHealth + inven.equipHealth; invenCurrentHealth = currentHealth +
+			 * inven.equipHealth - dmg; invenCurrentEvasion = getEvasion() +
+			 * inven.equipEvasion;
+			 */
 
 //			System.out.println("경험치확인(불러온 후)====="+this.expWorth);
 //			System.out.println("불러온 후======");
@@ -739,12 +753,17 @@ public class Player extends Entity {
 	public void savePlayer() {// 저장
 		FileOutputStream f = null;
 		ObjectOutputStream oos = null;
+//		ByteArrayOutputStream baos = null;
+//		byte[] serializedMember;
+
 		try {
 //			Player Save=p;
 			this.showStatus();
 //			System.out.println("==========확인");
 			f = new FileOutputStream("data.ser");
 			oos = new ObjectOutputStream(f);
+		//	baos = new ByteArrayOutputStream();
+
 			// ============================================================== 수정사항
 			/*
 			 * System.out.println("이름 : " + this.name); System.out.println("레벨 : " +
@@ -783,11 +802,14 @@ public class Player extends Entity {
 			oos.writeObject(this.bossCount);
 			oos.writeObject(this.stage2Count);
 			oos.writeObject(this.stage3Count);
-//			System.out.println("=====exp:"+this.getCurrentExp());
-//			oos.writeObject(Save);
+
+//			oos = new ObjectOutputStream(baos);
+//			oos.writeObject(this.inven.equip);
+//			oos.writeObject(this.inven.inven);
 
 			f.close();
 			oos.close();
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
