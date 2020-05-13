@@ -35,64 +35,64 @@ import skills.SkillInven;
 
 public class Player extends Entity {
 
-	// 변수선언
-	// private String name;
-	// private int currentStrength;;
-	// private int currentHealth;
-	// private int maxHealth;
-	// private float evasion;
+	private A_Hat A1 = new A_Hat("", 0, 0, 0, 0, 0);
+	private A_HeadPiece A2 = new A_HeadPiece("", 0, 0, 0, 0, 0);
+	private B_OldArmor B1 = new B_OldArmor("", 0, 0, 0, 0, 0);
+	private B_ShiningArmor B2 = new B_ShiningArmor("", 0, 0, 0, 0, 0);
+	private B_DiamondArmor B3 = new B_DiamondArmor("", 0, 0, 0, 0, 0);
+	private C_OldCloak C1 = new C_OldCloak("", 0, 0, 0, 0, 0);
+	private C_ShiningCloak C2 = new C_ShiningCloak("", 0, 0, 0, 0, 0);
+	private C_InvisibilityCloak C3 = new C_InvisibilityCloak("", 0, 0, 0, 0, 0);
+	private D_SilverWand D1 = new D_SilverWand("", 0, 0, 0, 0, 0);
+	private D_GoldWand D2 = new D_GoldWand("", 0, 0, 0, 0, 0);
+	private D_DiamondWand D3 = new D_DiamondWand("", 0, 0, 0, 0, 0);
+	private Inven inven = new Inven();
 
-	public A_Hat A1 = new A_Hat("", 0, 0, 0, 0, 0);
-
-	public A_HeadPiece A2 = new A_HeadPiece("", 0, 0, 0, 0, 0);
-
-	public B_OldArmor B1 = new B_OldArmor("", 0, 0, 0, 0, 0);
-
-	public B_ShiningArmor B2 = new B_ShiningArmor("", 0, 0, 0, 0, 0);
-
-	public B_DiamondArmor B3 = new B_DiamondArmor("", 0, 0, 0, 0, 0);
-
-	public C_OldCloak C1 = new C_OldCloak("", 0, 0, 0, 0, 0);
-
-	public C_ShiningCloak C2 = new C_ShiningCloak("", 0, 0, 0, 0, 0);
-
-	public C_InvisibilityCloak C3 = new C_InvisibilityCloak("", 0, 0, 0, 0, 0);
-
-	public D_SilverWand D1 = new D_SilverWand("", 0, 0, 0, 0, 0);
-
-	public D_GoldWand D2 = new D_GoldWand("", 0, 0, 0, 0, 0);
-
-	public D_DiamondWand D3 = new D_DiamondWand("", 0, 0, 0, 0, 0);
-
-	public Inven inven = new Inven();
-
-	public int invenMaxHealth;
-	public int invenCurrentHealth;
-	public int invenCurrentEvasion;
-	public int invenCurrentStrength;
+	private int invenMaxHealth;
+	private int invenCurrentHealth;
+	private int invenCurrentEvasion;
+	private int invenCurrentStrength;
 
 	private int gold;
 	private int currentLevel;
 	private int currentExp;
 	private int levelUpExp;
 	private Scanner sc;
-	public ArrayList<Potion> potion = new ArrayList<Potion>(3);
+	private ArrayList<Potion> potion = new ArrayList<Potion>(3);
 
-	public SkillInven skillInven = new SkillInven();
-	public Bash Skill1 = new Bash("", 0, 0, 0);
-	public EdgeStrike Skill2 = new EdgeStrike("", 0, 0, 0);
-	public Brandish Skill3 = new Brandish("", 0, 0, 0);
+	private SkillInven skillInven = new SkillInven();
+	
 
-	public int bossCount;
-	public int stage2Count;
-	public int stage3Count;
+	private Bash Skill1 = new Bash("", 0, 0, 0);
+	private EdgeStrike Skill2 = new EdgeStrike("", 0, 0, 0);
+	private Brandish Skill3 = new Brandish("", 0, 0, 0);
+
+	private int bossCount;
+	private int stage2Count;
+	private int stage3Count;
 
 	// S M L
-	public Potion sp = new Potion("소형 체력 포션", 30, 0, 20);
+	private Potion sp = new Potion("소형 체력 포션", 30, 0, 20);
+	private Potion np = new Potion("중형 체력 포션", 60, 0, 30);
+	private Potion bp = new Potion("대형 체력 포션", 150, 0, 60);
 
-	public Potion np = new Potion("중형 체력 포션", 60, 0, 30);
+	public Player() {
 
-	public Potion bp = new Potion("대형 체력 포션", 150, 0, 60);
+		setName("");
+		currentLevel = BasicInfo.BASIC_LEVEL;
+		setCurrentHealth(BasicInfo.BASIC_HEALTH);
+		setMaxHealth(BasicInfo.BASIC_HEALTH);
+		setCurrentStrength(BasicInfo.BASIC_POWER);
+		setEvasion(0);
+		setGold(BasicInfo.BASIC_GOLD);// BasicInfo.BASIC_GOLD;
+		currentExp = 0;
+		levelUpExp = BasicInfo.BASIC_EXP;
+		sc = new Scanner(System.in);
+		invenMaxHealth = getMaxHealth() + inven.equipHealth;
+		invenCurrentHealth = getCurrentHealth() + inven.equipHealth;
+		invenCurrentStrength = getCurrentStrength() + inven.equipPower;
+		invenCurrentEvasion = getEvasion() + inven.equipEvasion;
+	}
 
 	// 캐릭터의 이름을 받는 메서드
 	void addName() {
@@ -115,24 +115,6 @@ public class Player extends Entity {
 				continue;
 			}
 		}
-	}
-
-	public Player() {
-
-		setName("");
-		currentLevel = BasicInfo.BASIC_LEVEL;
-		setCurrentHealth(BasicInfo.BASIC_HEALTH);
-		setMaxHealth(BasicInfo.BASIC_HEALTH);
-		setCurrentStrength(BasicInfo.BASIC_POWER);
-		setEvasion(0);
-		setGold(BasicInfo.BASIC_GOLD);// BasicInfo.BASIC_GOLD;
-		currentExp = 0;
-		levelUpExp = BasicInfo.BASIC_EXP;
-		sc = new Scanner(System.in);
-		invenMaxHealth = getMaxHealth() + inven.equipHealth;
-		invenCurrentHealth = getCurrentHealth() + inven.equipHealth;
-		invenCurrentStrength = getCurrentStrength() + inven.equipPower;
-		invenCurrentEvasion = getEvasion() + inven.equipEvasion;
 	}
 
 	// 체력의 변화를 반환하는 메서드
@@ -613,12 +595,55 @@ public class Player extends Entity {
 	public void setStage3Count(int stage3Count) {
 		this.stage3Count = stage3Count;
 	}
+	public int getInvenMaxHealth() {
+		return invenMaxHealth;
+	}
 
+	public void setInvenMaxHealth(int invenMaxHealth) {
+		this.invenMaxHealth = invenMaxHealth;
+	}
+
+	public int getInvenCurrentHealth() {
+		return invenCurrentHealth;
+	}
+
+	public void setInvenCurrentHealth(int invenCurrentHealth) {
+		this.invenCurrentHealth = invenCurrentHealth;
+	}
+
+	public int getInvenCurrentEvasion() {
+		return invenCurrentEvasion;
+	}
+
+	public void setInvenCurrentEvasion(int invenCurrentEvasion) {
+		this.invenCurrentEvasion = invenCurrentEvasion;
+	}
+
+	public int getInvenCurrentStrength() {
+		return invenCurrentStrength;
+	}
+
+	public void setInvenCurrentStrength(int invenCurrentStrength) {
+		this.invenCurrentStrength = invenCurrentStrength;
+	}
+	
+	public SkillInven getSkillInven() {
+		return skillInven;
+	}
+
+	public void setSkillInven(SkillInven skillInven) {
+		this.skillInven = skillInven;
+	}
+	
+	
+	
+	
+	
 	// 플레이어 상태 저장/불러오기 메서드
 	public void loadPlayer() {// 불러오기
 		FileInputStream f = null;
 		ObjectInputStream oos = null;
-		//ByteArrayInputStream oas = null;
+		// ByteArrayInputStream oas = null;
 
 //		Player load = new Player();
 		String name;
@@ -664,7 +689,7 @@ public class Player extends Entity {
 			stage2Count = ((Integer) oos.readObject());
 			stage3Count = ((Integer) oos.readObject());
 			// ============================================================== 수정사항
-	/*
+			/*
 			 * System.out.println("이름 : " + this.name); System.out.println("레벨 : " +
 			 * this.currentLevel + " UP↑"); System.out.println("HP : " + invenCurrentHealth
 			 * + "/" + invenMaxHealth); System.out.println("공격력 : " + invenCurrentStrength);
@@ -715,7 +740,6 @@ public class Player extends Entity {
 			this.stage3Count = stage3Count;
 			System.out.println("=======================================장비리스트");
 
-
 			/*
 			 * invenCurrentStrength = currentStrength + inven.equipPower; invenMaxHealth =
 			 * maxHealth + inven.equipHealth; invenCurrentHealth = currentHealth +
@@ -762,7 +786,7 @@ public class Player extends Entity {
 //			System.out.println("==========확인");
 			f = new FileOutputStream("data.ser");
 			oos = new ObjectOutputStream(f);
-		//	baos = new ByteArrayOutputStream();
+			// baos = new ByteArrayOutputStream();
 
 			// ============================================================== 수정사항
 			/*
