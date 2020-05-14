@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class TempMain {
 
-
 	public static void main(String[] args) throws InterruptedException {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
@@ -17,6 +16,7 @@ public class TempMain {
 		System.out.println("		-------------------------");
 		System.out.println("		1.새로시작	2.이어하기");
 		choice = sc.nextInt();
+		sc.nextLine();
 		if (choice == 1) {// 새로 시작
 			t.d.p.addName();
 			System.out.println("	새로 시작한다");
@@ -27,7 +27,7 @@ public class TempMain {
 		}
 		System.out.println("	어서오세요." + t.d.p.getName() + "님, JAVA 마을에 오신 것을 환영합니다.");
 
-		while (true) { 
+		while (true) {
 			t.town();
 		}
 
