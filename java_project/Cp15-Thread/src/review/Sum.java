@@ -1,6 +1,6 @@
 package review;
 
-public class Sum {
+public class Sum extends Thread{
 
 	int num;
 	public Sum() { num=0; }

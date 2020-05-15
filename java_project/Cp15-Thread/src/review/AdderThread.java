@@ -2,12 +2,26 @@ package review;
 
 public class AdderThread extends Sum implements Runnable {
 	int start, end;
-	public AdderThread(int s, int e)
-	{
-	start=s; end=e;
+
+	public AdderThread(int s, int e) {
+		start = s;
+		end = e;
 	}
-	public void run()
-	{
-	for(int i=start; i<=end; i++) addNum(i);
+
+	@Override
+	public void run() {
+
+		for (int i = start; i <= end; i++) {
+			addNum(i);
+			try {
+				sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("중간 합계 : " + getNum());
+
+		}
 	}
+
 }
