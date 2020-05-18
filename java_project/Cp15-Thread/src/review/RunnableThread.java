@@ -9,35 +9,18 @@ public class RunnableThread {
 		Thread tr1 = new Thread(at1);
 		Thread tr2 = new Thread(at2);
 
-
-		
-		
 		tr1.start();
 		tr2.start();
-		
-		
-		
+
 		try {
 			tr1.join();
-			tr2.join(); 
+			tr2.join();
 
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-	
-	
-	
-			System.out.println("1~100까지의 합: " + (at1.getNum() + at2.getNum()));
-	
-		
-		
-		
 
+		System.out.println("1~100까지의 합: " + (at1.getNum() + at2.getNum()));
 
-		
 	}
 }

@@ -16,7 +16,6 @@ public class AdderThread extends Sum implements Runnable {
 			try {
 				sleep(100);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.out.println("중간 합계 : " + getNum());
