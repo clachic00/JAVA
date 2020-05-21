@@ -14,6 +14,7 @@ public class AdderThread extends Sum implements Runnable {
 		for (int i = start; i <= end; i++) {
 			addNum(i);
 			try {
+
 				sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

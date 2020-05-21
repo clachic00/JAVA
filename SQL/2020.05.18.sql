@@ -66,3 +66,9 @@ select deptno from emp;
 
 select distinct deptno, job from emp;
 
+
+
+
+
+
+
