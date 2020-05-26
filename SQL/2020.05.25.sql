@@ -254,3 +254,34 @@ INSERT INTO EMP07 (EMPNO, ENAME, DEPTNO, GENDER, SAL)
            VALUES (1113, 'TEST', 10, 'F', 1600);
 
 SELECT * FROM EMP07;
+
+
+create table emp08(
+    empno number(4) constraint emp08_empno_pk primary key,
+    emname
+);
+
+--테이블 레벨에서의 제약 조건
+ 
+drop table emp02;
+create table emp02(
+    empno number(4),
+    ename varchar(10) constraint emp02_ename_nn not null,
+    job varchar2(10) not null,
+    deptno number(2),
+    constraint emp02_empno_pk primary key (empno),
+    constraint emp02_ename_uk unique (ename),
+    foreign key(deptno) references dept(deptno)
+    );
+
+desc emp02;
+
+
+--전화번호 관리 프로그램
+
+--이름, 전화번호, 생일, 이메일
+--전공, 학년
+--부서이름, 직급
+--모임이름, 닉네임
+--대리키 : 일련번호 -> pIdx
+--전화번호 부 (contact)

@@ -25,3 +25,7 @@ public class AdderThread extends Sum implements Runnable {
 	}
 
 }
+
+
+
+
