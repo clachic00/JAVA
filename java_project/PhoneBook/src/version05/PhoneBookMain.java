@@ -44,7 +44,7 @@ public class PhoneBookMain {
 
 			// manager.sc.nextLine();
 
-
+			
 
 			switch (selectNum) {
 			case MenuInterface.INSERT:
