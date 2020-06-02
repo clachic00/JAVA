@@ -2,7 +2,9 @@ package ex;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class JDBCTest1 {
 	
@@ -30,6 +32,17 @@ public class JDBCTest1 {
 		conn.setAutoCommit(false);
 		
 		//3. sql 로 데이터처리
+		
+//		Statement stmt = conn.createStatement();
+//		
+//		String sql = "insert into test values(?,?)"; 
+//		String username = null;
+//		String email = null;
+//		stmt.executeUpdate("insert into test values ('"+username+"','"+email+"')");
+//		PreparedStatement pstmt = conn.prepareStatement(sql);
+//		pstmt.setString(1, "SCOTT"); 
+//		pstmt.setString(2, "scott@test.com"); 
+//		pstmt.executeUpdate();
 		
 		
 		
