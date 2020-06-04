@@ -152,41 +152,21 @@ public class PhoneBookManager {
 	}
 
 	public void pbInsert() {
-		
+
 		// 사용자 입력정보 변수
 		System.out.println("부서 정보를 입력해주세요.");
-		
-		int pidx = 2;
-		System.out.println("이름 : ");
-		String pbname = sc.nextLine();
-		System.out.println("전화번호: ");
-		String pbnumber = sc.nextLine();
-		System.out.println("주소 : ");
-		String pbaddr = sc.nextLine();
-		System.out.println("이메일 : ");
-		String pbemail = sc.nextLine();
-		System.out.println("전공 : ");
-		String pbmajor = sc.nextLine();
-		System.out.println("학년 : ");
-		int pbyear = sc.nextInt();
+
+		System.out.println("부서번호 : ");
+		int deptno = sc.nextInt();
+		System.out.println("부서이름 : ");
 		sc.nextLine();
-		System.out.println("직급 : ");
-		String job = sc.nextLine();
-		System.out.println("회사명 : ");
-		String pbcompany = sc.nextLine();
-		System.out.println("카페명 : ");
-		String pbcafename = sc.nextLine();
-		System.out.println("닉네임 : ");
-		String pbnickname = sc.nextLine();
+		String dname = sc.nextLine();
+		System.out.println("지역 : ");
+		String loc = sc.nextLine();
 
-
-		
-		
-		
-	
 		// 공백 입력에 대한 예외처리가 있어야 하나 이번 버전에서는 모두 잘 입력된것으로 처리합니다.
 
-		PhoneBook pb = new PhoneBook(pidx,pbname,pbnumber,pbaddr,pbemail,pbmajor,pbyear,job,pbcompany,pbcafename,pbnickname);
+		PhoneBook pb = new PhoneBook();
 
 		int resultCnt = dao.pbInsert(pb);
 

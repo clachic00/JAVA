@@ -22,7 +22,7 @@ public class PhoneBookDao {
 		ResultSet rs = null;
 
 		// Dao 클래스 추가
-		List<PhoneBook> pbList = new ArrayList<>();
+		List<PhoneBook> deptList = new ArrayList<>();
 
 		// 공백 입력에 대한 예외처리가 있어야 하나 이번 버전에서는 모두 잘 입력된것으로 처리합니다.
 
@@ -38,13 +38,14 @@ public class PhoneBookDao {
 
 			while (rs.next()) {
 
-				PhoneBook pb = new PhoneBook(
-						rs.getInt("pidx"), rs.getString("pbname"), rs.getString("pbnumber"),
+				PhoneBook pb = new PhoneBook(rs.getInt("pidx"), rs.getString("pbname"), rs.getString("pbnumber"),
 						rs.getString("pbaddr"), rs.getString("pbemail"), rs.getString("pbmajor"), rs.getInt("pbyear"),
 						rs.getString("pbcompany"), rs.getString("pbjob"), rs.getString("pbcafename"),
-						rs.getString("pbnickname"));
+						rs.getString("pbnickname")
 
-				pbList.add(pb);
+				);
+
+				deptList.add(pb);
 
 			}
 
@@ -84,7 +85,7 @@ public class PhoneBookDao {
 //			}
 
 		}
-		return pbList;
+		return deptList;
 
 	}
 
