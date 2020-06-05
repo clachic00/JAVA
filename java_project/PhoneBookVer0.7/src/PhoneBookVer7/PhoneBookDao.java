@@ -106,20 +106,21 @@ public class PhoneBookDao {
 			// Statement or PreparedStatement
 			// pstmt = conn.prepareStatement(SQL 문장)
 
-			String sql = "insert into dept  (pidx,pbname,pbnumber,pbaddr,pbemail,pbmajor,pbyear,pbcompany,pbjob,pbcafename,pbnickname)  values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into dept  (pidx,pbname,pbnumber,pbaddr,pbemail,pbmajor,pbyear,pbcompany,pbjob,pbcafename,pbnickname)  "
+					+ "values (contact_pidx.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, pb.getPidx());
-			pstmt.setString(2, pb.getPbname());
-			pstmt.setString(3, pb.getPbnumber());
-			pstmt.setString(4, pb.getPbaddr());
-			pstmt.setString(5, pb.getPbemail());
-			pstmt.setString(6, pb.getPbmajor());
-			pstmt.setInt(7, pb.getPbyear());
-			pstmt.setString(8, pb.getPbcompany());
-			pstmt.setString(9, pb.getPbjob());
-			pstmt.setString(10, pb.getPbcafename());
-			pstmt.setString(11, pb.getPbnickname());
+			
+			pstmt.setString(1, pb.getPbname());
+			pstmt.setString(2, pb.getPbnumber());
+			pstmt.setString(3, pb.getPbaddr());
+			pstmt.setString(4, pb.getPbemail());
+			pstmt.setString(5, pb.getPbmajor());
+			pstmt.setInt(6, pb.getPbyear());
+			pstmt.setString(7, pb.getPbcompany());
+			pstmt.setString(8, pb.getPbjob());
+			pstmt.setString(9, pb.getPbcafename());
+			pstmt.setString(10, pb.getPbnickname());
 
 			resultCnt = pstmt.executeUpdate();
 
@@ -329,12 +330,14 @@ public class PhoneBookDao {
 			// Oracle
 			// select * from dept where dname like '%'||?||'%'
 
-			String sql = "select * from contact  where pbname like '%'||?||'%' or  loc like '%'||?||'%'";
+			String sql = "select * from contact  where pbname like '%'||?||'%'";
 			// String sql = "select * from dept where dname=?";
 
 			pstmt = conn.prepareStatement(sql);
-			// pstmt.setString(1, pbname);
+			pstmt.setString(1, pbname);
+
 			pstmt.setString(2, pbname);
+
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {

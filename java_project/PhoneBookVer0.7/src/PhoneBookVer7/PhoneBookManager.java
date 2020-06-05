@@ -20,7 +20,8 @@ public class PhoneBookManager {
 		System.out.println("=========================================");
 
 		int select = sc.nextInt();
-
+		sc.nextLine();
+		
 		switch (select) {
 		case 1:
 			System.out.println("리스트 출력");
