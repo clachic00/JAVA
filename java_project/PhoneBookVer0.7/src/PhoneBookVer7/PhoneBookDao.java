@@ -30,7 +30,7 @@ public class PhoneBookDao {
 			// 2. 데이터베이스 연결
 			conn = ConnectionProvider.getConnection();
 
-			String sql = "select * from dept  order by dname";
+			String sql = "select * from contact order by pbname";
 
 			stmt = conn.createStatement();
 
@@ -106,7 +106,7 @@ public class PhoneBookDao {
 			// Statement or PreparedStatement
 			// pstmt = conn.prepareStatement(SQL 문장)
 
-			String sql = "insert into dept  (pidx,pbname,pbnumber,pbaddr,pbemail,pbmajor,pbyear,pbcompany,pbjob,pbcafename,pbnickname)  "
+			String sql = "insert into contact  (pidx,pbname,pbnumber,pbaddr,pbemail,pbmajor,pbyear,pbcompany,pbjob,pbcafename,pbnickname)  "
 					+ "values (contact_pidx.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			pstmt = conn.prepareStatement(sql);
@@ -186,22 +186,22 @@ public class PhoneBookDao {
 			// 유일조건이 아니라면 여러개의 행에 수정 처리가 이루어집니다.
 			// 현재 버전에서는 유일한 값으로 생각하고 처리합니다.
 
-			String sql = "update contact  set  pbname=?, pbnumber=?, pbaddr=?,pbemail=?,pbmajor=?,pbyear=?,pbcompany=?,pbjob=?,pbcafename=?,pbnickname=? "
-					+ " where pidx=?";
+			String sql = "update contact  set pidx=? , pbnumber=?, pbaddr=?,pbemail=?,pbmajor=?,pbyear=?,pbcompany=?,pbjob=?,pbcafename=?,pbnickname=? "
+					+ " where pbname=?";
 
 			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setInt(1, pb.getPidx());
-			pstmt.setString(2, pb.getPbname());
-			pstmt.setString(3, pb.getPbnumber());
-			pstmt.setString(4, pb.getPbaddr());
-			pstmt.setString(5, pb.getPbemail());
-			pstmt.setString(6, pb.getPbmajor());
-			pstmt.setInt(7, pb.getPbyear());
-			pstmt.setString(8, pb.getPbcompany());
-			pstmt.setString(9, pb.getPbjob());
-			pstmt.setString(10, pb.getPbcafename());
-			pstmt.setString(11, pb.getPbnickname());
-
+			pstmt.setString(2, pb.getPbnumber());
+			pstmt.setString(3, pb.getPbaddr());
+			pstmt.setString(4, pb.getPbemail());
+			pstmt.setString(5, pb.getPbmajor());
+			pstmt.setInt(6, pb.getPbyear());
+			pstmt.setString(7, pb.getPbcompany());
+			pstmt.setString(8, pb.getPbjob());
+			pstmt.setString(9, pb.getPbcafename());
+			pstmt.setString(10, pb.getPbnickname());
+			pstmt.setString(11, pb.getPbname());
 			resultCnt = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -261,10 +261,10 @@ public class PhoneBookDao {
 			// Connection 객체 생성
 			conn = ConnectionProvider.getConnection();
 
-			String sql = "delete from contact  where pbname=?";
+			String sql = "delete from contact where pbname=?";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(2, pbname);
+			pstmt.setString(1, pbname);
 
 			resultCnt = pstmt.executeUpdate();
 
@@ -336,8 +336,6 @@ public class PhoneBookDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pbname);
 
-			pstmt.setString(2, pbname);
-
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -400,7 +398,7 @@ public class PhoneBookDao {
 			String sql = "select count(*) from contact where pbname=?";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(2, searchName);
+			pstmt.setString(1, searchName);
 			
 			rs = pstmt.executeQuery();
 			
@@ -433,7 +431,7 @@ public class PhoneBookDao {
 		try {
 			//conn = ConnectionProvider.getConnection();
 			
-			String sql = "select * from dept where dname=?";
+			String sql = "select * from contact where pbname=?";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, searchName);

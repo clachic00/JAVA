@@ -65,7 +65,7 @@ public class PhoneBookManager {
 
 			// 사용자 입력정보 변수
 
-			System.out.println("수정하고자 하는 부서 이름 : ");
+			System.out.println("수정하고자 하는 친구 이름 : ");
 		//	sc.nextLine();
 			String searchName = sc.nextLine();
 
@@ -73,7 +73,7 @@ public class PhoneBookManager {
 			int rowCnt = dao.pbSearchCount(searchName, conn);
 			// System.out.println(rowCnt);
 
-			if (rowCnt > 0) {
+			if (rowCnt >0) {
 
 				PhoneBook pb = dao.pbSearchName(searchName, conn);
 
@@ -83,31 +83,31 @@ public class PhoneBookManager {
 				}
 
 				// 사용자 입력정보 변수
-				System.out.println("부서 정보를 입력해주세요.");
+				System.out.println("친구 정보를 입력해주세요.");
 
 				System.out.println("인덱스 번호 : " + pb.getPidx());
 				System.out.println("인덱스 번호는 수정되지 않습니다.");
 
-				System.out.println("부서 이름 ( " + pb.getPbname() + "  ) : ");
+				System.out.println("이름 ( " + pb.getPbname() + "  ) : ");
 				String pbname = sc.nextLine();
-				System.out.println("부서 이름 ( " + pb.getPbnumber() + "  ) : ");
+				System.out.println("전화번호 ( " + pb.getPbnumber() + "  ) : ");
 				String pbnumber = sc.nextLine();
-				System.out.println("지역 ( " + pb.getPbaddr() + "  ) : ");
+				System.out.println("주소 ( " + pb.getPbaddr() + "  ) : ");
 				String pbaddr = sc.nextLine();
-				System.out.println("부서 이름 ( " + pb.getPbemail() + "  ) : ");
+				System.out.println("이메일 ( " + pb.getPbemail() + "  ) : ");
 				String pbemail = sc.nextLine();
-				System.out.println("부서 이름 ( " + pb.getPbmajor() + "  ) : ");
+				System.out.println("전공 ( " + pb.getPbmajor() + "  ) : ");
 				String pbmajor = sc.nextLine();
-				System.out.println("부서 이름 ( " + pb.getPbyear() + "  ) : ");
+				System.out.println("학년 ( " + pb.getPbyear() + "  ) : ");
 				int pbyear = sc.nextInt();
 				sc.nextLine();
-				System.out.println("부서 이름 ( " + pb.getPbcompany() + "  ) : ");
+				System.out.println("회사 ( " + pb.getPbcompany() + "  ) : ");
 				String pbcompany = sc.nextLine();
-				System.out.println("부서 이름 ( " + pb.getPbjob() + "  ) : ");
+				System.out.println("직급 ( " + pb.getPbjob() + "  ) : ");
 				String pbjob = sc.nextLine();
-				System.out.println("부서 이름 ( " + pb.getPbcafename() + "  ) : ");
+				System.out.println("카페명 ( " + pb.getPbcafename() + "  ) : ");
 				String pbcafename = sc.nextLine();
-				System.out.println("부서 이름 ( " + pb.getPbnickname() + "  ) : ");
+				System.out.println("닉네임 ( " + pb.getPbnickname() + "  ) : ");
 				String pbnickname = sc.nextLine();
 
 				// 공백 입력에 대한 예외처리가 있어야 하나 이번 버전에서는 모두 잘 입력된것으로 처리합니다.
@@ -155,9 +155,9 @@ public class PhoneBookManager {
 	public void pbInsert() {
 		
 		// 사용자 입력정보 변수
-		System.out.println("부서 정보를 입력해주세요.");
+		System.out.println("친구 정보를 입력해주세요.");
 		
-		int pidx = 2;
+		int pidx = 0;
 		System.out.println("이름 : ");
 		String pbname = sc.nextLine();
 		System.out.println("전화번호: ");
@@ -204,15 +204,14 @@ public class PhoneBookManager {
 
 		// 사용자 입력정보 변수
 
-		System.out.println("삭제하고자 하는 부서이름 : ");
-		sc.nextLine();
+		System.out.println("삭제하고자 하는 친구이름 : ");
 		String searchName = sc.nextLine();
 
 		// 공백 입력에 대한 예외처리가 있어야 하나 이번 버전에서는 모두 잘 입력된것으로 처리합니다.
 
 		int resultCnt = dao.pbDelete(searchName);
 
-		if (resultCnt < 1) {
+		if (resultCnt <1) {
 			System.out.println("삭제할 정보가 검색 결과가 없습니다.");
 		} else {
 			System.out.println(resultCnt + "행이 삭제 되었습니다.");
@@ -226,8 +225,7 @@ public class PhoneBookManager {
 
 		// 사용자 입력정보 변수
 
-		System.out.println("검색하고자 하는 부서이름 : ");
-		sc.nextLine();
+		System.out.println("검색하고자 하는 친구이름 : ");
 		String searchName = sc.nextLine();
 
 		List<PhoneBook> list = dao.pbSearch(searchName);
