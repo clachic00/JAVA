@@ -1,0 +1,58 @@
+--2020.05.25
+
+select  rtrim('DFIEFJdddd','d') from dual;
+
+select distinct job, sal
+from emp
+where sal in (select min(sal) from emp group by job)
+;
+
+
+SELECT * FROM SALGRADE;
+
+SELECT ENAME, SAL, GRADE
+FROM EMP, SALGRADE
+WHERE SAL BETWEEN LOSAL AND HISAL;
+
+SELECT ENAME, SAL, GRADE
+FROM EMP, SALGRADE;
+
+SELECT employee.ename || '의 매니저는 '
+|| manager.ename || '입니다.'
+FROM emp employee, emp manager
+WHERE employee.mgr = manager.empno(+);
+
+SELECT EMP.ENAME, DEPT.DNAME
+FROM EMP INNER JOIN DEPT
+USING (DEPTNO);
+
+select * from emp natural join dept;
+
+SELECT *
+FROM emp DEPT01 JOIN dept DEPT02
+ON DEPT01.DEPTNO = DEPT02.DEPTNO;
+
+SELECT *
+FROM emp DEPT01 LEFT OUTER JOIN dept DEPT02
+ON DEPT01.DEPTNO = DEPT02.DEPTNO;
+
+SELECT *
+FROM emp DEPT01 RIGHT OUTER JOIN dept DEPT02
+USING(DEPTNO);
+
+SELECT *
+FROM emp DEPT01 full OUTER JOIN dept DEPT02
+USING(DEPTNO);
+
+
+SELECT ENAME, SAL, DEPTNO
+FROM EMP
+WHERE DEPTNO in ( SELECT DISTINCT DEPTNO
+FROM EMP
+WHERE SAL>=3000);
+
+SELECT ENAME, SAL FROM EMP WHERE SAL >some(SELECT SAL FROM EMP WHERE DEPTNO =30);
+ 
+ SELECT SAL FROM EMP WHERE DEPTNO =30;
+
+

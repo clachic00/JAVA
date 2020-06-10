@@ -203,7 +203,7 @@ public class PhoneBookDao {
 			pstmt.setString(10, pb.getPbnickname());
 			pstmt.setString(11, pb.getPbname());
 			resultCnt = pstmt.executeUpdate();
-
+ 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
