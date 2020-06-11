@@ -3,14 +3,196 @@
 
 <head>
 
-    <title>CSS3 선택자 Selecor</title>
+    <title>[실습]레이아웃 만들기 과제</title>
     <meta charset="utf-8">
 
 
 
 
     <style>
-       
+        div.main {
+            border: 4px solid #AAAAAA;
+            width: 1050px;
+
+            border-radius: 10px;
+
+
+            background-color: white;
+
+            box-shadow: 0px 0px 0px 5px #AAAAAA
+        }
+
+
+        div.border {}
+
+        img {
+            width: 430px;
+            height: 280px;
+        }
+
+        #header {
+
+
+            text-indent: 30px;
+            width: 1000px;
+            height: 150px;
+            margin: 0 auto;
+
+            text-align: left;
+            /*
+            margin: 10px;
+            padding: 20px;
+*/
+
+            /*            line-height: 100px;*/
+
+            font-size: 2em;
+            color: black;
+            font-weight: bold;
+
+        }
+
+        p.ha {
+            font-size: 15px;
+            width: 1;
+            margin: auto;
+            padding: 0;
+
+
+        }
+
+        #nav {
+            border-bottom: 1px solid #AAAAAA;
+            border-top: 1px solid #AAAAAA;
+            width: 1000px;
+            height: 30px;
+
+            
+            
+            margin: 0 auto;
+
+            text-align: left;
+            line-height: 0px;
+
+            font-size: 1em;
+
+            font-weight: bold;
+
+            float:left;
+        
+        }
+        ul{
+            overflow: hidden;
+            float:left;
+            list-style:none;
+        }
+        ul>li{
+            
+            padding-top: 30%;
+            padding: 5px;
+            float:left;
+            list-style:none;
+            overflow: hidden;
+
+        }
+
+        div.search {
+            float: right;
+            border: 1px solid gray;
+            border-radius: 0 20px 20px 0;
+            background-color: darkgray;
+            font-size: 15px;
+            width: 40px;
+            height: 25px;
+            text-align: center;
+        }
+
+        #search {
+            float: right;
+            border: 1px solid gray;
+            border-radius: 20px 0 0 20px;
+            height: 23px;
+
+        }
+
+
+        #content {
+
+            width: 790px;
+            height: 1500px;
+
+            /*            background-color: blueviolet;*/
+
+            margin: 0 auto;
+
+            text-align: left;
+            /*            line-height: 300px;*/
+
+            font-size: 1.3em;
+            float: left;
+            padding: 10px;
+        }
+
+        p.y {
+            font-size: 5px;
+        }
+
+        p.date {
+            font-size: 13px;
+        }
+
+
+        #aside {
+            width: 180px;
+            height: 1500px;
+
+            /*            background-color: blue;*/
+
+            margin: auto;
+
+            text-align: center;
+
+            font-size: ;
+            font-weight: bold;
+            float: right;
+
+        }
+
+        #footer {
+            width: 1000px;
+            height: 100px;
+            padding: 10px;
+
+            margin: auto;
+
+            /*            text-align: center;*/
+            line-height: 30px;
+
+            font-size: 14px;
+            clear: both;
+            border-top: 1px solid gray;
+
+            color: blue;
+        }
+
+        #wrap {
+            width: 1002px;
+            margin: 0 auto;
+
+            overflow: hidden;
+
+
+        }
+
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+        body {
+
+            font-family: 'Roboto', sans-serif;
+            background-color: #AAAAAA;
+        }
     </style>
 
 
@@ -20,8 +202,95 @@
 </head>
 
 <body>
+    <script>
+        alert('맛있어!!!!!!')
+    </script>
+    <div class="main">
+
+        <div id="header" class="border"><br>HTML5 Example preview
+            <p class="ha">한빛아카데미</p>
+        </div>
+        
+        <div id="nav" class="border"> 
+            <ul>
+                <li> <a href="html_button.html">  HTML5 </a></li>
+                <li>  <a href="html_button.html">  CSS3 </a></li>
+                <li>  <a href="html_button.html">  JavaScript </a></li>
+            </ul>
 
 
+
+            <div class="search">검색</div>
+            <input type="text" id="search">
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div id="wrap">
+            <div id="content" class="border">
+                <br>
+                HTML5 개요와 활용<br>
+                <p class="date">2013년02월14일</p>
+                <img src=../image/yun.png>
+                <br>
+                <p class=y> 연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.연어 맛있다.</p>
+
+                <hr>
+
+                HTML5 응용과 실습<br>
+                <p class="date">2013년02월17일</p>
+                <img src="../image/sam.jpg">
+                <br>
+                <p class=y>삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.삼겹살 맛있다.</p>
+
+
+
+            </div>
+
+
+
+
+            <div id="aside" class="border">
+                <br>
+                카테고리
+                <p class="ha"><a href="html_button.html">데이터</a><br>
+                    <a href="html_button.html">데이터</a><br>
+                    <a href="html_button.html">데이터</a><br>
+                    <a href="html_button.html">데이터</a><br>
+                    <a href="html_button.html">데이터</a><br>
+                </p>
+                <br>
+                최근 글
+                <p class="ha">
+                    <a href="html_button.html">데이터</a><br>
+                    <a href="html_button.html">데이터</a><br>
+                    <a href="html_button.html">데이터</a><br>
+                    <a href="html_button.html">데이터</a><br>
+                </p>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <div id="footer" class="border">Create By CI</div>
+
+
+
+    </div>
 
 
 

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CSS3 레이아웃 Selecor</title>
+    <meta charset="utf-8">
+
+
+
+
+    <style>
+        div.border {
+            border: 1px solid #AAAAAA;
+        }
+
+        #header {
+            width: 800px;
+            height: 100px;
+            
+            background-color: red;
+
+            margin: 0 auto;
+
+            text-align: center;
+            line-height: 100px;
+
+            font-size: 2em;
+            color: aliceblue;
+            font-weight: bold;
+
+        }
+
+        #nav {
+
+            width: 800px;
+            height: 30px;
+
+            background-color: green;
+
+            margin: 0 auto;
+
+            text-align: center;
+            line-height: 20px;
+
+            font-size: 2em;
+            color: aliceblue;
+            font-weight: bold;
+
+        }
+
+        #aside{
+             width: 198px;
+            height: 300px;
+
+            background-color: blueviolet;
+
+           margin: 0 auto;
+
+            text-align: center;
+            line-height: 300px;
+
+            font-size: 2em;
+            color: aliceblue;
+            font-weight: bold;
+            float: left;
+        }
+        
+        #content{
+            width: 598px;
+            height: 300px;
+
+            background-color: blue;
+
+            margin: auto;
+
+            text-align: center;
+            line-height:300px;
+
+            font-size: 2em;
+            color: aliceblue;
+            font-weight: bold;
+            float: right;
+            
+            
+            
+        }
+        
+        #footer{
+               width: 800px;
+            height: 100px;
+
+            background-color: black;
+
+            margin:  auto;
+
+            text-align: center;
+            line-height:100px;
+
+            font-size: 2em;
+            color: aliceblue;
+            font-weight: bold;
+            clear: both;
+            
+        }
+        
+        #wrap{
+            width: 800px;
+            margin: 0 auto;
+            
+            overflow: hidden;
+            
+        
+        }
+        
+        
+        
+        
+        
+        
+    </style>
+
+
+
+
+
+</head>
+
+<body>
+
+    <div id="header" class="border">header</div>
+    <div id="nav" class="border">nav</div>
+    <div id="wrap">
+    <div id="aside" class="border">aside</div>
+    <div id="content" class="border">content</div>
+    </div>
+    
+    <div id="footer" class="border">footer</div>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
