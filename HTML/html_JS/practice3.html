@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //         var globalNum = 10;
+
+        // function printNum() {
+
+        //     var globalNum; // 함수 호이스팅에 의해 변수의 선언 부분이 함수의 맨 처음 부분으로 이동됨.
+
+        //     document.write("지역 변수 globalNum 선언 전의 globalNum의 값은 " + globalNum + "입니다.<br>");
+
+        //     globalNum = 20;
+
+        //     document.write("지역 변수 globalNum 선언 후의 globalNum의 값은 " + globalNum + "입니다.<br>");
+
+        // }
+
+        // printNum();
+
+        var obj = Object.create(null, {
+            x: { value: 100, enumerable: true },
+            y: { value: 200, enumerable: true }
+
+        });
+
+        document.write(obj.x)
+        document.write(obj.y)
+
+
+
+
+
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+    <h1>여러 개의 이벤트 리스너 등록</h1>
+    <p>아래 버튼에 마우스를 올리거나 클릭해 보세요!</p>
+    <button id="btn">버튼</button>
+    <p id="text"></p>
+
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", clickBtn);
+        btn.addEventListener("mouseover", mouseoverBtn);	// 선택한 요소에 mouseover 이벤트 리스너를 등록함.
+        btn.addEventListener("mouseout", mouseoutBtn);		// 선택한 요소에 mouseout 이벤트 리스너를 등록함.
+
+
+        function clickBtn() {
+            document.getElementById("text").innerHTML = "버튼이 클릭됐어요!";
+        }
+        function mouseoverBtn() {
+            document.getElementById("text").innerHTML = "버튼 위에 마우스가 있네요!";
+        }
+        function mouseoutBtn() {
+            document.getElementById("text").innerHTML = "버튼 밖으로 마우스가 나갔어요!";
+        }
+
+
+
+        </script>
+
+
+
+
+</body>
+</html>
