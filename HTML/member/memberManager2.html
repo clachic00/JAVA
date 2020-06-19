@@ -48,7 +48,7 @@ function createMember(){
     addMember(new Member(id,name,pw));
    
     //동기화
-    setStorage();
+    // setStorage();
 
     this.reset();
     return false;
@@ -71,7 +71,7 @@ function displayTable(){
     for (let i = 0; i<members.length; i++){
 
         listHtml += '<tr>';
-        listHtml += '<td>' + i +'</tr> ';
+        listHtml += '<td>' + i +'</td> ';
         listHtml += '<td>'+ members[i].id+'</td>';
         listHtml += '<td>'+ members[i].pw+'</td>';
         listHtml += '<td>'+ members[i].name+'</td>';
@@ -83,14 +83,42 @@ function displayTable(){
 
 
     listHtml += '</table>';
+
     var listTable = document.getElementById('list');
     listTable.innerHTML = listHtml;
 
 }
 
-function setStorage(){
-    localStorage.setItem('members',JSON.stringify(members));
+// function setStorage(){
+//     localStorage.setItem('members',JSON.stringify(members));
+// }
+
+
+window.onload = function (){
+
+
+    displayTable();
+
+    document.getElementById('regForm').onsubmit = createMember;
+    document.getElementById('editForm').onsubmit = editMember;
+
 }
+
+//해야함
+function editSet(idx) {
+
+// 수정 폼 영역 출력
+// document.getElementById('edit').style.display = 'block';
+
+// 사용자 입력 데이터 받기, document로 케스팅 후 value 속성 사용
+document.getElementById('eid').value = members[idx].id;
+document.getElementById('ename').value = members[idx].name;
+document.getElementById('epw').value = members[idx].pw;
+document.getElementById('idx').value = idx;
+
+}
+
+
 
 
 

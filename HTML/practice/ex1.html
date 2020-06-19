@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text Limit</title>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <!-- <span class="buttest">클릭</span><br>
+
+    <input id="sample1" type="checkbox" value ="1">1<br>
+    <input id="sample1" type="checkbox" value ="2">2<br>
+    <input id="sample1" type="checkbox" value ="3">3<br>
+    <script>
+
+        $(".buttest").click(function(){
+           var n =  $("input:checkbox:checked").length;
+            alert(n);
+        })
+
+
+
+    </script> -->
+
+
+    <!-- 약관
+    <ul>
+        <li>공부할것</li>
+        <li>공부할것</li>
+        <li>공부할것</li>
+        <li>공부할것</li>
+    </ul>
+
+    <input id = "noti" type="checkbox" value="1"><br>
+    <input type="button" class="submit" value = "확인">
+
+    <script>
+        $(".submit").click(function(){
+            var chk = $("input[id=noti]").is(":checked");
+           
+           
+            if(!chk){
+                alert("약관에 동의가 필요합니다.");
+            }else{
+                alert("ok");
+            }
+
+
+        })
+    </script> -->
+
+    <!-- <form id="myForm">
+        이름:<input type="text" class="required">
+        <input type="submit" value ="submit">
+    </form>
+
+    <script>
+    $('#myForm').submit(function(){
+        if($(".required").val().length===0){
+            alert("더 적어")
+        } else{
+            alert("잘했어")
+        }
+    })
+    </script> -->
+
+
+
+    <form id="myForm">
+        전화번호 : <input type="text" id='phone' size=10>
+        <input type="submit" value="submit">
+    </form>
+
+    <script>
+        $("#myForm").submit(function (event) {
+            var inputtedPhoneNumber = $("#phone").val();
+
+            var phoneNumberRegex = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/;
+            if (!phoneNumberRegex.test(inputtedPhoneNumber)) {
+                alert("제대로 적어랏");
+                return false;
+            } else {
+                alert("잘했다");
+                return true;
+            }
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
