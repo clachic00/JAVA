@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text Limit</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+    <!-- <script>
+
+
+
+
+        $(function () {
+            $("#slideToggleBtn").on("click", function () {
+                $("#pic").bxslider();		// id가 "divBox"인 요소를 올라가면서 사라지게 함.
+            });
+
+        });
+
+    </script> -->
+
+<script>
+    $(document).ready(function(){
+      $('.slider').bxSlider();
+    });
+  </script>
+
+
+
+</head>
+
+<body>
+
+    <!-- <button id="slideToggleBtn">슬라이드 토글</button>
+
+    <br>
+    <img id="pic" src="../image/droid.jpg" width="300" /> -->
+
+    <div class="slider">
+        <div>I am a slide.</div>
+        <div>I am another slide.</div>
+        <img id="pic" src="../image/droid.jpg" width="300" />
+      </div>
+    
+
+
+</body>
+
+</html>

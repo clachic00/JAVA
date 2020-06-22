@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text Limit</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+    <script>
+
+
+
+
+        $(function () {
+            $("#pic").hide();
+            $("#slideToggleBtn").on("click", function () {
+                $("#pic").slideToggle();		// id가 "divBox"인 요소를 올라가면서 사라지게 함.
+               
+            });
+
+        });
+
+
+        // $(function () {
+        //     $("#pic").hide();
+        //     $("#slideToggleBtn").on("click", function () {
+        //         $("#pic").show("fast");		// id가 "divBox"인 요소를 올라가면서 사라지게 함.
+               
+        //     });
+            
+
+        // });
+
+
+
+
+    </script>
+
+    
+
+
+
+
+</head>
+
+<body>
+
+    <button id="slideToggleBtn">슬라이드 토글</button>
+
+    <br>
+    <img id="pic" src="../image/droid.jpg" width="300" />
+
+
+    
+
+
+</body>
+
+</html>
