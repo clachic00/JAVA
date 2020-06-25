@@ -13,159 +13,182 @@
     <script>
         $(document).ready(function () {
 
-
             // 메뉴 배열 생성
-            var Hamburger = [{
-                    img: 'HTML Project images/Hamberger/1955.png',
-                    name: '1955',
-                    price: 4500,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/Hamberger/모짜렐라.png',
-                    name: '모짜렐라',
-                    price: 5500,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/Hamberger/빅맥.png',
-                    name: '빅맥',
-                    price: 5800,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/Hamberger/맥스파이시.png',
-                    name: '스파이시',
-                    price: 4800,
-                    count: 0
-                }
+            var Item = [{
+                img: 'HTML Project images/Hamberger/1955.png',
+                name: '1955',
+                price: 4500,
+                type: 'hamburger'
+            },
+            {
+                img: 'HTML Project images/Hamberger/모짜렐라.png',
+                name: '모짜렐라',
+                price: 5500,
+                type: 'hamburger'
+            },
+            {
+                img: 'HTML Project images/Hamberger/빅맥.png',
+                name: '빅맥',
+                price: 5800,
+                type: 'hamburger'
+            },
+            {
+                img: 'HTML Project images/Hamberger/맥스파이시.png',
+                name: '스파이시',
+                price: 4800,
+                type: 'hamburger'
+            },
+            {
+                img: 'HTML Project images/Drink/딸기쉐이크.png',
+                name: '딸기쉐이크',
+                price: 3000,
+                type: 'drink'
+            },
+            {
+                img: 'HTML Project images/Drink/아메리카노.png',
+                name: '아메리카노',
+                price: 2000,
+                type: 'drink'
+
+            },
+            {
+                img: 'HTML Project images/Drink/카페라떼.png',
+                name: '카페라떼',
+                price: 2500,
+                type: 'drink'
+
+            },
+            {
+                img: 'HTML Project images/Drink/콜라.png',
+                name: '콜라',
+                price: 1500,
+                type: 'drink'
+
+            },
+            {
+                img: 'HTML Project images/SideDish/애플파이.png',
+                name: '애플파이',
+                price: 3000,
+                type: 'sideDish'
+
+            },
+            {
+                img: 'HTML Project images/SideDish/치즈스틱.png',
+                name: '치즈스틱',
+                price: 2000,
+                type: 'sideDish'
+
+            },
+            {
+                img: 'HTML Project images/SideDish/후렌치후라이.png',
+                name: '후렌치후라이',
+                price: 2500,
+                type: 'sideDish'
+
+            },
+            {
+                img: 'HTML Project images/SideDish/치즈스틱.png',
+                name: '치즈스틱',
+                price: 1500,
+                type: 'sideDish'
+
+            },
+            {
+                img: 'HTML Project images/SetMenu/1955세트.png',
+                name: '1955세트',
+                price: 3000,
+                type: 'setMenu'
+
+            },
+            {
+                img: 'HTML Project images/SetMenu/모짜렐라세트.png',
+                name: '모짜렐라세트',
+                price: 2000,
+                type: 'setMenu'
+
+            },
+            {
+                img: 'HTML Project images/SetMenu/빅맥세트.png',
+                name: '빅맥세트',
+                price: 2500,
+                type: 'setMenu'
+
+            },
+            {
+                img: 'HTML Project images/SetMenu/상하이세트.png',
+                name: '상하이세트',
+                price: 1500,
+                type: 'setMenu'
+
+            }
             ];
 
-            var Drink = [{
-                    img: 'HTML Project images/Drink/딸기쉐이크.png',
-                    name: '딸기쉐이크',
-                    price: 2800,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/Drink/아메리카노.png',
-                    name: '아메리카노',
-                    price: 2000,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/Drink/카페라떼.png',
-                    name: '카페라떼',
-                    price: 2500,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/Drink/콜라.png',
-                    name: '콜라',
-                    price: 1500,
-                    count: 0
-                },
-            ];
+            var orderList = [];
 
-            var Sidedish = [{
-                    img: 'HTML Project images/SideDish/애플파이.png',
-                    name: '애플파이',
-                    price: 1500,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/SideDish/치즈스틱.png',
-                    name: '치즈스틱',
-                    price: 1800,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/SideDish/후렌치후라이.png',
-                    name: '후렌치후라이',
-                    price: 2000,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/SideDish/후렌치후라이.png',
-                    name: '맛있는거',
-                    price: 2000,
-                    count: 0
-                }
-            ];
-
-            var SetMenu = [{
-                    img: 'HTML Project images/SetMenu/1955세트.png',
-                    name: '1995세트',
-                    price: 5500,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/SetMenu/모짜렐라세트.png',
-                    name: '모짜렐라세트',
-                    price: 6500,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/SetMenu/빅맥세트.png',
-                    name: '빅맥세트',
-                    price: 6800,
-                    count: 0
-                },
-                {
-                    img: 'HTML Project images/SetMenu/상하이세트.png',
-                    name: '상하이세트',
-                    price: 5800,
-                    count: 0
-                }
-            ];
+            function OrderList(oidx, oname, oprice, ocnt) {
+                this.idx = oidx;
+                this.name = oname;
+                this.price = oprice;
+                this.cnt = ocnt;
+            }
 
 
-            // 생성된 배열을 .each를 통해 div에 넣어줌   
-            $.each(Hamburger, function (index, item) {
+            $.each(Item, function (index, item) {
 
                 var hamburger = '';
 
+                if (Item[index].type == 'hamburger') {
+                    hamburger += '<div id="list"><img class="order" src="' + this.img + '"><p>' + this.name + '</p><p>' + this.price + '</p></div>';
 
-                hamburger += '<div id="list"><img class="hamimg" src="'  + this.img + '"><p>' + this.name + '</p><p>' + this.price +
-                    '원</p></div>';
-
-                $('#hamburgerList').html($('#hamburgerList').html() + hamburger);
+                    $('#hamburgerList').html($('#hamburgerList').html() + hamburger);
+                }
 
             });
 
-            $.each(Drink, function (index, item) {
+            $.each(Item, function (index, item) {
+
                 var drink = '';
 
-                drink += '<div id="list"><img class="hamimg" src="'  + this.img + '"><p>' + this.name + '</p><p>' + this.price +
-                    '원</p></div>';
+                if (Item[index].type == 'drink') {
+                    drink += '<div id="list"><img class="order" src="' + this.img + '"><p>' + this.name + '</p><p>' + this.price + '</p></div>';
 
+                    $('#drinkList').html($('#drinkList').html() + drink);
+                }
 
-                $('#drinkList').html($('#drinkList').html() + drink);
             });
 
-            $.each(Sidedish, function (index, item) {
-                var side = '';
+            $.each(Item, function (index, item) {
 
-                side +='<div id="list"><img class="hamimg" src="'  + this.img + '"><p>' + this.name + '</p><p>' + this.price +
-                    '원</p></div>';
+                var sideDish = '';
 
+                if (Item[index].type == 'sideDish') {
+                    sideDish += '<div id="list"><img class="order" src="' + this.img + '"><p>' + this.name + '</p><p>' + this.price + '</p></div>';
 
-                $('#sideList').html($('#sideList').html() + side);
+                    $('#sideList').html($('#sideList').html() + sideDish);
+                }
+
             });
 
-            $.each(SetMenu, function (index, item) {
-                var set = '';
+            $.each(Item, function (index, item) {
 
-                set += '<div id="list"><img class="hamimg" src="'  + this.img + '"><p>' + this.name + '</p><p>' + this.price +
-                    '원</p></div>';
+                var setMenu = '';
 
+                if (Item[index].type == 'setMenu') {
+                    setMenu += '<div id="list"><img class="order" src="' + this.img + '"><p>' + this.name + '</p><p>' + this.price + '</p></div>';
 
-                $('#setlist').html($('#setlist').html() + set);
+                    $('#setList').html($('#setList').html() + setMenu);
+                }
+
             });
+
 
             // 마우스 올렸을 시 색/커서 변환
             $('button').mouseover(function () {
                 $(this).css('cursor', 'pointer').css('background', '#FF4E50');
+            })
+
+            $('img.order').mouseover(function () {
+                $(this).css('cursor', 'pointer').css('background', '#FC913A');
             });
 
             // 마우스 땠을 시 색변환
@@ -173,48 +196,122 @@
                 $(this).css('background', 'white');
             });
 
-            $('.hamimg').mouseover(function () {
-                $(this).css('cursor', 'pointer').css('background', '#FC913A');
-            });
-
-            $('.hamimg').mouseout(function () {
+            $('img.order').mouseout(function () {
                 $(this).css('background', 'white');
             });
 
+            $('img.order').click(function () {
+                var order = '';
+                var findImg = $(this).attr('src');
 
-            $('.drinkimg').mouseover(function () {
-                $(this).css('cursor', 'pointer').css('background', '#FC913A');
+                var name = '';
+                var price = '';
+                var cnt = 1;
+
+                var resultCnt = -1;
+
+
+                
+
+
+                for (var i = 0; i < orderList.length; i++) {
+                    if (orderList[i].name == findName(findImg)) {
+                        orderList[i].cnt++;
+                        resultCnt = i;
+                        console.log('수량 :' + orderList[i].cnt)
+                        break;
+                    }
+                }
+
+                if (resultCnt < 0) {
+                    for (var i = 0; i < Item.length; i++) {
+                        if (Item[i].img == findImg) {
+                            orderList.push(new OrderList(i, Item[i].name, Item[i].price, cnt));
+                            console.log(Item[i].price * cnt);
+                            break;
+                        }
+                    }
+                }
+
+
+
+
+
+
+                var html = '';
+                html += '<div class="list">';
+                for (var i = 0; i < orderList.length; i++) {
+                    html += '<div>'
+                    html += '<img src="' + Item[orderList[i].idx].img + '" id="orderImg">';
+                    html += '<span>' + orderList[i].name + '</span>';
+                    html += '<span> 가격 : ' + orderList[i].price + '</span>';
+                    html += '<button onclick="javascript:add()" class="' + orderList[i].idx + '" id="addNum">+</button>';
+                    html += '<span> 수량 : ' + orderList[i].cnt + '</span>';
+                    html += '<input type="button" class="' + orderList[i].idx + '" id="minus">-';
+
+                    html += '</div>'
+                }
+                html += '</div>';
+
+                var totalHtml = '<span id="total"></span>';
+
+                $('#cart').html(html);
+                
+                var total = 0;
+                for (var i = 0; i < orderList.length; i++) {
+                    total += orderList[i].price * orderList[i].cnt;
+                }
+                $('#orderList').html(totalHtml);
+                $('#total').html(total);
+
+
             });
 
-            $('.drinkimg').mouseout(function () {
-                $(this).css('background', 'white');
+
+
+
+            function findName(findImg) {
+
+                var name = '';
+                for (var i = 0; i < Item.length; i++) {
+                    if (Item[i].img == findImg) {
+                        name = Item[i].name;
+                        console.log('이름 :' + Item[i].name);
+                    }
+                }
+
+                return name;
+
+            }
+
+            function add(){
+                alert('1111111111');
+            }
+
+            $('#addNum').click(function () {
+                // orderList[0].cnt++;
+                alert('?????????????????');
             });
 
-            $('.sideimg').mouseover(function () {
-                $(this).css('cursor', 'pointer').css('background', '#FC913A');
-            });
 
-            $('.sideimg').mouseout(function () {
-                $(this).css('background', 'white');
-            });
 
-            $('.setimg').mouseover(function () {
-                $(this).css('cursor', 'pointer').css('background', '#FC913A');
-            });
 
-            $('.setimg').mouseout(function () {
-                $(this).css('background', 'white');
-            });
 
-            // $('#order').click(function () {
-            //     var order = '';
-            //     var init = $('#cart');
-            //     var findImg = $(this).attr('src');
 
-            //     var cnt =
+            
+            $('#orderCancle').click(function () {
+                $(function () {
+                    orderList = [];
+                    $('#cart').empty();
+                })
+            })
 
-            //         $('#cart').append('<ul><li><img id="orderImg" src="' + findImg + '"></li>');
-            // });
+
+
+
+
+
+
 
             // 전에 열렸던 메뉴를 확인하기 위한 변수
             var toggle = $('#hamburgerList');
@@ -226,7 +323,7 @@
 
                 // 전에 열렸던 메뉴가 있는지 확인 후 닫아주는 기능
                 if (toggle.is(':visible')) {
-                    toggle.fadeOut();
+                    toggle.slideUp();
                     $('#drink').css('background', 'white');
                     $('#sidedish').css('background', 'white');
                     $('#setmenu').css('background', 'white');
@@ -241,7 +338,7 @@
                     scroll.slideUp();
                     $(this).css('background', 'white')
                 } else {
-                    scroll.fadeIn();
+                    scroll.slideDown();
                     $(this).css('background', '#FF4E50')
                 }
 
@@ -254,7 +351,7 @@
             $('#drink').click(function () {
 
                 if (toggle.is(':visible')) {
-                    toggle.fadeOut();
+                    toggle.slideUp();
                     $('#hamburger').css('background', 'white');
                     $('#sidedish').css('background', 'white');
                     $('#setmenu').css('background', 'white');
@@ -266,7 +363,7 @@
                     $(this).css('background', 'white')
 
                 } else {
-                    scroll.fadeIn();
+                    scroll.slideDown();
                     $(this).css('background', '#FF4E50')
                 }
 
@@ -278,7 +375,7 @@
             $('#sidedish').click(function () {
 
                 if (toggle.is(':visible')) {
-                    toggle.fadeOut();
+                    toggle.slideUp();
                     $('#hamburger').css('background', 'white');
                     $('#drink').css('background', 'white');
                     $('#setmenu').css('background', 'white');
@@ -289,7 +386,7 @@
                     scroll.slideUp();
                     $(this).css('background', 'white')
                 } else {
-                    scroll.fadeIn();
+                    scroll.slideDown();
                     $(this).css('background', '#FF4E50')
                 }
 
@@ -300,61 +397,53 @@
             $('#setmenu').click(function () {
 
                 if (toggle.is(':visible')) {
-                    toggle.fadeOut();
+                    toggle.slideUp();
                     $('#hamburger').css('background', 'white');
                     $('#drink').css('background', 'white');
                     $('#sidedish').css('background', 'white');
                 }
 
-                var scroll = $('#setlist');
+                var scroll = $('#setList');
                 if (scroll.is(':visible')) {
                     scroll.slideUp();
                     $(this).css('background', 'white')
                 } else {
-                    scroll.fadeIn();
+                    scroll.slideDown();
                     $(this).css('background', '#FF4E50')
                 }
 
-                toggle = $('#setlist');
+                toggle = $('#setList');
                 return toggle;
             });
 
 
 
-            $('image.haming').click(function () {
-
-                
-           
-
-                var hamburger = '';
-
-
-                hamburger += '<div id="list">' + this.img + '<p>' + this.name + '</p><p>' + this.price +
-                    '원</p></div>';
-
-                $('#hamburgerList').html($('#hamburgerList').html() + hamburger);
-
-
-
-
-                $('#cart')
-
-
-
-
-
+            $('#goTop').mouseover(function () {
+                $(this).css('cursor', 'pointer')
+            })
+            $('#goTop').click(function () {
+                $('html').scrollTop(0);
             });
 
 
 
 
-            // $.each(Hamburger, function (index, item){
 
 
 
         });
     </script>
     <style>
+        
+        img.list {
+            width: 300px;
+            height: 150px;
+        }
+
+        div.list {
+            line-height: 100px;
+        }
+
         body {
             width: 1080px;
             height: 800px;
@@ -380,7 +469,10 @@
             border-top: 1px solid #CCCCEE;
         }
 
-        button {
+        #hamburger,
+        #drink,
+        #sidedish,
+        #setmenu {
             width: 269px;
             height: 100px;
             /* margin-right: 30px; */
@@ -400,10 +492,7 @@
             top: 800px;
         }
 
-        .hamimg,
-        .drinkimg,
-        .sideimg,
-        .setimg {
+        img.order {
             margin: 20px 20px 30px 20px;
             width: 200px;
             height: 150px;
@@ -418,14 +507,6 @@
 
         p {
             text-align: center;
-            font-family: 'Nanum Gothic', sans-serif;
-        }
-
-        #hamburgerList,
-        #drinkList,
-        #sideList,
-        #setlist {
-            display: none;
         }
 
         #logo {
@@ -433,6 +514,18 @@
             height: 150px;
             border: none;
             margin-left: 6px;
+        }
+
+        #hamburgerList,
+        #drinkList,
+        #sideList,
+        #setList {
+            display: none;
+            width: 1000px;
+            height: 490px;
+            overflow: auto;
+            margin-left: 30px;
+
         }
 
         #orderlist {
@@ -443,27 +536,56 @@
             border: 1px solid #CCCCEE;
         }
 
+        .slider {
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
         #cart {
             border: 1px solid #CCCCEE;
             margin-top: 25px;
             margin-left: 50px;
             margin-bottom: 25px;
-            padding: 50px;
-            width: 300px;
-            height: 150px;
+            padding: 10px;
+            width: 375px;
+            height: 350px;
             overflow: auto;
         }
 
+        ul {
+            list-style: none;
+            padding-left: 0px;
+        }
 
+        ul>li {
+            position: static;
+        }
+
+        #orderImg {
+            width: 100px;
+            height: 80px;
+        }
+
+        #cart>div {
+            border-bottom: 1px dotted #CCCCEE;
+        }
+
+        #add {
+            color: red;
+        }
+
+        #minus {
+            color: red;
+        }
     </style>
 
 </head>
 
 <body>
     <header>
-        <!-- <img id="logo" src=" ../HTML_Team_Project/HTML Project images/LogoSample.png"> -->
-        <img id="logo" src=" HTML Project images/LogoSample5.jpg"> 
-    </header> 
+        <!-- <img id="logo"" src=" ../HTML_Team_Project/HTML Project images/LogoSample.png"> -->
+        <img id="logo" src="HTML Project images/LogoSample5.jpg">
+    </header>
     <contents>
         <nav class="naviBar">
             <div class="NaviWrap">
@@ -485,21 +607,25 @@
         <div id="sideList">
 
         </div>
-        <div id="setlist">
+        <div id="setList">
 
         </div>
     </contents>
 </body>
+<div>
 <aside id="orderlist">
     <div>
         <h3>주문 리스트</h3>
     </div>
-    <div id="cart">
+    <!-- <form> -->
+        <div id="cart">
 
-    </div>
-    <div id="orderCancle"><input type="reset" value="모두 취소"></div>
-    <div id="orderComple"><input type="submit" value="선택 완료"></div>
+        </div>
+        <!-- <div id="orderCancle"><input type="reset" value="모두 취소"></div>
+        <div id="orderComple"><input type="submit" value="선택 완료"></div> -->
+    <!-- </form> -->
 </aside>
+</div>
 <footer id="footer">
 
 </footer>
