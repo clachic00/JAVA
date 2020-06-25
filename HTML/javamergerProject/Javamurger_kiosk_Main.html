@@ -5,16 +5,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaMurger Kiosk</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Nova+Slim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Nova+Slim&display=swap"
+        rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <!-- <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"> -->
     <script>
         $(document).ready(function () {
-            $('.slider').bxSlider();
+
+
+            // 메뉴 배열 생성
+            var Hamburger = [{
+                    img: 'HTML Project images/Hamberger/1955.png',
+                    name: '1955',
+                    price: 4500,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/Hamberger/모짜렐라.png',
+                    name: '모짜렐라',
+                    price: 5500,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/Hamberger/빅맥.png',
+                    name: '빅맥',
+                    price: 5800,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/Hamberger/맥스파이시.png',
+                    name: '스파이시',
+                    price: 4800,
+                    count: 0
+                }
+            ];
+
+            var Drink = [{
+                    img: 'HTML Project images/Drink/딸기쉐이크.png',
+                    name: '딸기쉐이크',
+                    price: 2800,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/Drink/아메리카노.png',
+                    name: '아메리카노',
+                    price: 2000,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/Drink/카페라떼.png',
+                    name: '카페라떼',
+                    price: 2500,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/Drink/콜라.png',
+                    name: '콜라',
+                    price: 1500,
+                    count: 0
+                },
+            ];
+
+            var Sidedish = [{
+                    img: 'HTML Project images/SideDish/애플파이.png',
+                    name: '애플파이',
+                    price: 1500,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/SideDish/치즈스틱.png',
+                    name: '치즈스틱',
+                    price: 1800,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/SideDish/후렌치후라이.png',
+                    name: '후렌치후라이',
+                    price: 2000,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/SideDish/후렌치후라이.png',
+                    name: '맛있는거',
+                    price: 2000,
+                    count: 0
+                }
+            ];
+
+            var SetMenu = [{
+                    img: 'HTML Project images/SetMenu/1955세트.png',
+                    name: '1995세트',
+                    price: 5500,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/SetMenu/모짜렐라세트.png',
+                    name: '모짜렐라세트',
+                    price: 6500,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/SetMenu/빅맥세트.png',
+                    name: '빅맥세트',
+                    price: 6800,
+                    count: 0
+                },
+                {
+                    img: 'HTML Project images/SetMenu/상하이세트.png',
+                    name: '상하이세트',
+                    price: 5800,
+                    count: 0
+                }
+            ];
+
+
+            // 생성된 배열을 .each를 통해 div에 넣어줌   
+            $.each(Hamburger, function (index, item) {
+
+                var hamburger = '';
+
+
+                hamburger += '<div id="list"><img class="hamimg" src="'  + this.img + '"><p>' + this.name + '</p><p>' + this.price +
+                    '원</p></div>';
+
+                $('#hamburgerList').html($('#hamburgerList').html() + hamburger);
+
+            });
+
+            $.each(Drink, function (index, item) {
+                var drink = '';
+
+                drink += '<div id="list"><img class="hamimg" src="'  + this.img + '"><p>' + this.name + '</p><p>' + this.price +
+                    '원</p></div>';
+
+
+                $('#drinkList').html($('#drinkList').html() + drink);
+            });
+
+            $.each(Sidedish, function (index, item) {
+                var side = '';
+
+                side +='<div id="list"><img class="hamimg" src="'  + this.img + '"><p>' + this.name + '</p><p>' + this.price +
+                    '원</p></div>';
+
+
+                $('#sideList').html($('#sideList').html() + side);
+            });
+
+            $.each(SetMenu, function (index, item) {
+                var set = '';
+
+                set += '<div id="list"><img class="hamimg" src="'  + this.img + '"><p>' + this.name + '</p><p>' + this.price +
+                    '원</p></div>';
+
+
+                $('#setlist').html($('#setlist').html() + set);
+            });
+
+            // 마우스 올렸을 시 색/커서 변환
+            $('button').mouseover(function () {
+                $(this).css('cursor', 'pointer').css('background', '#FF4E50');
+            });
+
+            // 마우스 땠을 시 색변환
+            $('button').mouseout(function () {
+                $(this).css('background', 'white');
+            });
+
+            $('.hamimg').mouseover(function () {
+                $(this).css('cursor', 'pointer').css('background', '#FC913A');
+            });
+
+            $('.hamimg').mouseout(function () {
+                $(this).css('background', 'white');
+            });
+
+
+            $('.drinkimg').mouseover(function () {
+                $(this).css('cursor', 'pointer').css('background', '#FC913A');
+            });
+
+            $('.drinkimg').mouseout(function () {
+                $(this).css('background', 'white');
+            });
+
+            $('.sideimg').mouseover(function () {
+                $(this).css('cursor', 'pointer').css('background', '#FC913A');
+            });
+
+            $('.sideimg').mouseout(function () {
+                $(this).css('background', 'white');
+            });
+
+            $('.setimg').mouseover(function () {
+                $(this).css('cursor', 'pointer').css('background', '#FC913A');
+            });
+
+            $('.setimg').mouseout(function () {
+                $(this).css('background', 'white');
+            });
+
+            // $('#order').click(function () {
+            //     var order = '';
+            //     var init = $('#cart');
+            //     var findImg = $(this).attr('src');
+
+            //     var cnt =
+
+            //         $('#cart').append('<ul><li><img id="orderImg" src="' + findImg + '"></li>');
+            // });
 
             // 전에 열렸던 메뉴를 확인하기 위한 변수
-            var toggle = $('.burgerTable');
+            var toggle = $('#hamburgerList');
+
 
             // button 클릭 시 메뉴가 열리는 메서드
             $('#hamburger').click(function () {
@@ -22,90 +226,141 @@
 
                 // 전에 열렸던 메뉴가 있는지 확인 후 닫아주는 기능
                 if (toggle.is(':visible')) {
-                    toggle.slideUp();
+                    toggle.fadeOut();
+                    $('#drink').css('background', 'white');
+                    $('#sidedish').css('background', 'white');
+                    $('#setmenu').css('background', 'white');
                 }
 
+
                 // 새로 선택된 메뉴창 확인을 위한 변수
-                var scroll = $('.burgerTable');
-                
+                var scroll = $('#hamburgerList');
+
                 // 메뉴창 클릭 시 열려있는지 확인 후 열거나 닫는 기능
                 if (scroll.is(':visible')) {
                     scroll.slideUp();
-                    console.log(scroll);
+                    $(this).css('background', 'white')
                 } else {
-                    scroll.slideDown();
-                    console.log(scroll);
+                    scroll.fadeIn();
+                    $(this).css('background', '#FF4E50')
                 }
 
                 // 열린 메뉴창 값을 반환
-                toggle = $('.burgerTable');
+                toggle = $('#hamburgerList');
                 return toggle;
-
             });
 
 
             $('#drink').click(function () {
 
                 if (toggle.is(':visible')) {
-                    toggle.slideUp();
+                    toggle.fadeOut();
+                    $('#hamburger').css('background', 'white');
+                    $('#sidedish').css('background', 'white');
+                    $('#setmenu').css('background', 'white');
                 }
 
-                var scroll = $('.drinkTable');
+                var scroll = $('#drinkList');
                 if (scroll.is(':visible')) {
                     scroll.slideUp();
+                    $(this).css('background', 'white')
+
                 } else {
-                    scroll.slideDown();
+                    scroll.fadeIn();
+                    $(this).css('background', '#FF4E50')
                 }
 
-                toggle = $('.drinkTable');
+                toggle = $('#drinkList');
                 return toggle;
-
             });
+
 
             $('#sidedish').click(function () {
 
                 if (toggle.is(':visible')) {
-                    toggle.slideUp();
+                    toggle.fadeOut();
+                    $('#hamburger').css('background', 'white');
+                    $('#drink').css('background', 'white');
+                    $('#setmenu').css('background', 'white');
                 }
 
-                var scroll = $('.sideTable');
+                var scroll = $('#sideList');
                 if (scroll.is(':visible')) {
                     scroll.slideUp();
+                    $(this).css('background', 'white')
                 } else {
-                    scroll.slideDown();
+                    scroll.fadeIn();
+                    $(this).css('background', '#FF4E50')
                 }
 
-                toggle = $('.sideTable');
+                toggle = $('#sideList');
                 return toggle;
-
             });
 
             $('#setmenu').click(function () {
 
                 if (toggle.is(':visible')) {
-                    toggle.slideUp();
+                    toggle.fadeOut();
+                    $('#hamburger').css('background', 'white');
+                    $('#drink').css('background', 'white');
+                    $('#sidedish').css('background', 'white');
                 }
 
-                var scroll = $('.setTable');
+                var scroll = $('#setlist');
                 if (scroll.is(':visible')) {
                     scroll.slideUp();
+                    $(this).css('background', 'white')
                 } else {
-                    scroll.slideDown();
+                    scroll.fadeIn();
+                    $(this).css('background', '#FF4E50')
                 }
 
-                toggle = $('.setTable');
+                toggle = $('#setlist');
                 return toggle;
+            });
+
+
+
+            $('image.haming').click(function () {
+
+                
+           
+
+                var hamburger = '';
+
+
+                hamburger += '<div id="list">' + this.img + '<p>' + this.name + '</p><p>' + this.price +
+                    '원</p></div>';
+
+                $('#hamburgerList').html($('#hamburgerList').html() + hamburger);
+
+
+
+
+                $('#cart')
+
+
+
+
 
             });
+
+
+
+
+            // $.each(Hamburger, function (index, item){
+
 
 
         });
     </script>
     <style>
         body {
-            width: 1600px;
-            height: auto;
-            margin: 100px;
+            width: 1080px;
+            height: 800px;
+            margin: 50px 200px;
+            /* border: 1px solid #CCCCEE; */
+            overflow: auto;
         }
 
         h1 {
@@ -118,145 +373,135 @@
         }
 
         nav {
-            padding: 5px;
+            padding-right: 2px;
+            padding-left: 2px;
             height: 50px;
             display: block;
             border-top: 1px solid #CCCCEE;
-            border-bottom: 1px solid #CCCCEE;
         }
-
-        #tableWarp {
-            margin-top: 20px;
-        }
-
 
         button {
-            width: 250px;
-            height: 50px;
-            margin-right: 30px;
+            width: 269px;
+            height: 100px;
+            /* margin-right: 30px; */
             border: none;
+            background-color: white;
             float: left;
             font-family: 'Nanum Gothic', sans-serif;
             font-size: 1.5em;
+            outline: none;
+
         }
 
-        input[type=reset] {
+        #goTop {
             border: none;
             position: fixed;
-            left: 1465px;
-            top: 184px;
+            left: 1200px;
+            top: 800px;
         }
 
-        img {
+        .hamimg,
+        .drinkimg,
+        .sideimg,
+        .setimg {
             margin: 20px 20px 30px 20px;
             width: 200px;
             height: 150px;
             border: 1px solid #CCCCEE;
         }
 
+        #list {
+            width: 250px;
+            height: 150px;
+            float: left;
+        }
 
-        .burgerTable,
-        .drinkTable,
-        .sideTable,
-        .setTable {
+        p {
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        #hamburgerList,
+        #drinkList,
+        #sideList,
+        #setlist {
             display: none;
+        }
 
+        #logo {
+            width: 250px;
+            height: 150px;
+            border: none;
+            margin-left: 6px;
         }
 
         #orderlist {
-            margin: 80px 80px 80px 80px;
-            width: 300px;
-            text-align: center;
+            position: absolute;
+            left: 1300px;
+            width: 500px;
+            top: 200px;
             border: 1px solid #CCCCEE;
         }
+
+        #cart {
+            border: 1px solid #CCCCEE;
+            margin-top: 25px;
+            margin-left: 50px;
+            margin-bottom: 25px;
+            padding: 50px;
+            width: 300px;
+            height: 150px;
+            overflow: auto;
+        }
+
+
     </style>
 
 </head>
 
 <body>
-    <h1>JAVA - MURGER</h1>
-    <nav class="naviBar">
-        <div class="NaviWrap">
-            <button id="hamburger">햄버거 단품</button>
-            <!-- <div class="hide">
-                <table>
-                    <td><img src="HTML Project images/Hamberger/1955.png"></td>
-                    <td><img src="HTML Project images/Hamberger/맥스파이시.png"></td>
-                    <td><img src="HTML Project images/Hamberger/모짜렐라.png"></td>
-                    <td><img src="HTML Project images/Hamberger/빅맥.png"></td>
-                </table>
-            </div> -->
-            <button id="drink">음료</button>
-            <!-- <div class="hide">
-                <table>
-                    <td><img src="HTML Project images/Drink/딸기쉐이크.png"></td>
-                    <td><img src="HTML Project images/Drink/아메리카노.png"></td>
-                    <td><img src="HTML Project images/Drink/카페라떼.png"></td>
-                    <td><img src="HTML Project images/Drink/콜라.png"></td>
-                </table>
-            </div> -->
-            <button id="sidedish">사이드 메뉴</button>
-            <!-- <div class="hide">
-                <table>
-                    <td><img src="HTML Project images/SideDish/애플파이.png"></td>
-                    <td><img src="HTML Project images/SideDish/치즈스틱.png"></td>
-                    <td><img src="HTML Project images/SideDish/후렌치후라이.png"></td>
-                </table>
-            </div> -->
-            <button id="setmenu">세트 메뉴</button>
-            <!-- <div class="hide">
-                <table>
-                    <td><img src="HTML Project images/SetMenu/1955세트.png"></td>
-                    <td><img src="HTML Project images/SetMenu/모짜렐라세트.png"></td>
-                    <td><img src="HTML Project images/SetMenu/빅맥세트.png"></td>
-                    <td><img src="HTML Project images/SetMenu/상하이세트.png"></td>
-                </table>
-            </div> -->
-            <input type="reset" value="초기 화면으로 돌아가기">
-        </div>
-    </nav>   
+    <header>
+        <!-- <img id="logo" src=" ../HTML_Team_Project/HTML Project images/LogoSample.png"> -->
+        <img id="logo" src=" HTML Project images/LogoSample5.jpg"> 
+    </header> 
+    <contents>
+        <nav class="naviBar">
+            <div class="NaviWrap">
+                <button id="hamburger">햄버거 단품</button>
 
-        <br id="tableWarp">
-            <div class="burgerTable">
-                <div class="slider">
-                <table>
-                    <td><img src="HTML Project images/Hamberger/1955.png"></td>
-                    <td><img src="HTML Project images/Hamberger/맥스파이시.png"></td>
-                    <td><img src="HTML Project images/Hamberger/모짜렐라.png"></td>
-                    <td><img src="HTML Project images/Hamberger/빅맥.png"></td>
-                </table>
-                </div>
+                <button id="drink">음료</button>
+
+                <button id="sidedish">사이드 메뉴</button>
+
+                <button id="setmenu">세트 메뉴</button>
             </div>
-            <div class="drinkTable">
-                <div class="slider">
-                <table>
-                    <td><img src="HTML Project images/Drink/딸기쉐이크.png"></td>
-                    <td><img src="HTML Project images/Drink/아메리카노.png"></td>
-                    <td><img src="HTML Project images/Drink/카페라떼.png"></td>
-                    <td><img src="HTML Project images/Drink/콜라.png"></td>
-                </table>
-                </div>
-            </div>
-            <div class="sideTable">
-                <div class="slider">
-                <table>
-                    <td><img src="HTML Project images/SideDish/애플파이.png"></td>
-                    <td><img src="HTML Project images/SideDish/치즈스틱.png"></td>
-                    <td><img src="HTML Project images/SideDish/후렌치후라이.png"></td>
-                </table>
-                </div>
-            </div>
-            <div class="setTable">
-                <div class="slider">
-                <table>
-                    <td><img src="HTML Project images/SetMenu/1955세트.png"></td>
-                    <td><img src="HTML Project images/SetMenu/모짜렐라세트.png"></td>
-                    <td><img src="HTML Project images/SetMenu/빅맥세트.png"></td>
-                    <td><img src="HTML Project images/SetMenu/상하이세트.png"></td>
-                </table>
-                </div>
-            </div>
-        </br>
+        </nav>
+        <div id="hamburgerList">
+
+        </div>
+        <div id="drinkList">
+
+        </div>
+        <div id="sideList">
+
+        </div>
+        <div id="setlist">
+
+        </div>
+    </contents>
 </body>
+<aside id="orderlist">
+    <div>
+        <h3>주문 리스트</h3>
+    </div>
+    <div id="cart">
+
+    </div>
+    <div id="orderCancle"><input type="reset" value="모두 취소"></div>
+    <div id="orderComple"><input type="submit" value="선택 완료"></div>
+</aside>
+<footer id="footer">
+
+</footer>
 
 </html>

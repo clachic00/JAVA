@@ -271,7 +271,7 @@
 
 
     $(document).ready(function () {
-        $('.slider').bxSlider();
+    //     $('.slider').bxSlider();
         //  $('#set').hide();
         $('.set').hide();
         $('.side').hide();
@@ -282,15 +282,44 @@
 
 
 
-  $(document).ready(function () {
+//   $(document).ready(function () {
+//         $('#clickOne').click(function () {
+//             $('.set').hide();
+//             $('.one').show();
+//             $('.side').hide();
+//             $('.beverage').hide();
+//         });
+//         $('#clickSet').click(function () {
+//             $('.set').show();
+//             $('.one').hide();
+//             $('.side').hide();
+//             $('.beverage').hide();
+//         });
+//         $('#clickSide').click(function () {
+//             $('.set').hide();
+//             $('.one').hide();
+//             $('.side').show();
+//             $('.beverage').hide();
+//         });
+//         $('#clickBeverage').click(function () {
+//             $('.set').hide();
+//             $('.one').hide();
+//             $('.side').hide();
+//             $('.beverage').show();
+//         });
+     
+//     });
+
+
+$(document).ready(function () {
         $('#clickOne').click(function () {
             $('.set').hide();
-            $('.one').show();
+            $('.one').slideToggle();
             $('.side').hide();
             $('.beverage').hide();
         });
         $('#clickSet').click(function () {
-            $('.set').show();
+            $('.set').slideToggle();
             $('.one').hide();
             $('.side').hide();
             $('.beverage').hide();
@@ -298,17 +327,101 @@
         $('#clickSide').click(function () {
             $('.set').hide();
             $('.one').hide();
-            $('.side').show();
+            $('.side').slideToggle();
             $('.beverage').hide();
         });
         $('#clickBeverage').click(function () {
             $('.set').hide();
             $('.one').hide();
             $('.side').hide();
-            $('.beverage').show();
+            $('.beverage').slideToggle();
         });
      
+
+        // $('#a').click(function(){
+        // alert("테스트 클릭 성공");
+    // });
+
+        var hamburger = [];
+
+hamburger.push({pnum : 0, name : 'bigmac', price: 5000, num:0});
+hamburger.push({pnum : 1, name : 'bigmac2', price: 6000, num:0});
+hamburger.push({pnum : 2, name : 'bigmac3', price: 7000, num:0});
+hamburger.push({pnum : 3, name :'bigmac4', price: 8000, num:0});
+hamburger.push({pnum : 4, name : 'bigmac5', price: 1000, num:0});
+hamburger.push({pnum : 5, name : 'bigmac6', price: 2000, num:0});
+hamburger.push({pnum : 6, name : 'bigmac7', price: 3000, num:0});
+hamburger.push({pnum : 7, name : 'bigmac8', price: 4000, num:0});
+
+
+
+            function getListFilter (data,key,value){
+                if(data.TYPE=="S"){
+                    return data.hamburger.filter(function(object){
+
+                    });
+                }else{
+                    alert(data.MESSAGE);
+                    return"";
+                }
+                }
+            
+
+
+
+            // var searchIdx = hamburger;
+            // $.each(dataset,function(idx,row){
+            //     if(searchIdx[idx].name=="bigmac"){
+            //         return searchIdx[idx]
+            //     }
+            //     return"";
+            // });
+
+
+        $("#bigmac").click(function() { 
+        // alert("dd");
+      
+            alert($('hamburger').filter())
+      
+        // alert(jQuery.object("bigmac",hamburger));
+        // hamburger[].num+=1;
+        // alert(hamburger[this.id].num);
+
+
     });
+  
+    });
+
+
+
+
+
+
+
+ 
+
+
+    // hamburger[0].pnum=+1;
+
+
+
+    
+
+
+
+// var test=function(){
+
+//     alert(hamburger[1].price);
+//     alert(hamburger[0].pnum);
+
+// };
+
+// test();
+
+
+
+
+
 
 
 
@@ -369,29 +482,17 @@
                 <br>
 
                 <div class="one">
-                    <div class="slider">
+                    <div class="slider" >
 
                         <table>
                             <tr>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td ><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"><button  > +</button></td>
                                 <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
                                 <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
                                 <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
 
                             </tr>
 
-
-                            <!-- <tr>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                            </tr>
-
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                            </tr> -->
 
 
 
@@ -404,18 +505,7 @@
                                 <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
 
                             </tr>
-<!-- 
 
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                            </tr>
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                            </tr> -->
 
 
 
@@ -428,18 +518,6 @@
                                 <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
                             </tr>
 
-<!-- 
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                            </tr>
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
-                            </tr>
- -->
 
 
                         </table>
@@ -459,17 +537,16 @@
                                 <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
                             </tr>
 
-                            <!-- <tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
                                 <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
                                 <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
                                 <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
                             </tr>
 
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                            </tr> -->
+                            
 
 
 
@@ -482,42 +559,6 @@
                                 <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
                             </tr>
 
-                            <!-- <tr>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                            </tr>
-
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                            </tr> -->
-
-
-
-                        </table>
-                        <table>
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                            </tr>
-<!-- 
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                            </tr>
-
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
-                            </tr>
-
- -->
 
                         </table>
 
@@ -535,20 +576,7 @@
                                 <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
                                 <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
                             </tr>
-<!-- 
 
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
-                            </tr>
-
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
-                            </tr>
- -->
 
 
                         </table>
@@ -559,19 +587,6 @@
                                 <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
                                 <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
                             </tr>
-
-<!-- 
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
-                            </tr>
-
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
-                            </tr> -->
 
 
 
@@ -586,19 +601,6 @@
                             </tr>
 
 
-                            <!-- <tr>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
-                            </tr>
-
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
-                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
-                            </tr>
-
- -->
 
                         </table>
 
@@ -616,17 +618,6 @@
                             </tr>
 
 
-                            <!-- <tr>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                            </tr>
-
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                            </tr> -->
 
 
 
@@ -639,17 +630,6 @@
                                 <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
                             </tr>
 
-<!-- 
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                            </tr>
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                            </tr> -->
 
 
 
@@ -661,18 +641,7 @@
                                 <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
                                 <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
                             </tr>
-<!-- 
 
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                            </tr>
-                            <tr>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
-                            </tr> -->
 
 
 
@@ -690,13 +659,8 @@
 
             <div id="aside" class="border">
                 <br>
-                <h2>장바구니</h2>
-                <!-- <p class="ha"><a href="html_button.html">데이터</a><br>
-                    <a href="html_button.html">데이터</a><br>
-                    <a href="html_button.html">데이터</a><br>
-                    <a href="html_button.html">데이터</a><br>
-                    <a href="html_button.html">데이터</a><br>
-                </p> -->
+                <h2 id="bigmac">장바구니</h2>
+                
 
 
 
