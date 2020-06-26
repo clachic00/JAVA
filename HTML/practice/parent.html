@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+   var hamburger = [];
+
+hamburger.push({pnum : 0, name : 'bigmac', price: 5000, num:0});
+hamburger.push({pnum : 1, name : 'bigmac2', price: 6000, num:0});
+hamburger.push({pnum : 2, name : 'bigmac3', price: 7000, num:0});
+hamburger.push({pnum : 3, name :'bigmac4', price: 8000, num:0});
+hamburger.push({pnum : 4, name : 'bigmac5', price: 1000, num:0});
+hamburger.push({pnum : 5, name : 'bigmac6', price: 2000, num:0});
+hamburger.push({pnum : 6, name : 'bigmac7', price: 3000, num:0});
+hamburger.push({pnum : 7, name : 'bigmac8', price: 4000, num:0});
+
+
+
+    var newWindow;
+    function openNewWindow(){
+        // var data = document.querySelector('#sendValue').value;
+        var data = JSON.stringify(hamburger);
+
+        window.open("son.html?val="+data , "newWindow", "width=300, height=400, scrollbar=no");
+    }
+    
+</script>
+</head>
+<body>
+<input type="button" value="자식창 열기" onclick="openNewWindow()">
+
+
+
+<input type='text' id='sendValue'/>
+</body>
+</html>

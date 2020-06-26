@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text Limit</title>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+    
+
+
+
+    <style>
+
+   
+
+
+        div.main {
+            border: 4px solid #AAAAAA;
+            width: 1050px;
+
+            border-radius: 10px;
+
+
+            background-color: white;
+
+            box-shadow: 0px 0px 0px 5px #AAAAAA
+        }
+
+
+        img {
+            width: 430px;
+            height: 280px;
+        }
+
+        #header {
+
+
+            text-indent: 3px;
+            width: 1000px;
+            height: 150px;
+            margin: 0 auto;
+
+            text-align: left;
+            /*
+            margin: 10px;
+            padding: 20px;
+*/
+
+            /*            line-height: 100px;*/
+            margin: 0px;
+            padding-left: 15px;
+
+
+
+            font-size: 2em;
+            color: rgb(177, 163, 119);
+            font-weight: bold;
+
+        }
+
+        #logo {
+            width: 70px;
+            height: 60px;
+            overflow: hidden;
+            float: left;
+            padding-right: 10px;
+        }
+
+        /* p.ha {
+            font-size: 50px;
+            width: 1;
+            margin: auto;
+            padding: 0;
+
+
+        } */
+
+        #nav {
+            border-bottom: 1px solid #AAAAAA;
+            border-top: 1px solid #AAAAAA;
+            width: 1000px;
+            height: 80px;
+
+           
+
+            margin: 0 auto;
+
+            text-align: left;
+            line-height: 0%;
+
+            font-size: 2em;
+            font-weight: bold;
+
+            float: left;
+
+        }
+
+
+        ul {
+
+            overflow: hidden;
+            float: left;
+
+        }
+
+        ul>li {
+
+            padding: 40px;
+            padding-right: 50px;
+            padding-left: 50px;
+            padding-top: 11px;
+            float: left;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        A {
+            color: black;
+
+            text-decoration-line: none;
+        }
+
+
+
+
+        /* div.search {
+            float: right;
+            border: 1px solid gray;
+            border-radius: 0 20px 20px 0;
+            background-color: darkgray;
+            font-size: 15px;
+            width: 40px;
+            height: 25px;
+            text-align: center;
+        }
+
+        #search {
+            float: right;
+            border: 1px solid gray;
+            border-radius: 20px 0 0 20px;
+            height: 23px;
+
+        } */
+
+
+        #content {
+
+            width: 700px;
+            height: 1000px;
+
+            /*            background-color: blueviolet;*/
+
+            margin: 0 auto;
+
+            text-align: left;
+            /*            line-height: 300px;*/
+
+            font-size: 1.3em;
+            float: left;
+            padding: 10px;
+        }
+
+        p.y {
+            font-size: 5px;
+        }
+
+        p.date {
+            font-size: 13px;
+        }
+
+
+        #aside {
+            width: 270px;
+            height: 1000px;
+
+            /*            background-color: blue;*/
+
+            margin: auto;
+
+            text-align: center;
+
+
+            font-weight: bold;
+            float: right;
+
+        }
+
+        #footer {
+            width: 1000px;
+            height: 100px;
+            padding: 10px;
+
+            margin: auto;
+
+            /*            text-align: center;*/
+            line-height: 30px;
+
+            font-size: 14px;
+            clear: both;
+            border-top: 1px solid gray;
+
+            color: blue;
+        }
+
+
+
+        #wrap {
+            width: 1002px;
+            margin: 0 auto;
+
+            overflow: hidden;
+
+
+        }
+
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+        body {
+
+            font-family: 'Roboto', sans-serif;
+            background-color: #AAAAAA;
+        }
+
+
+
+        table td {
+            width: 230px;
+
+        }
+
+        #burger {
+            width: 180px;
+        }
+
+
+
+
+        .share {
+            width: 40px;
+            height: 40px;
+            float: right;
+
+        }
+
+
+        #clickOne{
+            cursor: pointer;
+        }
+
+        #clickSet{
+            cursor: pointer;
+        }
+        #clickSide{
+            cursor: pointer;
+        }
+        #clickBeverage{
+            cursor: pointer;
+        }
+
+
+    </style>
+<script>
+
+
+    $(document).ready(function () {
+    //     $('.slider').bxSlider();
+        //  $('#set').hide();
+        $('.set').hide();
+        $('.side').hide();
+        $('.beverage').hide();
+
+
+    });
+
+
+
+//   $(document).ready(function () {
+//         $('#clickOne').click(function () {
+//             $('.set').hide();
+//             $('.one').show();
+//             $('.side').hide();
+//             $('.beverage').hide();
+//         });
+//         $('#clickSet').click(function () {
+//             $('.set').show();
+//             $('.one').hide();
+//             $('.side').hide();
+//             $('.beverage').hide();
+//         });
+//         $('#clickSide').click(function () {
+//             $('.set').hide();
+//             $('.one').hide();
+//             $('.side').show();
+//             $('.beverage').hide();
+//         });
+//         $('#clickBeverage').click(function () {
+//             $('.set').hide();
+//             $('.one').hide();
+//             $('.side').hide();
+//             $('.beverage').show();
+//         });
+     
+//     });
+
+
+$(document).ready(function () {
+        $('#clickOne').click(function () {
+            $('.set').hide();
+            $('.one').slideToggle();
+            $('.side').hide();
+            $('.beverage').hide();
+        });
+        $('#clickSet').click(function () {
+            $('.set').slideToggle();
+            $('.one').hide();
+            $('.side').hide();
+            $('.beverage').hide();
+        });
+        $('#clickSide').click(function () {
+            $('.set').hide();
+            $('.one').hide();
+            $('.side').slideToggle();
+            $('.beverage').hide();
+        });
+        $('#clickBeverage').click(function () {
+            $('.set').hide();
+            $('.one').hide();
+            $('.side').hide();
+            $('.beverage').slideToggle();
+        });
+     
+
+        // $('#a').click(function(){
+        // alert("테스트 클릭 성공");
+    // });
+
+        var hamburger = [];
+
+hamburger.push({pnum : 0, name : 'bigmac', price: 5000, num:0});
+hamburger.push({pnum : 1, name : 'bigmac2', price: 6000, num:0});
+hamburger.push({pnum : 2, name : 'bigmac3', price: 7000, num:0});
+hamburger.push({pnum : 3, name :'bigmac4', price: 8000, num:0});
+hamburger.push({pnum : 4, name : 'bigmac5', price: 1000, num:0});
+hamburger.push({pnum : 5, name : 'bigmac6', price: 2000, num:0});
+hamburger.push({pnum : 6, name : 'bigmac7', price: 3000, num:0});
+hamburger.push({pnum : 7, name : 'bigmac8', price: 4000, num:0});
+
+
+
+            function getListFilter (data,key,value){
+                if(data.TYPE=="S"){
+                    return data.hamburger.filter(function(object){
+
+                    });
+                }else{
+                    alert(data.MESSAGE);
+                    return"";
+                }
+                }
+            
+
+
+
+            // var searchIdx = hamburger;
+            // $.each(dataset,function(idx,row){
+            //     if(searchIdx[idx].name=="bigmac"){
+            //         return searchIdx[idx]
+            //     }
+            //     return"";
+            // });
+
+
+        $("#bigmac").click(function() { 
+        // alert("dd");
+      
+            alert($('hamburger').filter())
+      
+        // alert(jQuery.object("bigmac",hamburger));
+        // hamburger[].num+=1;
+        // alert(hamburger[this.id].num);
+
+
+    });
+  
+    });
+
+
+
+
+
+
+
+ 
+
+
+    // hamburger[0].pnum=+1;
+
+
+
+    
+
+
+
+// var test=function(){
+
+//     alert(hamburger[1].price);
+//     alert(hamburger[0].pnum);
+
+// };
+
+// test();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</head>
+
+<body>
+
+
+
+    <div class="main">
+
+        <div id="header" class="border"><img id="logo" src=../image/logo.png>
+            <H2>JAVA MURGER</H2>
+        </div>
+
+        <div id="nav" class="border">
+            <ul>
+                <li>
+                    <div id="clickOne" class="menu">단품</div>
+                </li>
+                <li>
+                    <div id="clickSet" class="menu">세트</div>
+                </li>
+                <li> 
+                        <div id="clickSide" class="menu">사이드</div>
+                </li>
+                <li> 
+                        <div id="clickBeverage" class="menu">음료</div>
+                  </li>
+
+            </ul>
+
+
+            <!-- 
+            <div class="search">검색</div>
+            <input type="text" id="search">
+ -->
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div id="wrap">
+            <div id="content" class="border">
+                <br>
+
+                <div class="one">
+                    <div class="slider" >
+
+                        <table>
+                            <tr>
+                                <td ><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"><button  > +</button></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+
+                            </tr>
+
+
+
+
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+
+                            </tr>
+
+
+
+
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Hamberger/맥스파이시.png style="size:1%"></td>
+                            </tr>
+
+
+
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="set">
+                    <div class="slider">
+
+
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                            </tr>
+
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                            </tr>
+
+                            
+
+
+
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SetMenu/1955세트.png style="size:1%"></td>
+                            </tr>
+
+
+                        </table>
+
+
+                    </div>
+
+                </div>
+                <div class="side">
+                    <div class="slider">
+
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
+                            </tr>
+
+
+
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
+                            </tr>
+
+
+
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>                                
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>  
+                                <td><img id="burger" src=../image/버거사진/SideDish/애플파이.png style="size:1%"></td>              
+
+                            </tr>
+
+
+
+                        </table>
+
+                    </div>
+                </div>
+                <div class="beverage">
+                    <div class="slider">
+
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                            </tr>
+
+
+
+
+
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                            </tr>
+
+
+
+
+                        </table>
+                        <table>
+                            <tr>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                                <td><img id="burger" src=../image/버거사진/Drink/딸기쉐이크.png style="size:1%"></td>
+                            </tr>
+
+
+
+
+                        </table>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+            <div id="aside" class="border">
+                <br>
+                <h2 id="bigmac">장바구니</h2>
+                
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <div id="footer" class="border">Create By CI
+            <br>
+            <br>
+            <a href="https://www.instagram.com/"><img class="share" src="../image/Instagram.png"></a>
+
+            <a href="https://www.facebook.com/"> <img class="share" src="../image/Facebook.ico"></a>
+    
+            <a href="https://twitter.com/"><img class="share" src="../image/Twiter.jpg"></a>
+
+        </div>
+
+
+        
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

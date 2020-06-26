@@ -54,70 +54,70 @@
             {
                 img: 'HTML Project images/Drink/카페라떼.png',
                 name: '카페라떼',
-                price: 2500,
+                price: 2000,
                 type: 'drink'
 
             },
             {
                 img: 'HTML Project images/Drink/콜라.png',
                 name: '콜라',
-                price: 1500,
+                price: 1000,
                 type: 'drink'
 
             },
             {
                 img: 'HTML Project images/SideDish/애플파이.png',
                 name: '애플파이',
-                price: 3000,
+                price: 1500,
                 type: 'sideDish'
 
             },
             {
                 img: 'HTML Project images/SideDish/치즈스틱.png',
                 name: '치즈스틱',
-                price: 2000,
+                price: 1000,
                 type: 'sideDish'
 
             },
             {
                 img: 'HTML Project images/SideDish/후렌치후라이.png',
                 name: '후렌치후라이',
-                price: 2500,
+                price: 2000,
                 type: 'sideDish'
 
             },
             {
-                img: 'HTML Project images/SideDish/치즈스틱.png',
-                name: '치즈스틱',
-                price: 1500,
+                img: 'HTML Project images/SideDish/스낵랩.png',
+                name: '치킨 스낵랩',
+                price: 2500,
                 type: 'sideDish'
 
             },
             {
                 img: 'HTML Project images/SetMenu/1955세트.png',
                 name: '1955세트',
-                price: 3000,
+                price: 8000,
                 type: 'setMenu'
 
             },
             {
                 img: 'HTML Project images/SetMenu/모짜렐라세트.png',
                 name: '모짜렐라세트',
-                price: 2000,
+                price: 7500,
                 type: 'setMenu'
 
             },
             {
                 img: 'HTML Project images/SetMenu/빅맥세트.png',
                 name: '빅맥세트',
-                price: 2500,
+                price: 8000,
                 type: 'setMenu'
 
             },
             {
                 img: 'HTML Project images/SetMenu/상하이세트.png',
                 name: '상하이세트',
-                price: 1500,
+                price: 7000,
                 type: 'setMenu'
 
             }
@@ -211,7 +211,7 @@
                 var resultCnt = -1;
 
 
-                
+
 
 
                 for (var i = 0; i < orderList.length; i++) {
@@ -233,36 +233,9 @@
                     }
                 }
 
+                display();
 
 
-
-
-
-                var html = '';
-                html += '<div class="list">';
-                for (var i = 0; i < orderList.length; i++) {
-                    html += '<div>'
-                    html += '<img src="' + Item[orderList[i].idx].img + '" id="orderImg">';
-                    html += '<span>' + orderList[i].name + '</span>';
-                    html += '<span> 가격 : ' + orderList[i].price + '</span>';
-                    html += '<button onclick="javascript:add()" class="' + orderList[i].idx + '" id="addNum">+</button>';
-                    html += '<span> 수량 : ' + orderList[i].cnt + '</span>';
-                    html += '<input type="button" class="' + orderList[i].idx + '" id="minus">-';
-
-                    html += '</div>'
-                }
-                html += '</div>';
-
-                var totalHtml = '<span id="total"></span>';
-
-                $('#cart').html(html);
-                
-                var total = 0;
-                for (var i = 0; i < orderList.length; i++) {
-                    total += orderList[i].price * orderList[i].cnt;
-                }
-                $('#orderList').html(totalHtml);
-                $('#total').html(total);
 
 
             });
@@ -284,31 +257,88 @@
 
             }
 
-            function add(){
-                alert('1111111111');
-            }
-
-            $('#addNum').click(function () {
-                // orderList[0].cnt++;
-                alert('?????????????????');
-            });
 
 
+            $(document).on("click", "#add", function (event) {
 
+                var a = $(this).attr('class');
+                // alert(a);
+                for (var i = 0; i < orderList.length; i++) {
+                    if (orderList[i].idx == a) {
+                        orderList[i].cnt++;
+                        display();
+                    }
+                }
 
+            })
 
+            $(document).on("click", "#minus", function (event) {
 
-            
-            $('#orderCancle').click(function () {
-                $(function () {
-                    orderList = [];
-                    $('#cart').empty();
-                })
+                var a = $(this).attr('class');
+                // alert(a);
+                for (var i = 0; i < orderList.length; i++) {
+                    if (orderList[i].idx == a) {
+                        if (orderList[i].cnt < 2) {
+                            orderList.splice(i, 1);
+                            display();
+                        } else {
+                            orderList[i].cnt--;
+                            display();
+                        }
+                    }
+                }
+
             })
 
 
 
 
+
+
+
+            $('#orderCancle').click(function () {
+                $(function () {
+                    orderList = [];
+                    $('#cart').empty();
+                    display();
+                })
+            })
+
+
+
+            function display() {
+                var html = '';
+                html += '<div id ="table"><div class="row">';
+                html += '<h4>이미지</h4>';
+                html += '<h4>제품명</h4>';
+                html += '<h4>가격</h4>';
+                html += '<h4>수량</h4>';
+                html += '</div>';
+                // html += '<div class="list">';
+                for (var i = 0; i < orderList.length; i++) {
+                    html += '<div class="row">'
+                    html += '<h4><img src="' + Item[orderList[i].idx].img + '" id="orderImg"></h4>';
+                    html += '<h4>' + orderList[i].name + '</h4>';
+                    html += '<h4>' + orderList[i].price * orderList[i].cnt + '</h4>';
+                    html += '<h4 class="' + orderList[i].idx + '">' + orderList[i].cnt + '</h4>';
+                    html += '<button class="' + orderList[i].idx + '" id="add">+</button>';
+                    html += '<button class="' + orderList[i].idx + '" id="minus">-</button>';
+                    html += '</div>'
+                }
+                html += '</div>';
+
+
+
+                $('#cart').html(html);
+
+
+                var total = 0;
+                for (var i = 0; i < orderList.length; i++) {
+                    total += orderList[i].price * orderList[i].cnt;
+                }
+                var totalHtml = '<span id="total">' + '총액 :' + total + '원</span>';
+                $('#sumprice').html(totalHtml);
+            }
 
 
 
@@ -418,6 +448,7 @@
 
 
 
+
             $('#goTop').mouseover(function () {
                 $(this).css('cursor', 'pointer')
             })
@@ -426,15 +457,58 @@
             });
 
 
+            $('#complete').click(function () {
 
+                var data = JSON.stringify(orderList);
 
+                window.open("javamuger_payment.html?val=" + data, "payment", "width=360, height=546, left=800, top=100");
 
-
+            })
 
         });
-    </script>
-    <style>
         
+    </script>
+
+
+    <style>
+        #table {
+            width: 380px;
+            display: table;
+        }
+
+        .row {
+            display: table-row;
+            margin-right: 80px;
+        }
+
+        h4 {
+            margin-right: 40px;
+            display: table-cell;
+            /* border:solid 1px gray; padding: 3px; */
+        }
+
+        /* #orderCancle {
+            display: inline;
+            position: relative;
+            left: 150px;
+        } */
+
+        /* #orderComple {
+            display: inline;
+            position: relative;
+            left: 200px;
+        } */
+
+        #sumprice {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #total {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 20px;
+        }
+
         img.list {
             width: 300px;
             height: 150px;
@@ -507,6 +581,7 @@
 
         p {
             text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
         }
 
         #logo {
@@ -562,8 +637,8 @@
         }
 
         #orderImg {
-            width: 100px;
-            height: 80px;
+            width: 80px;
+            height: 60px;
         }
 
         #cart>div {
@@ -571,12 +646,102 @@
         }
 
         #add {
-            color: red;
+            margin-left: 5px;
+            margin-right: 5px;
         }
 
-        #minus {
-            color: red;
+        #minus {}
+
+        #footer {
+            position: absolute;
+            top: 750px;
+            width: 1060px;
+            height: 250px;
+            clear: both;
+            padding: 20px;
+            /* border: 3px solid red; */
+            background-color: #292929;
         }
+
+        #footer_left {
+            float: left;
+            margin-right: 100px;
+        }
+
+        #footer_right {
+            margin-top: 30px;
+            float: left;
+        }
+
+        #table1 {
+            border-spacing: 0 10px;
+            margin-left: 50px;
+            margin-right: 100px;
+            float: left;
+            color: white;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .table1_td1 {
+            color: #F9D423;
+        }
+
+        #table2 {
+            border-spacing: 0 10px;
+            color: #cdcdcd;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        input[type=reset]{
+            /* width: 150x; */
+            height: 70px;
+            /* margin-right: 30px; */
+            border: none ;
+            background-color: grey;
+            float: left; 
+            font-family: 'Nanum Gothic', sans-serif;
+            color: white;
+            font-size: 1.5em;
+            outline: none;
+            margin-left: 70px;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+
+
+        }
+
+        /* input[type=reset]:hover{
+            background-color: yellow;
+
+        } */
+
+        input[type=submit]{
+
+            /* width: 200x; */
+            height: 70px;
+            /* margin-right: 30px; */
+            border: none;
+            background-color: #FF4E50;
+            float: left;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 1.5em;
+            color: white;
+            outline: none;
+            margin-left: 50px;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            
+        }
+
+
     </style>
 
 </head>
@@ -584,7 +749,7 @@
 <body>
     <header>
         <!-- <img id="logo"" src=" ../HTML_Team_Project/HTML Project images/LogoSample.png"> -->
-        <img id="logo" src="HTML Project images/LogoSample5.jpg">
+        <a href="javameger_main.html"><img id="logo" src="HTML Project images/LogoSample5.jpg"></a>
     </header>
     <contents>
         <nav class="naviBar">
@@ -612,21 +777,65 @@
         </div>
     </contents>
 </body>
-<div>
 <aside id="orderlist">
     <div>
         <h3>주문 리스트</h3>
     </div>
     <!-- <form> -->
-        <div id="cart">
+    <div id="cart">
 
-        </div>
-        <!-- <div id="orderCancle"><input type="reset" value="모두 취소"></div>
-        <div id="orderComple"><input type="submit" value="선택 완료"></div> -->
+    </div>
+    <div id="sumprice"></div>
+    <div id="orderCancle"><input type="reset" value="모두 취소"></div>
+    <div id="orderComple"><input id="complete" type="submit" value="선택 완료"></div>
     <!-- </form> -->
 </aside>
-</div>
 <footer id="footer">
+    <div id="footer_left">
+        <table id="table1">
+            <tr>
+                <td class="table1_td1">개인정보 처리방침</td>
+            </tr>
+            <tr>
+                <td>위치정보 이용약관</td>
+            </tr>
+            <tr>
+                <td>사이트맵</td>
+            </tr>
+            <tr>
+                <td>임차문의</td>
+            </tr>
+            <tr>
+                <td>고객문의</td>
+            </tr>
+            <tr>
+                <td>인재채용</td>
+            </tr>
+        </table>
+        <table id="table2">
+            <tr>
+                <td>(주)자바머거</td>
+            </tr>
+            <tr>
+                <td>대표이사: 정신우</td>
+            </tr>
+            <tr>
+                <td>사업자등록번호: 2020-06-26</td>
+            </tr>
+            <tr>
+                <td>전화주문: 02-722-1481</td>
+            </tr>
+            <tr>
+                <td>COPYRIGHT © 2020 ALL RIGHTS RESERVED BY Java Murger</td>
+            </tr>
+        </table>
+    </div>
+    <div id="footer_right">
+        <a href="https://www.facebook.com/McDonaldsKorea" target="_blank"><img src="image/페북.JPG"></a>
+        <a href="https://www.instagram.com/mcdonalds_kr/" target="_blank"><img src="image/인스타.JPG"></a>
+        <a href="https://www.youtube.com/user/McDonaldsKor" target="_blank"><img src="image/유튜브.JPG"></a>
+        <a href="https://story.kakao.com/ch/mcdonalds/feed" target="_blank"><img src="image/카톡.JPG"></a>
+    </div>
 
 </footer>
 
