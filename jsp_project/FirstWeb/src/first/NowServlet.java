@@ -17,41 +17,21 @@ import javax.servlet.http.HttpServletResponse;
 public class NowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	
-	
-//	public void doGet(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//			int total = 0;
-//			for (int cnt = 1; cnt < 101; cnt++)
-//			total += cnt;
-//			PrintWriter out = response.getWriter();
-//			out.println( "<HTML> ");
-//			out.println( "<HEAD><TITLE>Hundred Servlet</TITLE></HEAD> ");
-//			out.println( "<BODY> ");
-//			out.printf( "1 + 2 + 3 + ... + 100 = %d ", total);
-//			out.println( "</BODY> ");
-//			out.println( "</HTML> ");
-//			}
-//	
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-	
-	resp.setContentType("text/html; charset=utf-8");
-	
-	PrintWriter out = resp.getWriter();
-	out.println("<html>");
-	out.println("\t<head>");
-	out.println("\t\t<title>서블릿 테스트</title>");
-
-	out.println("\t</head>");
-	out.println("\t<body>");
-	out.println("<h1>현재시간은 "+new Date()+"입니다."+"</h1>");
-	out.println("\t</body>");
-	out.println("\t</html>");
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int total = 0;
+		for (int cnt = 1; cnt < 101; cnt++)
+			total += cnt;
+		PrintWriter out = response.getWriter();
+		out.println("<HTML> ");
+		out.println("<HEAD><TITLE>Hundred Servlet</TITLE></HEAD> ");
+		out.println("<BODY> ");
+		out.printf("1 + 2 + 3 + ... + 100 = %d ", total);
+		out.println("</BODY> ");
+		out.println("</HTML> ");
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
