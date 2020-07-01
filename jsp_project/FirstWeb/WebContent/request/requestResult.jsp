@@ -1,15 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String name = (String) request.getAttribute("username");
+	request.setCharacterEncoding("utf-8");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사용자의 요청정보 출력</title>
 </head>
 <body>
-	<h1>request 속성 공유 : <%= name %></h1>
+
+	
+
+
+	<jsp:forward page="foward2.jsp"/>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
