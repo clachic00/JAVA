@@ -40,7 +40,7 @@
     <body>
         <h1>회원 로그인</h1>
         <hr>
-        <form action="" method="get" id="loginForm">
+        <form action="main.jsp" method="get" id="loginForm">
         <table id="form">
             <tr>
                 <td>아이디(이메일)</td>
