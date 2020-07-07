@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>Web</display-name>
+
+<web-app 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>FirstWeb</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -9,8 +13,10 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
-<!-- 서블릿 등록  -->
+  
+  
+  
+  <!-- 서블릿 등록  -->
   <servlet>
   	<!-- 서블릿 식별할수 있는 이름 -->
   	<servlet-name>testServlet</servlet-name>
@@ -25,6 +31,22 @@
   	<!-- http://localhost:8080/web/hello -->
   	<url-pattern>/hello</url-pattern>
   </servlet-mapping>
+  
+  
+  <!-- 데이터베이스 드라이버 로드  -->
+  <servlet>
+  	<servlet-name>Loader</servlet-name>
+  	<servlet-class>jdbc.Loader</servlet-class>
+  	<init-param>
+  		<param-name>jdbcDriver</param-name>
+  		<param-value>oracle.jdbc.driver.OracleDriver,com.mysql.jdbc.Driver</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>msg</param-name>
+  		<param-value>Hello~ JSP~~</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
   
   
   
@@ -45,16 +67,5 @@
   	<exception-type>java.lang.NullPointerException</exception-type>
   	<location>/error/error_null.jsp</location>
   </error-page>
-
-
-
-
-
-
-
-
-
+  
 </web-app>
-
-
-

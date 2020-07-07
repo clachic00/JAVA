@@ -18,3 +18,7 @@ jsp_project/Servers/Tomcat v8.5 Server at localhost-config/catalina.policy
 jsp_project/Servers/.settings/org.eclipse.wst.server.core.prefs
 jsp_project/Servers/.project
 TeamProject/
+jsp_project/Web/WebContent/WEB-INF/lib/ojdbc6.jar
+jsp_project/Web/WebContent/WEB-INF/lib/mysql-connector-java-8.0.20.jar
+jsp_project/OpenProject/WebContent/WEB-INF/lib/ojdbc6.jar
+jsp_project/OpenProject/WebContent/WEB-INF/lib/mysql-connector-java-8.0.20.jar
