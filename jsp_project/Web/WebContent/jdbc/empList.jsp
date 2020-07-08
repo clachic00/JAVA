@@ -1,3 +1,5 @@
+<%@page import="dao.EmpDao"%>
+<%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Emp"%>
 <%@page import="java.util.List"%>
@@ -9,7 +11,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 
 
 <!DOCTYPE html>
@@ -44,12 +45,16 @@
 	
 	List<Emp> empList = new ArrayList();
 	// DB Connection 정보
-	String dbUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
-	String user = "scott";
-	String pw = "tiger";
+	//String dbUrl = "jdbc:oracle:thin:@localhost:1521:orcl";
+	//String user = "scott";
+	//String pw = "tiger";
 	try {
 		// 2. Connection 생성
-		conn = DriverManager.getConnection(dbUrl, user, pw);
+		//conn = DriverManager.getConnection(dbUrl, user, pw);
+		conn = ConnectionProvider.getConnection();
+
+		empList = EmpDao.getInstance().getEmpList(conn);
+
 		// 3. Statement 생성
 		stmt = conn.createStatement();
 		String sql = "select * from emp order by ename desc";
@@ -77,29 +82,12 @@
  	request.setAttribute("empList", empList);
  	
 	%>
-
-	 <%-- ${empList} --%> 
 	
-	 <table border=1>
-
-		<tr>
-			<th>사원 번호</th>
-			<th>사원 이름</th>
-			<th>사원 급여</th>
-			<th>사원 직급</th>
-		</tr>
-		
-		<c:forEach items="${empList}" var="emp">
-		<tr>
-			<td>${emp.empno}</td>
-			<td>${emp.ename}</td>
-			<td>${emp.sal}</td>
-			<td>${emp.job}</td>
-		</tr>		
-		</c:forEach>
+	<jsp:forward page="empList_view.jsp"/>
 	
 	
-	</table> 
+	
+ 
 	
 
 
