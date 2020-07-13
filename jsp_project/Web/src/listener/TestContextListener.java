@@ -29,5 +29,5 @@ public class TestContextListener implements ServletContextListener {
 		System.out.println("파일 업로드 경로 : " + path);
 		
 	}
-
+	
 }
