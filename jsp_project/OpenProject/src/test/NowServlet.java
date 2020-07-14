@@ -32,17 +32,12 @@ public class NowServlet extends HttpServlet {
 		out.println("\t<body>");
 		out.println("\t\t<h1>안녕하세요. 서블릿 클래스로 응답 처리된 페이지 입니다.</h1>");
 		out.println("\t\t<p>현재 시간은 : "+ new Date() +"</p>");
-		
-		
 		out.println("\t</body>");
 		out.println("</html>");
 		
 		
-		
-		
-		
 	}
-
+	
 	@Override
 	protected void doPost(
 			HttpServletRequest req, 
@@ -50,11 +45,7 @@ public class NowServlet extends HttpServlet {
 		doGet(req, resp);
 	}
 	
-	
-	
-	
-	
-	
-	
 
 }
+
+

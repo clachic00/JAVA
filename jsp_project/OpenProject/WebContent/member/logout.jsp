@@ -2,9 +2,8 @@
     pageEncoding="UTF-8"%>
 <%
 
-
 session.invalidate();
 
-response.sendRedirect(request.getContextPath());
-
+response.sendRedirect("mypage/mypage.jsp");
+/* response.sendRedirect(request.getContextPath()); */
 %>

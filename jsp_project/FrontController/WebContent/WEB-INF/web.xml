@@ -29,8 +29,17 @@
    	<url-pattern>/</url-pattern>
    </servlet-mapping>
   
-  
-  
+     <!-- FrontController 등록 -->
+<!--    <servlet>
+   	<servlet-name>FrontController2</servlet-name>
+   	<servlet-class>controller.FrontController2</servlet-class>
+   	<load-on-startup>2</load-on-startup>
+   </servlet>
+   <servlet-mapping>
+   	<servlet-name>FrontController2</servlet-name>
+   	<url-pattern>/views</url-pattern>
+   </servlet-mapping>
+   -->
   
   
   

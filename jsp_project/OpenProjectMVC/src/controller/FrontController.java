@@ -25,7 +25,7 @@ public class FrontController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		
-		// 1. commandService.properties(외부 설정) =>  Properties
+		// 1. commandService.propertise(외부 설정) =>  Propertise
 		// /index=service.IndexServiceImpl
 		// 2. 클래스 정보의 클래스들을 생성 -> 인스턴스 생성
 		// 3. map 에 사용자 요청 command 와 인스턴스를 저장
@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet{
 		FileInputStream fis = null;
 		
 		// 설정파일의 웹 경로
-		String path = "/WEB-INF/commandService.properties";
+		String path = "/WEB-INF/commandService.propertise";
 		// 설정파일의 시스템 절대경로
 		String configFile = config.getServletContext().getRealPath(path);
 		
@@ -48,8 +48,10 @@ public class FrontController extends HttpServlet{
 			// 프로퍼티 객체로 파일을 읽어 온다.
 			prop.load(fis);
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -78,14 +80,15 @@ public class FrontController extends HttpServlet{
 				System.out.println(command + "=" + service );
 				
 			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 			
 		}
 		

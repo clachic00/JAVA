@@ -1,3 +1,4 @@
+
 <%@page import="dao.EmpDao"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.util.ArrayList"%>
@@ -73,6 +74,7 @@
 		}
 	} catch (SQLException ex) {
 		// 예외처리
+		ex.printStackTrace();
 	} finally {
 		rs.close();
 		stmt.close();
