@@ -5,25 +5,24 @@
 
     
     
-    <% 
-    int pageNum=1;
-    
-    String pageNumber = request.getParameter("page");
-    
-    if(pageNumber!=null){
-    	pageNum = Integer.parseInt(pageNumber);
-    	
-    } 
-    
-    GetMessageListService service = GetMessageListService.getInstance();
-    
-    //MessageListView
-    
-    MessageListView view = service.getMessageList(pageNum);
-    
-    request.setAttribute("listView", view);
-    
-    %>
+    <%
+            	int pageNum=1;
+                            
+                            String pageNumber = request.getParameter("page");
+                            
+                            if(pageNumber!=null){
+                            	pageNum = Integer.parseInt(pageNumber);
+                            	
+                            } 
+                            
+                            GetMessageListService service = GetMessageListService.getInstance();
+                            
+                            //MessageListView
+                            
+                            MessageListView view = service.getMessageList(pageNum);
+                            
+                            request.setAttribute("listView", view);
+            %>
     
     
     <jsp:forward page="list_view.jsp"/>

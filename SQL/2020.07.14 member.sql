@@ -5,5 +5,16 @@ SELECT `member`.`idx`,
     `member`.`upw`,
     `member`.`uname`,
     `member`.`uphoto`,
-    `member`.`regdaate`
+    `member`.`regdate`
 FROM `project`.`member`;
+
+INSERT INTO project.member
+
+(uid,upw,uname,uphoto)
+VALUES
+
+('cool',
+1111,
+'COOL',
+null)
+;

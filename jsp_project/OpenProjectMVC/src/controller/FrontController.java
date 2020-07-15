@@ -25,7 +25,7 @@ public class FrontController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		
-		// 1. commandService.propertise(외부 설정) =>  Propertise
+		// 1. commandService.properties(외부 설정) =>  Properties
 		// /index=service.IndexServiceImpl
 		// 2. 클래스 정보의 클래스들을 생성 -> 인스턴스 생성
 		// 3. map 에 사용자 요청 command 와 인스턴스를 저장
@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet{
 		FileInputStream fis = null;
 		
 		// 설정파일의 웹 경로
-		String path = "/WEB-INF/commandService.propertise";
+		String path = "/WEB-INF/commandService.properties";
 		// 설정파일의 시스템 절대경로
 		String configFile = config.getServletContext().getRealPath(path);
 		
