@@ -23,7 +23,6 @@ public class MemberListServiceImpl implements Service {
 			HttpServletRequest request, 
 			HttpServletResponse response) {
 		
-		
 		// view 로 전달할 결과 데이터
 				MemberListview listView = null;
 				
@@ -49,7 +48,7 @@ public class MemberListServiceImpl implements Service {
 							System.out.println("숫자 타입의 문자열이 전달되지 않아 예외 발생");
 						}
 					}
-						
+
 			
 					// 게시물의 첫번째 행의 index
 					int startRow = 0;

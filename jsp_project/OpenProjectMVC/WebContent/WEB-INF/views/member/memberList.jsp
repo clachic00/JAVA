@@ -31,10 +31,10 @@
 </head>
 <body>
 
-
+<div>
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<div>
+
 	<table class="table">
 			<tr>
 				<th>no</th>
@@ -45,7 +45,7 @@
 				<th>관리</th>
 			</tr>
 			
-		<c:if test="${not empty listView.memberList }">
+		<c:if test="${not empty listView.memberList }"> <!--MemberListServiceImpl.java에 있다 ListView -->
 		<c:forEach items="${listView.memberList}" var="member">
 			<tr>
 				<td>${member.idx}</td>
@@ -62,8 +62,27 @@
 				<th>조회된 회원이 없습니다.</th>
 			</tr>
 		</c:if>
-		</div>
+	
+		</table>
+
+		<div class="paging">
 		
+		<c:forEach begin="1" end=${listView.pageTotalCount} var="i">
+		
+		<a class="paging_num ${i == listView.currentPageNumber ? 'now_page' : '' }">${i}</a>
+		
+		
+		
+		</c:forEach>
+		
+		
+		
+		</div>
+
+
+
+
+</div>
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 

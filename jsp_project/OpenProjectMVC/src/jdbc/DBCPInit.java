@@ -40,7 +40,9 @@ public class DBCPInit extends HttpServlet {
 		try {
 			
 			//String jdbcDriver = "jdbc:oracle:thin:@localhost:1521:orcl";
-			String jdbcDriver = "jdbc:mysql://localhost:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
+//			String jdbcDriver = "jdbc:mysql://localhost:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
+			String jdbcDriver = "jdbc:mysql://aia.c2at8nlwzn5r.ap-northeast-2.rds.amazonaws.com:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
+
 			String username = "bit";
 			String pw = "bit";
 			
