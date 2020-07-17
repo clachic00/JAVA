@@ -11,9 +11,9 @@
   </welcome-file-list>
 
 
+ 
 
-
-<!-- FrontController 등록 -->
+<!-- Fron+++++tController 등록 -->
   <servlet>
   	<servlet-name>FrontColtroller</servlet-name>
   	<servlet-class>controller.FrontController</servlet-class>
