@@ -1,5 +1,5 @@
 
-<%@page import="dao.EmpDao"%>
+<%@page import="member.dao.EmpDao"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Emp"%>

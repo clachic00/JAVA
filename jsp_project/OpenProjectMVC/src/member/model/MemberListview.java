@@ -40,10 +40,6 @@ public class MemberListview {
 	}
 
 
-
-
-
-
 	public int getMemberTotalCount() {
 		return memberTotalCount;
 	}

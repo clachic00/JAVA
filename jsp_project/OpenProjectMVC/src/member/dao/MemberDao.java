@@ -135,7 +135,7 @@ public class MemberDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "delete from project.member where idx=?";
+		String sql = "delete from project.member where midx=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
