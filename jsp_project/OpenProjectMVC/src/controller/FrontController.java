@@ -29,8 +29,7 @@ public class FrontController extends HttpServlet{
 		// /index=service.IndexServiceImpl
 		// 2. 클래스 정보의 클래스들을 생성 -> 인스턴스 생성
 		// 3. map 에 사용자 요청 command 와 인스턴스를 저장
-		
-		
+
 		// 1. 외부 설정 파일의 내용을 메모리의 데이터로 이동 
 		
 		Properties prop = new Properties();

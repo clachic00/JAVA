@@ -34,6 +34,10 @@
 					<td> <input type="file" name="mphoto"> </td>
 				</tr>
 				<tr>
+					<td>연락처</td>
+					<td> <input type="text" name="mphonenum"> </td>
+				</tr>
+				<tr>
 					<td></td>
 					<td> 
 						<input type="submit" name="회원가입">

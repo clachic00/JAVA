@@ -9,4 +9,32 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-</web-app>
+  
+  
+  <servlet>
+  	<servlet-name>FrontColtroller</servlet-name>
+  	<servlet-class>controller.FrontController</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FrontColtroller</servlet-name>
+  	<!-- <url-pattern>/</url-pattern> -->
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+  	<servlet-name>DBCPInit</servlet-name>
+  	<servlet-class>jdbc.DBCPInit</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</web-app><!--comment-->
