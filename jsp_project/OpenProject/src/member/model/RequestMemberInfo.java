@@ -1,4 +1,4 @@
-package model;
+package member.model;
 
 public class RequestMemberInfo {
 

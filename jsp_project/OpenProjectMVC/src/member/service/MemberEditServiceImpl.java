@@ -16,7 +16,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import jdbc.ConnectionProvider;
-import member.dao.MemberDao;
 import member.dao.MemberDao_;
 import member.model.Member;
 import service.Service;
@@ -30,16 +29,17 @@ MemberDao_ dao;
 			HttpServletRequest request, 
 			HttpServletResponse response) {
 		
-	
+		// 파일 업로드 - 사진
+		// 사용자 데이터를 받기 - uid, upw, uname, uphoto
+
 		int resultCnt = 0;
 		
 		// 데이터 베이스에 수정 데이터 변수
-		int midx = 0;
-		String mphoto = null;
-		String mpw = null;
-		String mname = null;
+		int idx = 0;
+		String upw = null;
+		String uname = null;
 		String oldFile = null;
-		String mphonenum =null;
+		String uphoto = null;
 		
 		Connection conn = null;
 
@@ -68,22 +68,20 @@ MemberDao_ dao;
 						String paramValue = item.getString("utf-8");
 						//System.out.println(paramName + " = " + paramValue);
 						
-						if(paramName.equals("midx")){
-							midx = Integer.parseInt(paramValue);
-						} else if(paramName.equals("mpw")) {
-							mpw = paramValue;
-						} else if(paramName.equals("mname")) {
-							mname = paramValue;
-						} else if(paramName.equals("mphonenum")) {
-							mphonenum = paramValue;
-						}else if(paramName.equals("oldFile")) {
+						if(paramName.equals("idx")){
+							idx = Integer.parseInt(paramValue);
+						} else if(paramName.equals("upw")) {
+							upw = paramValue;
+						} else if(paramName.equals("uname")) {
+							uname = paramValue;
+						} else if(paramName.equals("oldFile")) {
 							// 이전 파일은 새로운 파일이 없을때 업데이트가 되도록합니다.
 							oldFile = paramValue;
 						}
 						
 					} else { // type=file
 						
-						if(item.getFieldName().equals("mphoto") && item.getSize()>0) {
+						if(item.getFieldName().equals("photo") && item.getSize()>0) {
 
 							System.out.println("파일 없이 들어오면 안된다");
 							// 서버 내부의 경로
@@ -102,7 +100,7 @@ MemberDao_ dao;
 							item.write(saveFile);
 							System.out.println("저장 완료");
 							
-							mphoto = uri+"/"+newFileName;
+							uphoto = uri+"/"+newFileName;
 						}
 						
 						
@@ -114,7 +112,7 @@ MemberDao_ dao;
 				// 새로 파일이 저장 되었을 때 처리
 				// 이전 파일 삭제.
 				// 새로운 파일이 없을 때 이전 파일 이름 저장
-				if(mphoto!=null) {
+				if(uphoto!=null) {
 					File oFile = new File(request.getSession().getServletContext().getRealPath(oldFile));
 					if(oFile.exists()) {
 						if(oFile.delete()) {
@@ -122,7 +120,7 @@ MemberDao_ dao;
 						}
 					}
 				} else {
-					mphoto = oldFile;
+					uphoto = oldFile;
 				}
 				
 				
@@ -131,22 +129,15 @@ MemberDao_ dao;
 				// 데이터 베이스 저장 
 				Member member = new Member();
 				member.setIdx(idx);
-				member.setMpw(mpw);
-				member.setMname(mname);
-				member.setMphoto(mphoto);
-				member.setMphonenum(mphonenum);
+				member.setUpw(upw);
+				member.setUname(uname);
+				member.setUphoto(uphoto);
 				
 				conn = ConnectionProvider.getConnection();
 				
-				
-								
-				dao = MemberDao.getInstance() ;
-				
-				
+				dao = MemberDao_.getInstance() ;
 				
 				resultCnt = dao.editMember(conn, member);
-				
-				
 				
 				request.setAttribute("member", member);
 				request.setAttribute("result", resultCnt);
@@ -155,12 +146,16 @@ MemberDao_ dao;
 	
 			}
 		} catch (FileUploadException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
+			// TODO: handle exception
 			e.printStackTrace();
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			
@@ -168,12 +163,13 @@ MemberDao_ dao;
 				try {
 					conn.close();
 				} catch (SQLException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 			
 		}
-		System.out.println("membereditservice 도달");
+		
 		return "/WEB-INF/views/member/edit.jsp";
 	}
 

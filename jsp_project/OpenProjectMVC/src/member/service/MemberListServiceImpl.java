@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jdbc.ConnectionProvider;
-import member.dao.MemberDao;
+import member.dao.MemberDao_;
 import member.model.Member;
 import member.model.MemberListview;
 import service.Service;
 
 public class MemberListServiceImpl implements Service {
 
-	MemberDao dao;
+	MemberDao_ dao;
 	
 	@Override
 	public String getViewPage(
@@ -30,7 +30,7 @@ public class MemberListServiceImpl implements Service {
 				
 				try {
 					conn = ConnectionProvider.getConnection();
-					dao = MemberDao.getInstance();
+					dao = MemberDao_.getInstance();
 					
 					// 전체 게시물 개수 구하기
 					int totalCnt =  dao.selectTotalCount(conn);
