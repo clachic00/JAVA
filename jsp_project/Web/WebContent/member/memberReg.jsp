@@ -3,7 +3,7 @@
 <%
 	// request.setCharacterEncoding("utf-8");
 %>
-<jsp:useBean id="requestInfo" class="model.RequestMemberInfo"/>
+<jsp:useBean id="requestInfo" class="member.model.RequestMemberInfo"/>
 
 <jsp:setProperty property="*" name="requestInfo"/>
 

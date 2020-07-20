@@ -25,20 +25,16 @@ public class MemberRegServiceImpl implements Service {
 	MemberDao dao;
 	
 	@Override
-	public String getViewPage(
-			HttpServletRequest request, 
-			HttpServletResponse response) {
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
 		
-		// 파일 업로드 - 사진
-		// 사용자 데이터를 받기 - uid, upw, uname, uphoto
-
 		int resultCnt = 0;
 		
 		// 데이터 베이스에 입력할 데이터 변수
-		String uid = null;
-		String upw = null;
-		String uname = null;
-		String uphoto = null;
+		String memail = null;
+		String mpw = null;
+		String mname = null;
+		String mphoto = null;
+		String mphonenum = null;
 		
 		Connection conn = null;
 
@@ -67,12 +63,14 @@ public class MemberRegServiceImpl implements Service {
 						String paramValue = item.getString("utf-8");
 						//System.out.println(paramName + " = " + paramValue);
 						
-						if(paramName.equals("uid")){
-							uid = paramValue;
-						} else if(paramName.equals("upw")) {
-							upw = paramValue;
-						} else if(paramName.equals("uname")) {
-							uname = paramValue;
+						if(paramName.equals("memail")){
+							memail = paramValue;
+						} else if(paramName.equals("mpw")) {
+							mpw = paramValue;
+						} else if(paramName.equals("mname")) {
+							mname = paramValue;
+						} else if(paramName.equals("mphonenum")) {
+							mphonenum = paramValue;
 						}
 						
 					} else { // type=file
@@ -93,7 +91,7 @@ public class MemberRegServiceImpl implements Service {
 						item.write(saveFile);
 						System.out.println("저장 완료");
 						
-						uphoto = uri+"/"+newFileName;
+						mphoto = uri+"/"+newFileName;
 	
 					}
 	
@@ -102,10 +100,11 @@ public class MemberRegServiceImpl implements Service {
 				
 				// 데이터 베이스 저장 
 				Member member = new Member();
-				member.setUid(uid);
-				member.setUpw(upw);
-				member.setUname(uname);
-				member.setUphoto(uphoto);
+				member.setMemail(memail);
+				member.setMpw(mpw);
+				member.setMname(mname);
+				member.setMphoto(mphoto);
+				member.setMphonenum(mphonenum);
 				
 				conn = ConnectionProvider.getConnection();
 				

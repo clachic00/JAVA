@@ -48,7 +48,7 @@ public class MemberRegServiceImpl implements Service {
 				ServletFileUpload upload = new ServletFileUpload(factory);
 	
 				List<FileItem> items = upload.parseRequest(request);
-	
+			
 				Iterator<FileItem> ite = items.iterator();
 	
 				while (ite.hasNext()) {

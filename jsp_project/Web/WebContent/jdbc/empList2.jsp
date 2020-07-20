@@ -2,7 +2,7 @@
 <%@page import="member.dao.EmpDao"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Emp"%>
+<%@page import="member.model.Emp"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>

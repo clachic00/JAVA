@@ -1,5 +1,5 @@
 <%@page pageEncoding="utf-8" %>
-<%@page import="model.LoginInfo"%>
+<%@page import="member.model.LoginInfo"%>
 <%
 	LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
 	if(loginInfo==null){

@@ -112,7 +112,7 @@ public List<Member> selectList(Connection conn, int startRow, int count) throws 
 		
 		List<Member> memberList = new ArrayList<Member>();
 		
-		String sql = "select * from project.member order by uname limit ?, ?";
+		String sql = "select * from project.member order by mname limit ?, ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -172,6 +172,44 @@ public int editMember(Connection conn, Member member) throws SQLException {
     return result;
  }
 	
+public Member selectByIdx(Connection conn, int idx) throws SQLException {
+
+	Member member = null;
+	
+	PreparedStatement pstmt = null;
+	ResultSet rs;	
+	
+	try {
+		String sql = "select * from member where midx=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, idx);
+		
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			member = new Member();
+			member.setMidx(rs.getInt("midx"));
+			member.setMemail(rs.getString("memail"));
+			member.setMpw(rs.getString("mpw"));
+			member.setMname(rs.getString("mname"));
+			member.setMphoto(rs.getString("mphoto"));
+			member.setMphonenum(rs.getString("mphonenum"));
+		}
+		
+	} finally {
+		if(pstmt != null) {
+			pstmt.close();
+		}
+	}
+	
+	return member;
+}
+
+
+
+
+
+
 	
 	
 	

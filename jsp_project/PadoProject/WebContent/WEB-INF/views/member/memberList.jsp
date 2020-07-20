@@ -47,12 +47,16 @@
 		<c:if test="${not empty listView.memberList }"> <!--MemberListServiceImpl.java에 있다 ListView -->
 		<c:forEach items="${listView.memberList}" var="member">
 			<tr>
-				<td>${member.idx}</td>
-				<td>${member.uid}</td>
-				<td>${member.uname}</td>
-				<td>${member.upw}</td>
-				<td><img alt="프사 " src="<c:url value="${member.uphoto}"/>">  </td>
-				<td>수정 | <a href="javascript:memberDel(${member.idx})">삭제</a></td>
+				<td>${member.midx}</td>
+				<td>${member.memail}</td>
+				<td>${member.mname}</td>
+				<td>${member.mpw}</td>
+				<td>${member.mphonenum}</td>
+				<td><img alt="프사 " src="<c:url value="${member.mphoto}"/>">  </td>
+				<td>
+				<a href="memberEditForm.do?midx=${member.midx}">수정</a> 
+				| 
+				<a href="javascript:memberDel(${member.midx})">삭제</a></td>
 			</tr>
 		</c:forEach>
 		</c:if>

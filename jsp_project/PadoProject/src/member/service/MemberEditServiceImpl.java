@@ -17,13 +17,12 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import jdbc.ConnectionProvider;
 import member.dao.MemberDao;
-import member.dao.MemberDao_;
 import member.model.Member;
 import service.Service;
 
 public class MemberEditServiceImpl implements Service {
 
-MemberDao_ dao;
+MemberDao dao;
 	
 	@Override
 	public String getViewPage(
@@ -130,7 +129,7 @@ MemberDao_ dao;
 				
 				// 데이터 베이스 저장 
 				Member member = new Member();
-				member.setIdx(idx);
+				member.setMidx(midx);
 				member.setMpw(mpw);
 				member.setMname(mname);
 				member.setMphoto(mphoto);

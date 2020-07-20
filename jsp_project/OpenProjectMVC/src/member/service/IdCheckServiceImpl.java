@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jdbc.ConnectionProvider;
-import member.dao.MemberDao;
+import member.dao.MemberDao_;
 import service.Service;
 
 public class IdCheckServiceImpl implements Service {
 
-	MemberDao dao;
+	MemberDao_ dao;
 	
 	@Override
 	public String getViewPage(
@@ -21,13 +21,13 @@ public class IdCheckServiceImpl implements Service {
 		
 		String result = "N";
 		
-		String id = request.getParameter("uid");
+		String id = request.getParameter("memai");
 		
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MemberDao.getInstance();
+			dao = MemberDao_.getInstance();
 			
 			int resultCnt = dao.selectById(conn, id);
 			

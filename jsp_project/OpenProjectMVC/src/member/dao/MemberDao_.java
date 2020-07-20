@@ -10,12 +10,12 @@ import java.util.List;
 
 import member.model.Member;
 
-public class MemberDao {
+public class MemberDao_ {
 
-	private MemberDao() {
+	private MemberDao_() {
 	}
-	private static MemberDao dao = new MemberDao();
-	public static MemberDao getInstance() {
+	private static MemberDao_ dao = new MemberDao_();
+	public static MemberDao_ getInstance() {
 		return dao;
 	}
 

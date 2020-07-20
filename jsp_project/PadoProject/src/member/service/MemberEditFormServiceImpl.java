@@ -7,14 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jdbc.ConnectionProvider;
-
-import member.dao.MemberDao_;
+import member.dao.MemberDao;
 import member.model.Member;
 import service.Service;
 
 public class MemberEditFormServiceImpl implements Service {
 
-	MemberDao_ dao;
+	MemberDao dao;
 
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
@@ -24,9 +23,11 @@ public class MemberEditFormServiceImpl implements Service {
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MemberDao_.getInstance();
-			
-			int idx = Integer.parseInt(request.getParameter("idx"));
+			dao = MemberDao.getInstance();
+
+			int idx = Integer.parseInt(request.getParameter("midx"));
+			System.out.println("2"+idx);
+
 			member = dao.selectByIdx(conn, idx);
 			
 			
@@ -36,6 +37,10 @@ public class MemberEditFormServiceImpl implements Service {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println("3"+member.getMidx());
+
+		
 		
 		request.setAttribute("member", member);
 
