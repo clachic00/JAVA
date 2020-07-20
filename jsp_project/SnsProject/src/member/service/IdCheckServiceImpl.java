@@ -21,7 +21,7 @@ public class IdCheckServiceImpl implements Service {
 		
 		String result = "N";
 		
-		String id = request.getParameter("uid");
+		String id = request.getParameter("memai");
 		
 		Connection conn = null;
 		

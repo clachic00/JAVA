@@ -48,10 +48,8 @@ public class FrontController extends HttpServlet{
 			// 프로퍼티 객체로 파일을 읽어 온다.
 			prop.load(fis);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -80,13 +78,10 @@ public class FrontController extends HttpServlet{
 				System.out.println(command + "=" + service );
 				
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			

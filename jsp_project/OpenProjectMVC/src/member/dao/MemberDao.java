@@ -23,7 +23,7 @@ public class MemberDao {
 		int resultCnt = 0;
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO project.member (uid, upw, uname, uphoto ) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO members (uid, upw, uname, uphoto ) VALUES (?,?,?,?)";
 
 		try {
 
@@ -52,7 +52,7 @@ public class MemberDao {
 		ResultSet rs;	
 		
 		try {
-			String sql = "select count(*) from project.member where uid=?";
+			String sql = "select count(*) from members where uid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			
@@ -80,7 +80,7 @@ public class MemberDao {
 		try {
 			stmt = conn.createStatement();
 			
-			rs = stmt.executeQuery("select count(*) from project.member");
+			rs = stmt.executeQuery("select count(*) from members");
 			
 			if(rs.next()) {
 				resultCnt = rs.getInt(1);
@@ -102,7 +102,7 @@ public class MemberDao {
 		
 		List<Member> memberList = new ArrayList<Member>();
 		
-		String sql = "select * from project.member order by uname limit ?, ?";
+		String sql = "select * from members order by uname limit ?, ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -135,7 +135,7 @@ public class MemberDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "delete from project.member where midx=?";
+		String sql = "delete from members where idx=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -152,4 +152,77 @@ public class MemberDao {
 		return result;
 	}
 
+	public Member selectByIdx(Connection conn, int idx) throws SQLException {
+
+		Member member = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs;	
+		
+		try {
+			String sql = "select * from members where idx=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new Member();
+				member.setIdx(rs.getInt("idx"));
+				member.setUid(rs.getString("uid"));
+				member.setUpw(rs.getString("upw"));
+				member.setUname(rs.getString("uname"));
+				member.setUphoto(rs.getString("uphoto"));
+			}
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return member;
+	}
+
+	public int editMember(Connection conn, Member member) throws SQLException {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = "update members set "
+				   + " upw=?, uname=?, uphoto=? "
+				   + " where idx=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getUpw());
+			pstmt.setString(2, member.getUname());
+			pstmt.setString(3, member.getUphoto());
+			pstmt.setInt(4, member.getIdx());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return result;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
