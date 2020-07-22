@@ -273,7 +273,7 @@ public class MemberDao {
 			if(rs.next()) {
 				member = new Member();
 				member.setMidx(rs.getInt("midx"));
-				member.setMemail(rs.getString("mid"));
+				member.setMemail(rs.getString("memail"));
 				member.setMpw(rs.getString("mpw"));
 				member.setMname(rs.getString("mname"));
 				member.setMphoto(rs.getString("mphoto"));
@@ -303,10 +303,9 @@ public class MemberDao {
 		int resultCnt = 0;
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO project.comments (bidx, memail, comment) VALUES (?,?,?)";
+		String sql = "INSERT INTO project.comments (bidx, memail, comment) VALUES (?, ?, ?)";
 
 		try {
-
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, comments.getBidx());
@@ -329,5 +328,19 @@ public class MemberDao {
 		return resultCnt;
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

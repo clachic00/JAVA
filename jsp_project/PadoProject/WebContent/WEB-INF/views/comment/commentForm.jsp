@@ -21,12 +21,12 @@
 	<td> <input type="text" name="cidx" value=1 readonly> </td>
 </tr>
 <tr>
-	<td>게시판 번호</td>
-	<td> <input type="text" name="bidx" value="${member.midx}" readonly> </td>
+	<td>게시물 번호</td>
+	<td> <input type="text" name="bidx" value="${board.bidx}" readonly> </td>
 </tr>
 <tr>
 	<td>아이디</td>
-	<td> <input type="text" name="memail" value="${member.memail}" readonly> </td>
+	<td> <input type="text" name="memail" value="session." readonly> </td>
 </tr>
 <tr>
 	<td>댓글</td>

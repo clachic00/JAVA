@@ -14,37 +14,26 @@ import service.Service;
 
 public class CommentFormServiceImpl implements Service{
 
-	MemberDao dao;
 	
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
 	
-		Connection conn;
 
-		Member member = new Member();
-		
-		try {
-			conn = ConnectionProvider.getConnection();
-			dao = MemberDao.getInstance();
+			int bidx = Integer.parseInt(request.getParameter("bidx"));
+			System.out.println("2"+bidx);
 
-			int idx = Integer.parseInt(request.getParameter("midx"));
-			System.out.println("2"+idx);
-
-			member = dao.selectByIdx(conn, idx);
 			
-		} catch (NumberFormatException e) {
-			System.out.println("숫자 변경이 불가능한 문자열로 입력!!");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		request.setAttribute("member", member);
-		
-		
-		
+
+		request.setAttribute("bidx", bidx);
 		
 		
 		return "/WEB-INF/views/comment/commentForm.jsp";
+		
+		
+		
+		
+		
+		
 	}
 	
 	
