@@ -199,7 +199,27 @@ public class MemberDao {
 
 		return member;
 	}
-
+	public int memberDelete(Connection conn, int midx) throws SQLException {
+			
+			int result = 0;
+			PreparedStatement pstmt = null;
+			String sql = "delete from member where midx=?";
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, midx);
+				
+				result = pstmt.executeUpdate();
+				
+			} finally {
+				if(pstmt != null) {
+					pstmt.close();
+				}
+			}
+			
+			return result;
+		}
+	
 	public int userCheck(String memail, String mpw, Connection conn) {
 
 		int result = -1;
@@ -236,6 +256,48 @@ public class MemberDao {
 		}
 		return result;
 	}
+	
+	public Member userInfo(String uid, Connection conn) {
+		Member member=null;
+		PreparedStatement pstmt = null;
+		ResultSet rs;
+		
+		try {
+					
+			String sql = "select * from member where memail=?";
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, uid);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				member = new Member();
+				member.setMidx(rs.getInt("midx"));
+				member.setMemail(rs.getString("mid"));
+				member.setMpw(rs.getString("mpw"));
+				member.setMname(rs.getString("mname"));
+				member.setMphoto(rs.getString("mphoto"));
+				member.setMphonenum(rs.getString("mphonenum"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			
+				try {
+					if(pstmt != null) pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		return member;
+	}
+	
+	
+	
+	
+	
 
 	public int writeComment(Connection conn, Comments comments) throws SQLException {
 		int resultCnt = 0;

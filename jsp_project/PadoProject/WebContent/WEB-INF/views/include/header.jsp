@@ -10,15 +10,15 @@
 		<li><a href="<c:url value="/member/memberList.do"/>">회원 리스트</a></li>
 		
 		<c:if test="${!empty loginInfo}">
-		<li><a href="<c:url value="member/logout.jsp"/>">로그아웃</a></li>
+		<li><a href="<c:url value="member/logout.do"/>">로그아웃</a></li>
 		</c:if>
 		
 		<c:if test="${empty loginInfo}">
-		<li><a href="<c:url value="/member/loginForm.jsp"/>">로그인</a></li>
+		<li><a href="<c:url value="/member/loginForm.do"/>">로그인</a></li>
 		</c:if>
 				<li><a href="<c:url value="/comment/commentForm.do"/>">댓글</a></li>
 		
-		<li><a href="<c:url value="/member/mypage/mypage.jsp"/>">마이페이지</a></li>
+		<li><a href="<c:url value="/member/mypage/mypage.do"/>">마이페이지</a></li>
 		<li><a href="<c:url value="/guestbook/list.jsp"/>">방명록(비회원)</a></li>
 		<li><a href="<c:url value="/board/list.jsp"/>">방명록(회원제)</a></li>
 	</ul>

@@ -7,16 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <style></style>
-<title>Insert title here</title>
+<title>댓글</title>
 </head>
 <body>
 
-<form action="commentWrite.do" method="post" >
-
+<form action="commentWrite.do" method="post" enctype="application/x-www-form-urlencoded" >
 
 
 <table>
-
 
 <tr>
 	<td>index</td>
@@ -24,11 +22,11 @@
 </tr>
 <tr>
 	<td>게시판 번호</td>
-	<td> <input type="text" name="bidx"  value=1 readonly> </td>
+	<td> <input type="text" name="bidx" value="${member.midx}" readonly> </td>
 </tr>
 <tr>
 	<td>아이디</td>
-	<td> <input type="text" name="memail"  value=1 readonly> </td>
+	<td> <input type="text" name="memail" value="${member.memail}" readonly> </td>
 </tr>
 <tr>
 	<td>댓글</td>

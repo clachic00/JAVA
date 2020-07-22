@@ -15,6 +15,7 @@ public class MemberEditFormServiceImpl implements Service {
 
 	MemberDao dao;
 
+
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -29,7 +30,6 @@ public class MemberEditFormServiceImpl implements Service {
 			System.out.println("2"+idx);
 
 			member = dao.selectByIdx(conn, idx);
-			
 			
 		} catch (NumberFormatException e) {
 			System.out.println("숫자 변경이 불가능한 문자열로 입력!!");

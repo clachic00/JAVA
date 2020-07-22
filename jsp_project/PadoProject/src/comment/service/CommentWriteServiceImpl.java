@@ -31,6 +31,7 @@ public class CommentWriteServiceImpl implements Service{
 		int resultCnt = 0;
 		
 		int bidx = 0;
+		int cidx = 0;
 		String memail = null;
 		String comment = null;
 		
@@ -39,22 +40,42 @@ public class CommentWriteServiceImpl implements Service{
 		
 		try {
 			
+			bidx = Integer.parseInt(request.getParameter("bidx"));
+			cidx = Integer.parseInt(request.getParameter("cidx"));
+			memail = request.getParameter("memail");
+			comment =  request.getParameter("comment");
+					
+			
+			
+			
+			
 			Comments comments = new Comments();
+			comments.setBidx(bidx);
+			comments.setCidx(cidx);
+			comments.setComment(comment);
+			comments.setMemail(memail);
+			
+			
+			System.out.println(comments.getBidx());
+			System.out.println(comments.getCidx());
+			System.out.println(comments.getComment());
+			System.out.println(comments.getMemail());
+			System.out.println(comments.getCregdate());
+			
+			
+			
 			
 			conn= ConnectionProvider.getConnection();
 			
 			dao= MemberDao.getInstance();
-			
+		
 			resultCnt=dao.writeComment(conn, comments);
 			
 			request.setAttribute("comments", comments);
 			request.setAttribute("result", resultCnt);
 			
 			
-			System.out.println(comments.getBidx());
-			System.out.println(comments.getCidx());
-			System.out.println(comments.getComment());
-			System.out.println(comments.getCregdate());
+			
 
 			
 		} catch (SQLException e) {
