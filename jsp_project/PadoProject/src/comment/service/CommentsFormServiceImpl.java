@@ -12,7 +12,7 @@ import member.model.Comments;
 import member.model.Member;
 import service.Service;
 
-public class CommentFormServiceImpl implements Service{
+public class CommentsFormServiceImpl implements Service{
 
 	
 	@Override

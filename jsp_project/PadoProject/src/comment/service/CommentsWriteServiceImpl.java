@@ -21,7 +21,7 @@ import member.model.Comments;
 import member.model.Member;
 import service.Service;
 
-public class CommentWriteServiceImpl implements Service{
+public class CommentsWriteServiceImpl implements Service{
 
 	MemberDao dao;
 	

@@ -332,7 +332,40 @@ public class MemberDao {
 	
 	
 	
+	public List<Comments> commentList(Connection conn, String memail) throws SQLException {
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		List<Comments> commentList = new ArrayList<Comments>();
+
+		String sql = "select * from project.comments where memail =?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
 	
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Comments comments = new Comments();
+				comments.setCidx(rs.getInt("cidx"));
+				comments.setBidx(rs.getInt("bidx"));
+				comments.setMemail(rs.getString("memail"));
+				comments.setComment(rs.getString("Comment"));
+			
+
+				commentList.add(comments);
+			}
+
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+		}
+
+		return commentList;
+	}
 	
 	
 	
