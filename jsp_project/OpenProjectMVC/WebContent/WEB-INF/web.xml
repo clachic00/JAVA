@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>OpenProjectMVC</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
-
- 
-
-<!-- Fron+++++tController 등록 -->
+  
+  <!-- FrontController 등록 -->
   <servlet>
   	<servlet-name>FrontColtroller</servlet-name>
-  	<servlet-class>controller.FrontController</servlet-class>
+  	<servlet-class>app.controller.FrontController</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -29,11 +22,20 @@
   <!-- DBCP 등록 : 초기화 -->
   <servlet>
   	<servlet-name>DBCPInit</servlet-name>
-  	<servlet-class>jdbc.DBCPInit</servlet-class>
+  	<servlet-class>app.jdbc.DBCPInit</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   
   
+  <!-- charEncoding : utf-8 설정 -->
+  <filter>
+  	<filter-name>CharEncoding</filter-name>
+  	<filter-class>app.filter.CharacterEncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>CharEncoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
   
   
@@ -41,4 +43,12 @@
   
   
   
-  </web-app>
+  
+  
+  
+  
+  
+  
+  
+  
+</web-app>

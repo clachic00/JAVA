@@ -22,3 +22,9 @@ jsp_project/Web/WebContent/WEB-INF/lib/ojdbc6.jar
 jsp_project/Web/WebContent/WEB-INF/lib/mysql-connector-java-8.0.20.jar
 jsp_project/OpenProject/WebContent/WEB-INF/lib/ojdbc6.jar
 jsp_project/OpenProject/WebContent/WEB-INF/lib/mysql-connector-java-8.0.20.jar
+jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/web.xml
+jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/tomcat-users.xml
+jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/server.xml
+jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/context.xml
+jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/catalina.properties
+jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/catalina.policy

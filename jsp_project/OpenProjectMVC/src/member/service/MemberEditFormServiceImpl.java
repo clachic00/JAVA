@@ -6,15 +6,14 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbc.ConnectionProvider;
-
-import member.dao.MemberDao_;
+import app.jdbc.ConnectionProvider;
+import app.service.Service;
+import member.dao.MemberDao;
 import member.model.Member;
-import service.Service;
 
 public class MemberEditFormServiceImpl implements Service {
 
-	MemberDao_ dao;
+	MemberDao dao;
 
 	@Override
 	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
@@ -24,7 +23,7 @@ public class MemberEditFormServiceImpl implements Service {
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MemberDao_.getInstance();
+			dao = MemberDao.getInstance();
 			
 			int idx = Integer.parseInt(request.getParameter("idx"));
 			member = dao.selectByIdx(conn, idx);

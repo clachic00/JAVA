@@ -1,40 +1,34 @@
-<%@page import="member.model.MemberListview"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
-    
-    
-    
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-
-    <link rel="stylesheet" href="<c:url value="/css/default.css" />">
-
 <meta charset="UTF-8">
+<title>회원가입</title>
+
+<link rel="stylesheet" href="<c:url value="/css/default.css" />">
+
 <style>
 	td>img{
 		width :50px;
 		height : 50px;
 	}
-	
-	 .table{
-		border: solid 0.5px;
-	} 
-	table>tbody>tr>td{
-		border: solid 0.5px;
-	}
-	
-</style><title>회원가입</title>
+</style>
 </head>
 <body>
 
-<div>
+	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+	<div>
+		<h1 class="subtitle">회원 리스트</h1>
 
-	<table class="table">
+		<c:if test="${not empty listView  }">
+
+		<div>전체회원 ${listView.memberTotalCount} 명</div>
+		<hr>
+
+		<table class="table">
 			<tr>
 				<th>no</th>
 				<th>아이디</th>
@@ -44,7 +38,7 @@
 				<th>관리</th>
 			</tr>
 			
-		<c:if test="${not empty listView.memberList }"> <!--MemberListServiceImpl.java에 있다 ListView -->
+		<c:if test="${not empty listView.memberList }">
 		<c:forEach items="${listView.memberList}" var="member">
 			<tr>
 				<td>${member.idx}</td>
@@ -52,39 +46,52 @@
 				<td>${member.uname}</td>
 				<td>${member.upw}</td>
 				<td><img alt="프사 " src="<c:url value="${member.uphoto}"/>">  </td>
-				<td>수정 | <a href="javascript:memberDel(${member.idx})">삭제</a></td>
+				<td>
+				<a href="memberEditForm.do?idx=${member.idx}">수정</a> 
+				| 
+				<a href="javascript:memberDel(${member.idx})">삭제</a></td>
 			</tr>
 		</c:forEach>
 		</c:if>
+		
 		<c:if test="${empty listView.memberList }">
 			<tr>
 				<th>조회된 회원이 없습니다.</th>
 			</tr>
 		</c:if>
-	
-		</table>
 
+
+		</table>
+		
 		<div class="paging">
-		
-		<c:forEach begin="1" end="${listView.pageTotalCount}" var="i">
-		
-		<a class="paging_num ${i == listView.currentPageNumber ? 'now_page' : '' }">${i}</a>
-		
-		
-		
-		</c:forEach>
-		
-		
-		
+			<c:forEach begin="1" end="${listView.pageTotalCount}" var="i">
+			
+			<a class="paging_num ${i == listView.currentPageNumber ? 'now_page' : ''}" href="memberList.do?page=${i}" >${i}</a>
+			
+			</c:forEach>
 		</div>
 
 
 
-
-</div>
+		</c:if>
+	</div>
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-
-
 </body>
 </html>
+
+
+<script>
+	function memberDel(idx){
+		if(confirm('선택하신 회원 정보를 삭제하시겠습니까?')){
+			location.href = 'memberDelete.do?idx='+idx;
+		}
+		
+	}
+</script>
+
+
+
+
+
+

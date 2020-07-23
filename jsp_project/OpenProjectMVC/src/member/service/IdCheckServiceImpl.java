@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbc.ConnectionProvider;
-import member.dao.MemberDao_;
-import service.Service;
+import app.jdbc.ConnectionProvider;
+import app.service.Service;
+import member.dao.MemberDao;
 
 public class IdCheckServiceImpl implements Service {
 
-	MemberDao_ dao;
+	MemberDao dao;
 	
 	@Override
 	public String getViewPage(
@@ -21,13 +21,13 @@ public class IdCheckServiceImpl implements Service {
 		
 		String result = "N";
 		
-		String id = request.getParameter("memai");
+		String id = request.getParameter("uid");
 		
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MemberDao_.getInstance();
+			dao = MemberDao.getInstance();
 			
 			int resultCnt = dao.selectById(conn, id);
 			
@@ -46,3 +46,12 @@ public class IdCheckServiceImpl implements Service {
 	}
 
 }
+
+
+
+
+
+
+
+
+

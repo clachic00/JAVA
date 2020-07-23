@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/default.css">
 
 <style>
+
 </style>
 </head>
 <body>
@@ -22,4 +23,12 @@
 	<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
+
+
+
+
+
+
+
+
 

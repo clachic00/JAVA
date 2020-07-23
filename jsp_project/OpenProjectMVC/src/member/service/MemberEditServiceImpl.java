@@ -15,14 +15,14 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import jdbc.ConnectionProvider;
-import member.dao.MemberDao_;
+import app.jdbc.ConnectionProvider;
+import app.service.Service;
+import member.dao.MemberDao;
 import member.model.Member;
-import service.Service;
 
 public class MemberEditServiceImpl implements Service {
 
-MemberDao_ dao;
+MemberDao dao;
 	
 	@Override
 	public String getViewPage(
@@ -135,7 +135,7 @@ MemberDao_ dao;
 				
 				conn = ConnectionProvider.getConnection();
 				
-				dao = MemberDao_.getInstance() ;
+				dao = MemberDao.getInstance() ;
 				
 				resultCnt = dao.editMember(conn, member);
 				
@@ -174,3 +174,12 @@ MemberDao_ dao;
 	}
 
 }
+
+
+
+
+
+
+
+
+

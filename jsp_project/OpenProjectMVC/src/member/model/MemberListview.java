@@ -2,9 +2,7 @@ package member.model;
 
 import java.util.List;
 
-
-public class MemberListview {
-	
+public class MemberListView {
 
 	private int memberTotalCount;
 	private int currentPageNumber;
@@ -12,20 +10,17 @@ public class MemberListview {
 	private int pageTotalCount;
 	private int memberCountPerpage;
 	private int startRow;
-	
-	
-	public MemberListview(int memberTotalCount, int currentPageNumber, List<Member> memberList, int memberCountPerpage,
+
+	public MemberListView(int memberTotalCount, int currentPageNumber, List<Member> memberList, int memberCountPerpage,
 			int startRow) {
-		super();
 		this.memberTotalCount = memberTotalCount;
 		this.currentPageNumber = currentPageNumber;
 		this.memberList = memberList;
 		this.memberCountPerpage = memberCountPerpage;
 		this.startRow = startRow;
 		calTotalCount();
-
 	}
-		
+
 	private void calTotalCount() {
 		if(memberTotalCount==0) {
 			pageTotalCount = 0;
@@ -38,7 +33,6 @@ public class MemberListview {
 			System.out.println(pageTotalCount);
 		}
 	}
-
 
 	public int getMemberTotalCount() {
 		return memberTotalCount;
@@ -64,16 +58,12 @@ public class MemberListview {
 		return startRow;
 	}
 
-	
 	@Override
 	public String toString() {
-		return "MemberListview [memberTotalCount=" + memberTotalCount + ", currentPageNumber=" + currentPageNumber
+		return "MemberListView [memberTotalCount=" + memberTotalCount + ", currentPageNumber=" + currentPageNumber
 				+ ", memberList=" + memberList + ", pageTotalCount=" + pageTotalCount + ", memberCountPerpage="
 				+ memberCountPerpage + ", startRow=" + startRow + "]";
 	}
 
 	
-		
-		
-		
 }
