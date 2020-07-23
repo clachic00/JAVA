@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<style>
+
+*{
+   background-color: rgb(248, 247, 247);
+
+}
+
+body{
+   margin: 0px;
+}
+
+header{
+	margin: auto;
+	width: 100%;
+	height: 54px;
+	overflow: hidden;
+	 /* border:0.5px solid red ; */
+	 background-color: white;
+}
+
+
+#box{
+   margin: auto;
+   border: 0.5px solid lightsteelblue;
+   width: 614px;
+   height: 500px;
+   margin-top: 100px;
+}
+
+
+.white{
+   background-color: white;
+   border-radius: 20px;
+}
+
+
+h3{
+   text-align: center;
+}
+
+
+td{
+   background-color: white;
+}
+
+input{
+   background-color: white;
+
+}
+table{
+margin-left: 150px;
+margin-top: 30px;
+}
+
+
+.inputSize{
+      width: 300px;
+      border: 0.5px solid rgb(219, 219, 219);
+      border-radius: 3px;
+      height: 20px;
+      margin-top: 7px;
+}
+
+#mphoto{
+   margin-top: 7px;
+}
+
+#logo{
+	float:left;
+	margin-top:-22px;
+	margin-left: -8px;
+	/* border: 0.5px solid red; */
+	width: 90px;
+	height: 70px;
+	background-color: white;
+
+}
+
+#logoSide{
+	/* border: 0.5px solid red; */
+	margin: auto;
+	width: 614px;
+}
+
+tr{
+   margin: 5px;
+   padding: 5px;
+}
+td{
+   margin:5px;
+   
+   padding: 5px;
+   font-size: 14px;
+
+}
+
+#joinButton{
+   
+   padding-top: 30px;
+   padding-left: 98px;
+
+}
+
+#okButton{
+   width: 60px;
+   background-color: rgb(203, 225, 255);
+   border: none;
+   border-radius: 3px;
+   height: 26px;
+}
+
+#closeButton{
+   width: 60px;
+   background-color: rgb(238, 238, 238);
+   border: none;
+   border-radius: 3px;
+   height: 26px;
+
+}
+
+
+
+</style>
+<body>
+   <header>
+		<div id="logoSide"><img src="main_logo.png" id="logo" >
+		
+		
+		   <nav>
+			  <ul>
+			  
+				 
+				
+				 
+			  </ul>
+		   </nav>
+		
+		
+		</div>
+		<!-- <img src="main_logo.png" id="logo"> -->
+		
+		
+	 </header>
+   
+
+   <div>
+
+   
+      <div id="box" class="white">
+         <div id="white">
+         <h3 class="white">회원가입</h3>
+         </div>
+         <hr>
+         <form id="regForm" class="white" action="memberReg.do" method="post" enctype="multipart/form-data">
+            <table class="white">
+               <tr>
+                  <td class="white">
+                  <label for="memail" class="white">아이디/e-mail</label><br>
+                  <input type="email" name="memail" id="memail" class="inputSize" >
+                     <span  id="checkmsg" class="white"></span>
+                     <input type="checkbox" name="idchk" id="idchk" style="display: none;"  >
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="mpw" class="white">비밀번호</label> <br>
+                      <input type="password" name="mpw" id="mpw" class="inputSize" required>
+                  </td>
+                   
+               </tr>
+               <tr>
+                  <td>
+                     <label for="mname" class="white">이름</label><br>
+                   <input type="text" name="mname" id="mname" class="inputSize" required > 
+                  </td>
+               </tr>
+               <tr>
+                  <td>  
+                        <label for="mname" class="white">연락처</label><br>
+                        <input type="text" name="mphonenum" id="mphonenum" class="inputSize"> 
+                  </td>
+               </tr>
+               <tr>
+                  <td><label for="mphoto" class="white">사진</label><br>
+                   <input type="file" name="mphoto" id="mphoto" >
+                   </td>
+               </tr>
+              
+               <tr >
+                  
+                  <td id="joinButton"> 
+                     <input type="reset" value="close" id="closeButton">
+                     <input type="submit" name="회원가입" value="ok" id="okButton">
+                     
+                  </td>
+               </tr>
+            </table>
+         </form>
+	   </div>
+
+   </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+   $(document).ready(function(){
+      
+      $('#regForm').submit(function(){
+         
+         if(!$('#idchk').prop('checked')){
+            alert('아이디 중복체크는 필수 항목입니다.');
+            $('#uid').focus();
+            return false;
+         }
+         
+         
+         
+      })
+      
+      $('#uid').focusin(function(){
+         
+         $(this).val('');
+         $('#idchk').prop('checked', false);
+         
+         $('#checkMsg').text('');
+         
+         $('#checkMsg').removeClass('chk_not');
+         $('#checkMsg').removeClass('chk_ok');
+         
+         
+      });
+      
+      $('#uid').focusout(function(){
+         
+         if($(this).val().length<1){
+            $('#checkMsg').text("아이디 항목은 필수 항목입니다.");
+            
+            $('#checkMsg').addClass('chk_not');
+            
+            return false;
+         }
+         
+         // 비동기 통신
+         $.ajax({
+            url : 'idCheck.do',
+            data : {uid : $(this).val()},
+            success : function(data){
+               if(data == 'Y'){
+                  $('#checkMsg').text("사용가능한 아이디 입니다.");
+                  
+                  $('#checkMsg').addClass('chk_ok');
+                  
+                  $('#idchk').prop('checked', true);
+               }else {
+                  $('#checkMsg').text("사용불가능한 아이디 입니다.");
+                  
+                  $('#checkMsg').addClass('chk_not');
+                  
+                  $('#idchk').prop('checked', false);
+               }
+            }
+         });
+      });
+   });
+</script>
+
+
+
+
+
+</html>

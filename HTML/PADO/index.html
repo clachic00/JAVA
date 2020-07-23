@@ -9,134 +9,410 @@
 <style> 
 
 *{
-	margin: auto;
-	background-color: rgb(51,51,51) opacity 0.04;
+	/* margin: auto; */
+	background-color: rgb(245, 245, 245);
+	
 }
 
+body{
+	margin: 0px;
+	padding: 0px;
+}
 header{
-	width: 975px;
+	margin: auto;
+	width: 100%;
 	height: 54px;
 	overflow: hidden;
-	overflow: hidden;
-	 border:0.5px solid red ;
+	 /* border:0.5px solid red ; */
+	 background-color: white;
 }
+
+
+
 nav>ul>li{
-float: right;
-	list-style: none;
-	margin: 3px;
-
-}
-#subject{
-	float:left;
-
-}
-
-
-#headerList>li{
 	float:right;
 	padding: 5px 20px;
- }
-body{
-	border : 0.5px solid red;
-	width: 975px;
-
+	list-style: none;
+	background-color: white;
 
 }
 
-#body{
-	border : 0.5px solid red;
+span{
+	margin-top: 0px;
+	margin-left: 0px;
+	background-color: white;
+	/* border: 0.5px solid red; */
+}
+
+#logo{
+	float:left;
+	margin-top:-22px;
+	margin-left: -8px;
+	/* border: 0.5px solid red; */
+	width: 90px;
+	height: 70px;
+	background-color: white;
+
+}
+
+#logoSide{
+	/* border: 0.5px solid red; */
+	margin: auto;
+	width: 614px;
+}
+
+#core{
+	padding-top: 10px;
+	background-color: white;
+	}
+
+
+
+#feed{
+		padding-top: 10px;
+
+	/* overflow: hidden; */
+
+	/* border : 0.5px solid red; */
 	width : 614px;
-	height: 650px;
-	background-color: rgb(51,51,51);
-	background:  rgba(224, 224, 224, 0.40) ;
+	
+	
+	margin-bottom: 60px;
+	margin: auto;
 }
 
 #boardInfo{
-	width:614px;
-	border : 0.5px solid red;
-	height: 60px;
+	width:594px;
+	/* border : 0.5px solid red; */
+	height: 40px;
+	background-color: white;
+	padding: 10px;
+	position: relative;
+	border: 0.3px solid lightsteelblue;
+	
+
+
 }
-#board{
-	width:614px;
-	border : 0.5px solid red;
-	height: 343px;
+#iconBackground{
+	background-color: white;
+	width: 22px;
 }
-#comment{
-	width:614px;
-	border : 0.5px solid red;
-	height: 247px;
+span{
+	background-color: white;
+	margin-top: 10px;
+}
+#site{
+	
+	position: absolute;
+	right: 14px;
+	bottom: 10px;
+}
+#feedprofileImg{
+	width: 32px;
+	height: 32px;
+	margin-top: 4px;
+	margin-left: 4px;
+	margin-right: 14px;
+	float:left;
+	border-radius: 100%;
+	background-color: white;
 }
 
+#writeprofileImg{
+	width: 32px;
+	height: 32px;
+	margin-top: 14px;
+	margin-left: 14px;
+	margin-right: 14px;
+	border-radius: 100%;
+	float:left;
+}
+
+
+#daydate{
+	font-size: 10px;
+	/* border: 0.5px solid red; */
+	background-color: white;
+
+}
+
+
+#ImgArea{
+	width:614px;
+	/* border : 0.5px solid red; */
+	background-color: white;
+	text-align: center;
+
+	/* height: 343px; */
+	border-left: 0.3px solid lightsteelblue ;
+	border-right:  0.3px solid lightsteelblue;
+
+}
+#boardImg{
+	
+	max-width: 100%;
+	height: auto;
+	/* max-height: 100%;
+	width: auto; */
+	
+}
+
+
+#boardContents{
+height: 30px;
+width: 614px;
+background-color: white;
+border-left: 0.3px solid lightsteelblue ;
+	border-right:  0.3px solid lightsteelblue;
+}
+
+#boardText{
+	background-color: white;
+	border-left: 0.3px solid lightsteelblue ;
+	border-right:  0.3px solid lightsteelblue;
+}
+
+
+
+#likeIcon{
+	width: 20px;
+	background:  opacity 0;
+
+	margin-left: 10px;
+}
+#likeIconBackground{
+	background-color: white;
+	width: 28px;
+
+}
+
+
+
+.iconSize{
+	float: right;
+	width: 20px;
+	height: 20px;
+	padding-right: 15px;
+background-color: white;
+
+}
+#commentList{
+	width:614px;
+	/* border : 0.5px solid red; */
+	background-color: white;
+	height: auto;
+	border-left: 0.3px solid lightsteelblue ;
+	border-right:  0.3px solid lightsteelblue;
+	font-size: 12px;
+
+}
+
+#commentList>div{
+	margin: 1px;
+	background-color: white;
+}
+
+#comment{
+	width:614px;
+	/* border : 0.5px solid red; */
+	background-color: white;
+	height: 56px;
+	border: 0.3px solid lightsteelblue;
+
+}
+
+
 #boardtext{
-	
-	
-	list-style: none;
-	float:right;
-	margin: 5px;
+	float:left;
+	margin-top: 10px;
+	background-color: white;
+	width: 535px;
+	resize: none;
+	border-color: lightsteelblue;
+	border-radius: 5px;
 }
 
 #writeboard{
+	margin: auto;
 	width:614px;
-	height:100px;
-	border : 0.5px solid red;
+	height:72px;
+	/* border : 0.5px solid red; */
+	margin-top: 25px;
+	margin-bottom: 13px;
+	background-color: white;
+	border: 0.3px solid lightsteelblue ;
+	
+}
 
+#commentText{
+	border: 0.5px;
+	margin-left: 15px;
+	margin-top: 20px;
+	height: 10px;
+	background-color: white;
+
+width: 520px;
+
+}
+
+
+#postButton{
+	margin-left: 15px;
+	border-style: none;
+	background: white;
+	color: lightsteelblue;
+	font-size: 15px;
+
+}
+
+nav>ul>li>a{
+	background-color: white;
+
+}
+nav>ul>li{
+	
+	padding: 6px;
+}
+
+.navIcon{
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
 }
 
 </style>
 
-
-	
+</head>
+<body>	
 		
 	
 	<header>
-		<h1 id= "subject">Pado</h1>
+		<div id="logoSide"><img src="main_logo.png" id="logo" >
 		
-		<nav>
-			<ul>
-			
-				<li><a href="${pageContext.request.contextPath}/member/memberRegForm.do">회원가입</a></li>
-				
-				<li><a href="<c:url value="/member/memberList.do"/>">회원 리스트</a></li>
-				
-				<li><a href="<c:url value="/member/logout.do"/>">로그아웃</a></li>
-				
-				<li><a href="<c:url value="/member/loginRegForm.do"/>">로그인</a></li>
-				
-				<li><a href="<c:url value="/comment/commentForm.do"/>">댓글</a></li>
-				
-				<li><a href="<c:url value="/member/mypage.do"/>">마이페이지</a></li>
-				
-			</ul>
-		</nav>
-	</header>
+		
+		   <nav>
+			  <ul>
+			  
+				 
+				 <li><a href="<c:url value="/member/memberList.do"/ class="navIcon" style="color: lightsteelblue;">logout</a></li>
+				 
+				 <li><a href="<c:url value="/member/logout.do"/><img src="icon_mypage.png" width="30px" style="background: white;" class="navIcon"></a></li>
+				 
+				 <li><a href="<c:url value="/member/loginRegForm.do"/><img src="icon_write.png" width="30px" style="background: white;" class="navIcon"></a></li>
+				 
+				 <li><a href="<c:url value="/member/mypage.do"/><img src="icon_home.png" width="30px" style="background: white;" class="navIcon"></a></li>
+				 
+			  </ul>
+		   </nav>
+		
+		
+		</div>
+		<!-- <img src="main_logo.png" id="logo"> -->
+		
+		
+	 </header>
+  
 
 
 
 
 
-	</div>
 
 	<div id="writeboard">
-	<textarea id="boardtext" rows="3" cols="70">무슨 생각을 하고</textarea>
+		<img src="Koala.jpg" id="writeprofileImg">
+
+	<textarea id="boardtext" rows="3" cols="70">  aia_love님, 무슨 생각을 하고계신가요?</textarea>
 	</div>
-	<div>
-	<body>
-		<div id="body">
+	
+	<core id="core">
+		<div id="feed">
 			<div id="boardInfo">
-				
+				<img src="Koala.jpg" id="feedprofileImg">
+					<span style="font-size: 14.5px;">aia_love</span><br>
+					<span style="font-size: 12px;">2020.07.28</span>
+					
+					<span style="font-size: 12px;" id="site"><img src="icon_location.png" width="30px" style="margin-bottom: -7px;" id="iconBackground">서울시 종로구</span>
+					
 			</div>
-			<div id="board">
-				
+			<div id="ImgArea">
+				<img src="파노라마세로.jpg" id="boardImg">
+
 			</div>
+			<div id="boardContents">
+
+				<a href="boardDelete.do" id="likeIcon"><img src="like_icon.png" width="30px" id="likeIconBackground" ></a>
+
+				<a href="boardDelete.do"><img src="icon_delete.png" class="iconSize"></a>
+				<a href="boardEditForm.do"><img src="icon_edit.png" class="iconSize"></a>
+				
+
+			</div>
+			<div id="commentList">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>더보기</div>
+			</div>
+
 			<div id="comment">
-				
+				<input type="text" id="commentText" rows="1" cols="75" value= "Add a comment...">
+				<input type="button" id="postButton" value="post">
 			</div>
 
 
 		</div>
-	</body>
-	<div id= footer>
-		footer
-	</div>
-	</div>
+	</core>
 
+	<core id="core">
+		<div id="feed">
+			<div id="boardInfo">
+				<img src="Koala.jpg" id="feedprofileImg">
+					<span style="font-size: 14.5px;">aia_love</span><br>
+					<span style="font-size: 12px;">2020.07.28</span>
+					
+					<span style="font-size: 12px;" id="site"><img src="icon_location.png" width="30px" style="margin-bottom: -7px;" id="iconBackground">서울시 종로구</span>
+					
+			</div>
+			<div id="ImgArea">
+				<img src="파노라마가로.jpg" id="boardImg">
+
+			</div>
+			<div id="boardContents">
+
+				<a href="boardDelete.do" id="likeIcon"><img src="like_icon.png" width="30px" id="likeIconBackground" ></a>
+
+				<a href="boardDelete.do"><img src="icon_delete.png" class="iconSize"></a>
+				<a href="boardEditForm.do"><img src="icon_edit.png" class="iconSize"></a>
+				
+
+			</div>
+
+			<div id="boardText">
+				게시물 내용입니다.
+
+
+			</div>
+
+			<div id="commentList">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>더보기</div>
+			</div>
+
+			<div id="comment">
+				<input type="text" id="commentText" rows="1" cols="75" value= "Add a comment...">
+				<input type="button" id="postButton" value="post">
+			</div>
+
+
+		</div>
+	</core>
+	
+
+	
+
+</body>
+
+
+</html>
