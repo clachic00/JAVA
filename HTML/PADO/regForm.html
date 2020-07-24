@@ -34,10 +34,14 @@ header{
    margin-top: 100px;
 }
 
+#box>hr{
+border: 0.1px solid rgb(141, 141, 141) ;   
+opacity: 0.1;
+}
 
 .white{
    background-color: white;
-   border-radius: 20px;
+   border-radius: 10px;
 }
 
 
@@ -46,15 +50,10 @@ h3{
 }
 
 
-td{
-   background-color: white;
-}
 
-input{
-   background-color: white;
 
-}
-table{
+
+table.white{
 margin-left: 150px;
 margin-top: 30px;
 }
@@ -66,10 +65,13 @@ margin-top: 30px;
       border-radius: 3px;
       height: 20px;
       margin-top: 7px;
+      background-color: white;
 }
 
 #mphoto{
    margin-top: 7px;
+   background-color: white;
+
 }
 
 #logo{
@@ -89,26 +91,33 @@ margin-top: 30px;
 	width: 614px;
 }
 
-tr{
+#regForm>tbody>tr{
    margin: 5px;
    padding: 5px;
 }
-td{
+
+
+.joinButton{
    margin:5px;
-   
+   background-color: white;
+  
+   font-size: 14px;
+   padding-top: 35px;
+   padding-left: 103px;
+
+}
+
+
+#tdwhite{
+   margin:5px;
+   background-color: white;
    padding: 5px;
    font-size: 14px;
 
 }
 
-#joinButton{
-   
-   padding-top: 30px;
-   padding-left: 98px;
 
-}
-
-#okButton{
+.okButton{
    width: 60px;
    background-color: rgb(203, 225, 255);
    border: none;
@@ -116,7 +125,7 @@ td{
    height: 26px;
 }
 
-#closeButton{
+.closeButton{
    width: 60px;
    background-color: rgb(238, 238, 238);
    border: none;
@@ -161,7 +170,7 @@ td{
          <form id="regForm" class="white" action="memberReg.do" method="post" enctype="multipart/form-data">
             <table class="white">
                <tr>
-                  <td class="white">
+                  <td id="tdwhite">
                   <label for="memail" class="white">아이디/e-mail</label><br>
                   <input type="email" name="memail" id="memail" class="inputSize" >
                      <span  id="checkmsg" class="white"></span>
@@ -169,35 +178,35 @@ td{
                   </td>
                </tr>
                <tr>
-                  <td>
+                  <td id="tdwhite">
                      <label for="mpw" class="white">비밀번호</label> <br>
                       <input type="password" name="mpw" id="mpw" class="inputSize" required>
                   </td>
                    
                </tr>
                <tr>
-                  <td>
+                  <td id="tdwhite">
                      <label for="mname" class="white">이름</label><br>
                    <input type="text" name="mname" id="mname" class="inputSize" required > 
                   </td>
                </tr>
                <tr>
-                  <td>  
+                  <td id="tdwhite">  
                         <label for="mname" class="white">연락처</label><br>
                         <input type="text" name="mphonenum" id="mphonenum" class="inputSize"> 
                   </td>
                </tr>
                <tr>
-                  <td><label for="mphoto" class="white">사진</label><br>
+                  <td id="tdwhite"><label for="mphoto" class="white">사진</label><br>
                    <input type="file" name="mphoto" id="mphoto" >
                    </td>
                </tr>
               
                <tr >
                   
-                  <td id="joinButton"> 
-                     <input type="reset" value="close" id="closeButton">
-                     <input type="submit" name="회원가입" value="ok" id="okButton">
+                  <td   class="joinButton" > 
+                     <input type="reset" value="close" class="closeButton">
+                     <input type="submit" name="회원가입" value="ok" class="okButton">
                      
                   </td>
                </tr>
