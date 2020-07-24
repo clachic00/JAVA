@@ -347,6 +347,7 @@ public class MemberDao {
 
 			rs = pstmt.executeQuery();
 
+			
 			while (rs.next()) {
 				Comments comments = new Comments();
 				comments.setCidx(rs.getInt("cidx"));
