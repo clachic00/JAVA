@@ -1,20 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <title>Kakao 지도 시작하기</title>
+<meta charset="UTF-8">
+<title>게시물 등록 폼</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9b554607ceeb060d931e9eedfa0d54dc&libraries=services"></script>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/default.css">
 </head>
-
 <body>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+ 	<div class="board">
+		<form action="boardReg.do" method="post" enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td><input type="hidden" value="${member.mid}" name="mid"></td>
+					<td><textarea rows="10" cols="50" name="bmessage" id="bmessage"></textarea></td>
+					<td><input type="file" name="bphoto" id="bphoto"></td>
+					<td><div id="map" style="width:100%;height:500px;"></div></td>
+					<td> <input type="text" name="baddr"id="sample5_address" placeholder="주소" value="addr.value"></td>
+					
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="글쓰기"><input
+						type="reset" value="전체삭제"></td>
+				</tr>
+			</table>
+		</form>
+	</div> 
 
 
     <input type="text" id="sample5_address" placeholder="주소">
     <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
     <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
 
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9b554607ceeb060d931e9eedfa0d54dc&libraries=services"></script>
+    
+ 
+
+
+</body>
+</html>
     <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
@@ -100,10 +129,6 @@
         }
         
 
-        
-        
-        
-        
         // 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
         kakao.maps.event.addListener(map, 'idle', function() {
             searchAddrFromCoords(map.getCenter(), displayCenterInfo);
@@ -135,21 +160,3 @@
 
         
     </script>
-<pre>
-1. 카카오 개발자 사이트에 로그인
-2. 엡 설정
-   : javascript appkey 생성
-   : 플랫폼 설정 -> 웹   http://localhost
-         http:localhost:8080
-
-   apache web server start
-        httpd -k start
-   Tomcat
-   AWS
-
-3. 지도 API 코드 사용
-</pre>
-
-</body>
-
-</html>
