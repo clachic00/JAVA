@@ -8,7 +8,6 @@ public class Comment {
 	private int bidx;
 	private String cmessage;
 	private Date regdate;
-	
 	public int getCidx() {
 		return cidx;
 	}
