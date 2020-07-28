@@ -1,8 +1,10 @@
 package test;
 
-public class MemberDao {
+public class MemberDao implements Dao {
 
-	void print();
+	public void print() {
+		
+	}
 
 	
 }
