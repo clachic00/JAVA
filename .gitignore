@@ -28,3 +28,9 @@ jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/server.xml
 jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/context.xml
 jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/catalina.properties
 jsp_project/Servers/Tomcat v8.5 Server at localhost (2)-config/catalina.policy
+spring_project/Servers/Tomcat v8.5 Server at localhost-config/catalina.policy
+spring_project/Servers/Tomcat v8.5 Server at localhost-config/catalina.properties
+spring_project/Servers/Tomcat v8.5 Server at localhost-config/context.xml
+spring_project/Servers/Tomcat v8.5 Server at localhost-config/server.xml
+spring_project/Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
+spring_project/Servers/Tomcat v8.5 Server at localhost-config/web.xml
