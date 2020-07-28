@@ -82,7 +82,7 @@ function searchDetailAddrFromCoords(coords, callback) {
 function displayCenterInfo(result, status) {
     if (status === kakao.maps.services.Status.OK) {
         var infoDiv = document.getElementById('centerAddr');
-
+        console.log('infoDiv')
         for(var i = 0; i < result.length; i++) {
             // 행정동의 region_type 값은 'H' 이므로
             if (result[i].region_type === 'H') {
