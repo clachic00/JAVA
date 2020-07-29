@@ -2,9 +2,6 @@ package test;
 
 public class Service {
 
-	
-	
-	
 	MemberDao dao;
 	
 	public void setDao(MemberDao dao) {
