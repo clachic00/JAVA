@@ -34,9 +34,6 @@ import com.aia.mvc.login.model.LoginRequest;
 				) {
 			
 			
-			
-			
-			
 			String uid = request.getParameter("uid");
 			String upw = request.getParameter("upw");
 			
