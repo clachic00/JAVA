@@ -41,8 +41,8 @@ public class DBCPInit extends HttpServlet {
 			//String jdbcDriver = "jdbc:oracle:thin:@localhost:1521:orcl";
 			//String jdbcDriver = "jdbc:mysql://localhost:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
 			String jdbcDriver =	"jdbc:mysql://localhost:3306/project?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC";
-			String username = "bit";
-			String pw = "bit";
+			String username = "aia";
+			String pw = "aia";
 
 			// 커넥션풀이 새로운 커넥션을 생성할 때 사용할 커넥션팩토리를 생성.
 			ConnectionFactory connFactory = new DriverManagerConnectionFactory(jdbcDriver, username, pw);
