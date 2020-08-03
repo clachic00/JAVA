@@ -1,11 +1,13 @@
 package com.ci.op.board.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MessageRegRequest {
 
 	private String uid;
 	private String btitle;
 	private String bmsg;
-	private String bphoto;
+	private MultipartFile bphoto;
 	private int pidx;
 	private int lcnt;
 	
@@ -36,12 +38,15 @@ public class MessageRegRequest {
 	public void setBmsg(String bmsg) {
 		this.bmsg = bmsg;
 	}
-	public String getBphoto() {
+
+	public MultipartFile getBphoto() {
 		return bphoto;
 	}
-	public void setBphoto(String bphoto) {
+
+	public void setBphoto(MultipartFile bphoto) {
 		this.bphoto = bphoto;
 	}
+
 	public int getPidx() {
 		return pidx;
 	}
