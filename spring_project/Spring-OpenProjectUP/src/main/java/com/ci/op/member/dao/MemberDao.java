@@ -31,7 +31,7 @@ public class MemberDao {
 			pstmt.setString(3, member.getUname());
 			pstmt.setString(4, member.getUphone());
 			pstmt.setString(5, member.getUphoto());
-			
+
 			resultCnt = pstmt.executeUpdate();
 			
 
