@@ -15,7 +15,7 @@ import com.ci.op.board.model.Board;
 import com.ci.op.board.model.MessageRegRequest;
 import com.ci.op.jdbc.ConnectionProvider;
 
-public class boardMesaageRegService {
+public class BoardRegService {
 
 	@Autowired
 	BoardDao dao;
@@ -40,7 +40,7 @@ public class boardMesaageRegService {
 		
 		if(file != null && !file.isEmpty() && file.getSize() >0) {
 			
-			String uri = request.getSession().getServletContext().getInitParameter("memberUploadPath");
+			String uri = request.getSession().getServletContext().getInitParameter("BoardUploadPath");
 			
 			String realPath = request.getSession().getServletContext().getRealPath(uri);
 			
@@ -55,7 +55,7 @@ public class boardMesaageRegService {
 
 		}
 		
-		result = dao.
+		result = dao.insertMessage(conn, board);
 		
 		
 		
@@ -69,21 +69,6 @@ public class boardMesaageRegService {
 	} finally {
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	return result;
