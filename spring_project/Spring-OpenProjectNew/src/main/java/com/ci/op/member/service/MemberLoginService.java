@@ -1,17 +1,14 @@
 package com.ci.op.member.service;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import javax.servlet.http.HttpServletRequest;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ci.op.jdbc.ConnectionProvider;
-import com.ci.op.member.dao.MemberDao;
+import com.ci.op.member.dao.MemberDaoInterface;
 import com.ci.op.member.model.LoginInfo;
 import com.ci.op.member.model.LoginRequest;
 import com.ci.op.member.model.Member;
@@ -20,24 +17,28 @@ import com.ci.op.util.CookieBox;
 @Service
 public class MemberLoginService {
 
+	/*
+	 * @Autowired MemberDao dao;
+	 */
+	 //인터페이스가 아닌 구현체를 주입해야하니까 세션템플릿을 주입함
+     //JdbcTemplateMemberDao dao;
+	MemberDaoInterface dao;
+	
 	@Autowired
-	MemberDao dao;
+	private SqlSessionTemplate sessionTemplate;
 	
 	public String login(
 			LoginRequest loginRequest,
 			HttpSession session,
 			HttpServletResponse response) {
 		
+		dao = sessionTemplate.getMapper(MemberDaoInterface.class);
+		
+		
+		
 		String loginResult = "";
 		
-		Connection conn= null;
-		
-		Member member = null;
-		
-		
-		try {
-			conn=ConnectionProvider.getConnection();
-			member=dao.selectByIdPw(conn, loginRequest.getUid(), loginRequest.getUpw());
+		Member member=dao.selectByIdPw( loginRequest.getUid(), loginRequest.getUpw());
 
 			System.out.println("LoginService Member : " + member);
 
@@ -64,13 +65,10 @@ public class MemberLoginService {
 
 		} else {
 			loginResult = "<script>" + "alert('아이디 또는 비밀번호가 틀립니다.');" + "history.go(-1);" + "</script>";
-		}
+		} 
 		
-		}catch(SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	
+	
 		
 		
 		return loginResult;

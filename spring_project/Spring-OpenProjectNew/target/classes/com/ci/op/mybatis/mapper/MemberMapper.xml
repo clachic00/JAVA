@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- sql 설정 : sql문, 반환 타입, 파라미터 설정 -->
+
+	<mapper namespace="com.ci.op.mybatis.mapper.MemberMapper">
+
+	<select id="selectById"
+		resultType="com.ci.op.member.model.Member">
+		select * from finalproject.member where uid = #{uid}
+	</select>
+
+	<insert id="insertMember"
+	parameterType="com.ci.op.member.model.Member">
+	
+	insert into finalproject.member (uid, upw, uname, uphoto, uphone) values (#{uid}, #{upw}, #{uname}, #{uphoto}, #{uphone})
+	</insert>
+
+
+
+
+
+</mapper>

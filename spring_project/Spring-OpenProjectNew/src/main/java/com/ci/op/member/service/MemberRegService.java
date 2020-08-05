@@ -2,25 +2,36 @@ package com.ci.op.member.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ci.op.jdbc.ConnectionProvider;
-import com.ci.op.member.dao.MemberDao;
+import com.ci.op.member.dao.MemberDaoInterface;
 import com.ci.op.member.model.Member;
 import com.ci.op.member.model.MemberRegRequest;
 
 @Service
 public class MemberRegService {
 
+	/*
+	 * @Autowired MemberDao dao;
+	 *
+	 *
+	 * @Autowired MybatisMemberDao dao;
+	 */
+	
+	
+	MemberDaoInterface dao;
+	
 	@Autowired
-	MemberDao dao;
+	private SqlSessionTemplate sessionTemplate;
+
+	
 	
 	public int memberReg(
 			MemberRegRequest regRequest,
@@ -30,10 +41,10 @@ public class MemberRegService {
 		
 		Member member = regRequest.toMember();
 		
-		Connection conn;
+		
 		
 		try {
-			conn= ConnectionProvider.getConnection();
+			
 			
 			MultipartFile file = regRequest.getPhoto();
 			
@@ -62,11 +73,9 @@ public class MemberRegService {
 				member.setUphoto("defalult.png");
 			}
 			
-			result = dao.insertMember(conn, member);
+			result = dao.insertMember(member);
 			
-		}catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

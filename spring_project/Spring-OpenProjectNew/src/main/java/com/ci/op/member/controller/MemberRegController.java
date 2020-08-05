@@ -35,7 +35,6 @@ public class MemberRegController {
 		System.out.println("controller : "+regRequest);
 
 		model.addAttribute("result", regService.memberReg(regRequest, request));
-		System.out.println("3"+regRequest);
 
 		return "member/memberReg";
 	}
