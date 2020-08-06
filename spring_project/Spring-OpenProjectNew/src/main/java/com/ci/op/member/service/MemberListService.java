@@ -11,17 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ci.op.member.dao.MemberDaoInterface;
 import com.ci.op.member.model.Member;
 import com.ci.op.member.model.MemberListView;
 
+@Service
 public class MemberListService {
 
 	private MemberDaoInterface dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
+	
 	
 	public MemberListView getView(
 			HttpServletRequest request, 

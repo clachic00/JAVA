@@ -6,8 +6,8 @@
 
 <mapper namespace="com.ci.op.member.dao.MemberDaoInterface">
 
-
-	<!-- select의 결과를 객체에 바인딩 역할: 테이블의 컬럼명과 java veans의 변수의 이름이 틀린경우 -->
+		
+	<!-- select의 결과를 객체에 바인딩 역할: 테이블의 컬럼명과 java beans의 변수의 이름이 틀린경우 -->
 	<resultMap id="resultMember"
 		type="com.ci.op.member.model.Member">
 		<id property="uidx" column="uidx" />
@@ -17,6 +17,30 @@
 		<result property="uphoto" column="uphoto" />
 		<result property="uphone" column="uphone" />
 	</resultMap>
+
+	<select id="selectTotalListXml"
+			resultType="com.ci.op.member.model.MemberXML"
+		>
+	
+	select*from finalproject.member order by uidx desc
+	
+	</select>
+
+
+
+
+
+
+	<select id="selectByIdx"
+		resultType="com.ci.op.member.model.Member"
+	>
+	
+	select * from finalproject.member where uidx=#{uidx}
+	
+	
+	</select>
+
+
 
 
 
@@ -33,6 +57,7 @@
 	<!-- 검색: id, name, id or name map.put("searchType", "id") name, both -->
 
 <!-- map => HashMap -->
+
 	<select id="totalCount" parameterType="map" resultType="int">
 	<!-- #{search.searchType} -->
 	
@@ -102,6 +127,7 @@
 
 
 
+	<!--  insert 시 자동 증가하는 idx 값을 파라미터로 전달하는 Member 객체의 idx에 저장 해주는 설정 -->
 
 	<insert id="insertMember"
 		parameterType="com.ci.op.member.model.Member"

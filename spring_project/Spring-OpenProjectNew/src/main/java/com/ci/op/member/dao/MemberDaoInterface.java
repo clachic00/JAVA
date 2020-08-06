@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.ci.op.member.model.Member;
+import com.ci.op.member.model.MemberXML;
 
 public interface MemberDaoInterface {
 
@@ -15,5 +16,8 @@ public interface MemberDaoInterface {
 		// 전체 게시물의  List<Member> 로 반환
 		public List<Member> selectList(Map search);
 	
+		public Member selectByIdx(int uidx);
+		
+		public List<MemberXML> selectTotalListXml();
 	
 }
